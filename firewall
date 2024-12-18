@@ -4,7 +4,7 @@
       "destination_service": "Database Server",
       "port": 3306,
       "protocol": "TCP",
-      "regions": "us_east: false, eu_west: false, ap_southeast: true
+      "regions": "us_east: false, eu_west: false, ap_southeast: true"
 "
     },
     {
