@@ -3,17 +3,32 @@
     {
       "destination_service": "Database Server",
       "port": 3306,
-      "protocol": "TCP"
+      "protocol": "TCP",
+      "regions": "{
+        "us_east": true,
+        "eu_west": false,
+        "ap_southeast": true
+      }"
     },
     {
       "destination_service": "Web Server",
       "port": 8080,
-      "protocol": "TCP"
+      "protocol": "TCP",
+      "regions": "{
+        "us_east": true,
+        "eu_west": false,
+        "ap_southeast": true
+      }"
     },
     {
       "destination_service": "Monitoring Service",
       "port": 9999,
-      "protocol": "UDP"
+      "protocol": "UDP",
+      "regions": "{
+        "us_east": true,
+        "eu_west": false,
+        "ap_southeast": true
+      }"
     }
   ]
 }
