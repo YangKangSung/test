@@ -5,7 +5,6 @@
       "port": 3306,
       "protocol": "TCP",
       "regions": "us_east: false, eu_west: false, ap_southeast: true"
-"
     },
     {
       "destination_service": "Web Server",
