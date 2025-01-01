@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+		<style>
+			#main {
+				width: 100%;
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main"></div>
+		<script>
+			var chartDom = document.getElementById("main");
+			var myChart = echarts.init(chartDom);
+			var option;
+
+			// 심장 파동 예제 데이터 (가상 데이터)
+			var xData = [];
+			var yData = [];
+			for (var i = 0; i < 360; i++) {
+				xData.push(i);
+				yData.push(Math.sin((i * Math.PI) / 180) + Math.random() * 0.1); // 약간의 노이즈 추가
+			}
+
+			option = {
+				title: {
+					text: "심장 파동 그래프 (ECG)",
+				},
+				tooltip: {
+					trigger: "axis",
+				},
+				xAxis: {
+					type: "category",
+					data: xData,
+					name: "시간 (ms)",
+					boundaryGap: false,
+				},
+				yAxis: {
+					type: "value",
+					name: "전압 (mV)",
+				},
+				series: [
+					{
+						name: "심장 파동",
+						type: "line",
+						data: yData,
+						smooth: true, // 곡선 부드럽게
+						lineStyle: {
+							width: 2,
+						},
+					},
+				],
+			};
+
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>
