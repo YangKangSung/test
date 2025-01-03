@@ -48,6 +48,7 @@ pipeline {
         stage('Print variables') {
             steps {
                 sh 'set'
+                sh 'sleep 30'
             }
         }
     }
