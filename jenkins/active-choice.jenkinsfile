@@ -2,7 +2,7 @@ properties([
     parameters([
         [$class: 'CascadeChoiceParameter',
             name: 'LABEL',
-            choiceType: 'SINGLE_SELECT',
+            choiceType: 'PT_SINGLE_SELECT',
             groovyScript: [
                 script: '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''',
                 fallbackScript: '''return ["default-agent"]'''
@@ -20,8 +20,8 @@ pipeline {
   stages {
     stage('Demo Active Choices Parameter') {
       steps {
-        echo "Tier Selected ${labels}"
-        echo "Services Selected ${nodes}"
+        echo "Tier Selected ${LABEL}"
+        // echo "Services Selected ${nodes}"
       }
     }
   }
