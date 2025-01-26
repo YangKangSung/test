@@ -5,7 +5,8 @@ properties([
             choiceType: 'PT_SINGLE_SELECT',
             groovyScript: [
                 script: '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''',
-                fallbackScript: '''return ["default-agent"]'''
+                fallbackScript: '''return ["default-agent"]''',
+                sandbox: false // Sandbox 비활성화
             ],
             description: 'Select the label for the build'
         ]
