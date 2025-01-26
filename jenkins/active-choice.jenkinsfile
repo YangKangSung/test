@@ -15,12 +15,13 @@
 
 properties([
     parameters([
-        [$class: 'DynamicReferenceParameter',
+        [$class: 'DynamicChoiceParameter',
             name: 'LABEL',
             description: 'Select the label for the build',
-            choiceType: 'ET_ORDERED_LIST', // 드롭다운 메뉴 (ET_ORDERED_LIST)
+            choiceType: 'ET_ORDERED_LIST', // Dropdown 형태
             script: [
-                script: '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''', // Groovy Script
+                $class: 'GroovyScript', // Groovy 스크립트 구현체 지정
+                script: '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''',
                 sandbox: false // Groovy Sandbox 비활성화
             ]
         ]
