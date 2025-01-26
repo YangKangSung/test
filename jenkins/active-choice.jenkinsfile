@@ -1,46 +1,23 @@
+import org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript
+
 properties([
     parameters([
-        [$class: 'ChoiceParameter',
-            choiceType: 'PT_SINGLE_SELECT',
-            name: 'Environment',
-            description: 'Select the deployment environment',
-            script: [
-                $class: 'GroovyScript',
-                script: '''
-                    // 환경 목록을 정의합니다.
-                    return ['Development', 'Staging', 'Production']
-                ''',
-                fallbackScript: '''
-                    // 스크립트 실행에 실패할 경우 기본값을 반환합니다.
-                    return ['Development']
-                ''',
-                sandbox: false // Groovy Sandbox 비활성화
-            ]
-        ],
         [$class: 'CascadeChoiceParameter',
+            name: 'LABEL',
             choiceType: 'PT_SINGLE_SELECT',
-            name: 'Host',
-            description: 'Select the host based on the environment',
-            referencedParameters: 'Environment',
+            description: 'Select the label for the build',
             script: [
                 $class: 'GroovyScript',
-                script: '''
-                    // 선택된 환경에 따라 호스트 목록을 반환합니다.
-                    if (Environment == 'Development') {
-                        return ['dev-host1', 'dev-host2']
-                    } else if (Environment == 'Staging') {
-                        return ['staging-host1', 'staging-host2']
-                    } else if (Environment == 'Production') {
-                        return ['prod-host1', 'prod-host2']
-                    } else {
-                        return ['No hosts available']
-                    }
-                ''',
-                fallbackScript: '''
-                    // 스크립트 실행에 실패할 경우 기본 호스트를 반환합니다.
-                    return ['default-host']
-                ''',
-                sandbox: false // Groovy Sandbox 비활성화
+                script: new SecureGroovyScript(
+                    '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''',
+                    false, // sandbox 설정: false는 sandbox 비활성화
+                    []
+                ),
+                fallbackScript: new SecureGroovyScript(
+                    '''return ["default-agent"]''',
+                    false, // sandbox 설정: false는 sandbox 비활성화
+                    []
+                )
             ]
         ]
     ])
