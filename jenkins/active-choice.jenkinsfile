@@ -56,23 +56,29 @@ properties([
             name: 'DYNAMIC_UI',
             description: '선택한 LABEL에 따라 동적 UI를 표시합니다.',
             referencedParameters: 'LABEL',
-            choiceType: 'ET_ORDERED_LIST',
+            choiceType: 'ET_FORMATTED_HTML',
             script: [
                 $class: 'GroovyScript',
                 script: new SecureGroovyScript(
                     '''
                     // 선택한 LABEL에 따라 다른 HTML 콘텐츠를 반환합니다.
                     if (LABEL == 'macro-agent') {
-                        return '<b>매크로 에이전트</b>에 대한 추가 설정을 선택하세요:<br>' +
-                               '<input type="checkbox" name="option1" value="opt1"> 옵션 1<br>' +
-                               '<input type="checkbox" name="option2" value="opt2"> 옵션 2<br>'
+                        return '''
+                            <b>매크로 에이전트</b>에 대한 추가 설정을 선택하세요:<br>
+                            <input type="checkbox" name="option1" value="opt1"> 옵션 1<br>
+                            <input type="checkbox" name="option2" value="opt2"> 옵션 2<br>
+                        '''
                     } else if (LABEL == 'macro-gac-agent') {
-                        return '<b>매크로 GAC 에이전트</b>에 대한 추가 설정을 선택하세요:<br>' +
-                               '<input type="radio" name="option" value="opt1"> 옵션 A<br>' +
-                               '<input type="radio" name="option" value="opt2"> 옵션 B<br>'
+                        return '''
+                            <b>매크로 GAC 에이전트</b>에 대한 추가 설정을 선택하세요:<br>
+                            <input type="radio" name="option" value="opt1"> 옵션 A<br>
+                            <input type="radio" name="option" value="opt2"> 옵션 B<br>
+                        '''
                     } else if (LABEL == 'macro-wear-agent') {
-                        return '<b>매크로 웨어 에이전트</b>에 대한 추가 설정을 입력하세요:<br>' +
-                               '<input type="text" name="input1" placeholder="값을 입력하세요"><br>'
+                        return '''
+                            <b>매크로 웨어 에이전트</b>에 대한 추가 설정을 입력하세요:<br>
+                            <input type="text" name="input1" placeholder="값을 입력하세요"><br>
+                        '''
                     } else {
                         return '선택한 LABEL에 대한 추가 설정이 없습니다.'
                     }
