@@ -2,20 +2,51 @@ import org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript
 
 properties([
     parameters([
-        [$class: 'CascadeChoiceParameter',
+        // Active Choices Parameter: LABEL 선택
+        [$class: 'ChoiceParameter',
             name: 'LABEL',
             choiceType: 'PT_SINGLE_SELECT',
-            description: 'Select the label for the build',
+            description: '빌드에 사용할 LABEL을 선택하세요.',
             script: [
                 $class: 'GroovyScript',
                 script: new SecureGroovyScript(
                     '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''',
-                    false, // sandbox 설정: false는 sandbox 비활성화
+                    false,
                     []
                 ),
                 fallbackScript: new SecureGroovyScript(
                     '''return ["default-agent"]''',
-                    false, // sandbox 설정: false는 sandbox 비활성화
+                    false,
+                    []
+                )
+            ]
+        ],
+        // Active Choices Reactive Parameter: 선택한 LABEL에 따른 노드 목록 표시
+        [$class: 'CascadeChoiceParameter',
+            name: 'NODES',
+            choiceType: 'PT_CHECKBOX',
+            description: '선택한 LABEL에 포함된 노드를 선택하세요.',
+            referencedParameters: 'LABEL',
+            script: [
+                $class: 'GroovyScript',
+                script: new SecureGroovyScript(
+                    '''
+                    // 각 LABEL에 해당하는 노드 목록을 정의합니다.
+                    def nodesByLabel = [
+                        'macro-agent': ['node1', 'node2', 'node3'],
+                        'macro-gac-agent': ['node4', 'node5'],
+                        'macro-wear-agent': ['node6', 'node7', 'node8']
+                    ]
+
+                    // 선택한 LABEL에 해당하는 노드 목록을 반환합니다.
+                    return nodesByLabel[LABEL] ?: ['해당 LABEL에 노드가 없습니다.']
+                    ''',
+                    false,
+                    []
+                ),
+                fallbackScript: new SecureGroovyScript(
+                    '''return ['노드 정보를 가져올 수 없습니다.']''',
+                    false,
                     []
                 )
             ]
@@ -26,12 +57,12 @@ properties([
 pipeline {
     agent any
     stages {
-        stage('Deploy') {
+        stage('Build') {
             steps {
                 script {
-                    echo "Deploying to environment: ${params.Environment}"
-                    echo "Deploying to host: ${params.Host}"
-                    // 배포 로직을 여기에 추가합니다.
+                    echo "선택한 LABEL: ${params.LABEL}"
+                    echo "선택한 노드: ${params.NODES}"
+                    // 선택한 노드에 대한 추가 작업을 여기에 추가하세요.
                 }
             }
         }
