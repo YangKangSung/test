@@ -1,3 +1,19 @@
+properties([
+    parameters([
+        [$class: 'CascadeChoiceParameter',
+            name: 'LABEL',
+            choiceType: 'SINGLE_SELECT',
+            groovyScript: [
+                script: '''return ["macro-agent", "macro-gac-agent", "macro-wear-agent"]''',
+                fallbackScript: '''return ["default-agent"]'''
+            ],
+            description: 'Select the label for the build'
+        ]
+    ])
+])
+
+
+
 pipeline {
   agent any
 
