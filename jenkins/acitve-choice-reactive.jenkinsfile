@@ -1,67 +1,48 @@
+#!/usr/bin/env groovy
+def doubleQuoteElements = { w -> '"' + w + '"' }
+
+List infoTypeChoices = ['name', 'age'].collect(doubleQuoteElements)
+
+List namesList = ['John', 'Carl'].collect(doubleQuoteElements)
+List agesList = ['34', '29'].collect(doubleQuoteElements)
+
+def getStaticListScript(List l) {
+    return "return $l"
+}
+
+def getEntriesPerInfoType(List namesList, List agesList) {
+    def entriesPerInfoType = """
+                                if(INFO_TYPE.equals('name')) { return $namesList }
+                                if(INFO_TYPE.equals('age')) { return $agesList }
+                                else { return [''] }
+                             """
+    return entriesPerInfoType
+}
+
+infoTypeScript = getStaticListScript(infoTypeChoices)
+entriesPerInfoTypeScript = getEntriesPerInfoType(namesList, agesList)
+
 properties([
     parameters([
-        [$class: 'ChoiceParameter',
-            choiceType: 'PT_SINGLE_SELECT',
-            description: 'Select a choice',
-            filterLength: 1,
-            filterable: false,
-            name: 'component',
-            script: [$class: 'GroovyScript',
-                fallbackScript: [classpath: [], sandbox: false, script: 'return ["Could not get component"]'],
-                script: [classpath: [], sandbox: false,
-                    script: """
-                         import groovy.json.JsonSlurperClassic
-                            def list = []
-                            def connection = new URL("https://run.mocky.io/v3/e406ee99-be79-4d50-818f-b186dad7f4f4")
-							println "Connecting to URL: " + url
-                            .openConnection() as HttpURLConnection
-                            connection.setRequestProperty('Accept', 'application/json')
-                            def json = connection.inputStream.text
-                            data = new JsonSlurperClassic().parseText(json)
-                            data.each { component ->
-                                list += component.name
-                            }
-                            return list
-                    """
-                ]]],
-                ,
-    [$class: 'CascadeChoiceParameter',
-        choiceType: 'PT_SINGLE_SELECT',
-        description: 'Select Version',
-        filterLength: 1,
-        filterable: true,
-        name: 'version',
-        referencedParameters: 'component',
-        script: [
-            $class: 'GroovyScript',
-            fallbackScript: [
-                classpath: [],
-                sandbox: false,
-                script:
-                    'return[\'Could not get version\']'
-            ],
-            script: [
-                classpath: [],
-                sandbox: false,
-                script:
-                    """
-                            import groovy.json.JsonSlurperClassic
-                            def list = []
-                            def connection = new URL("https://run.mocky.io/v3/c782ae33-98a2-4994-acc4-14c0b5cc7655")
-                            .openConnection() as HttpURLConnection
-                            connection.setRequestProperty('Accept', 'application/json')
-                            def json = connection.inputStream.text
-                            data = new JsonSlurperClassic().parseText(json)
-                            data.data.each { it ->
-                              if  (it.component == component ) {
-                                	list += it.version
-                              		}
-                               }
-                            return list
-                            """
+        [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT',
+        description: 'Type of information you want, ie. names or ages',
+        name: 'INFO_TYPE',
+        script:
+            [$class: 'GroovyScript',
+            fallbackScript: [classpath: [], sandbox: true, script: 'return ["ERROR"]'],
+            script: [classpath: [], sandbox: true, script: infoTypeScript]
             ]
-        ]
-    ]
+        ],
+        [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT',
+        description: 'Entries for the type of information you selected',
+        name: 'ENTRY_PER_INFO_TYPE',
+        referencedParameters: 'INFO_TYPE',
+        script:
+            [$class: 'GroovyScript',
+            fallbackScript: [classpath: [], sandbox: false, script: 'return ["ERROR"]'],
+            script: [classpath: [], sandbox: true, script: entriesPerInfoTypeScript]]
+        ],
+
     ])
 ])
 
@@ -69,14 +50,14 @@ pipeline {
     agent any
 
     stages {
-        stage("Component Name") {
+        stage ("Print Inputs"){
             steps {
-                sh "echo Selected component  ${params.component}"
-            }
-        }
-        stage("Version") {
-            steps {
-                sh "echo Selected version  ${params.version}"
+                script{
+                    echo "printing inputs ..."
+                    echo "INFO_TYPE: "+ INFO_TYPE
+                    echo "ENTRY_PER_INFO_TYPE: "+ ENTRY_PER_INFO_TYPE
+
+                }
             }
         }
     }
