@@ -7,7 +7,7 @@ List namesList = ['John', 'Carl'].collect(doubleQuoteElements)
 List agesList = ['34', '29'].collect(doubleQuoteElements)
 
 def getStaticListScript(List l) {
-	println "aaaa"
+	println agesList
     return "return $l"
 }
 
