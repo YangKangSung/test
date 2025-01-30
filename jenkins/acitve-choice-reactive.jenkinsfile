@@ -34,7 +34,7 @@ properties([
             script: [classpath: [], sandbox: true, script: infoTypeScript]
             ]
         ],
-        [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT',
+        [$class: 'CascadeChoiceParameter', choiceType: 'PT_CHECKBOX',
         description: 'Entries for the type of information you selected',
         name: 'ENTRY_PER_INFO_TYPE',
         referencedParameters: 'INFO_TYPE',
