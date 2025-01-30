@@ -7,7 +7,7 @@ List namesList = ['John', 'Carl'].collect(doubleQuoteElements)
 List agesList = ['34', '29'].collect(doubleQuoteElements)
 
 def getStaticListScript(List l) {
-	println "$agesList"
+	println env.AGES_LIST
     return "return $l"
 }
 
@@ -19,7 +19,9 @@ def getEntriesPerInfoType(List namesList, List agesList) {
                              """
     return entriesPerInfoType
 }
-
+environment {
+    AGES_LIST = '25,30,35'
+}
 infoTypeScript = getStaticListScript(infoTypeChoices)
 entriesPerInfoTypeScript = getEntriesPerInfoType(namesList, agesList)
 
