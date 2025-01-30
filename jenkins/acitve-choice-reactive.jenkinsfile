@@ -7,9 +7,9 @@ List namesList = ['John', 'Carl'].collect(doubleQuoteElements)
 List agesList = ['34', '29'].collect(doubleQuoteElements)
 
 def getStaticListScript(List l) {
-	println env.AGES_LIST
+	println "$agesList"
 	Jenkins.instance.nodes.each { node ->
-		println node.displayName
+    	println node.displayName
 	}
     return "return $l"
 }
@@ -22,9 +22,7 @@ def getEntriesPerInfoType(List namesList, List agesList) {
                              """
     return entriesPerInfoType
 }
-environment {
-    AGES_LIST = '25,30,35'
-}
+
 infoTypeScript = getStaticListScript(infoTypeChoices)
 entriesPerInfoTypeScript = getEntriesPerInfoType(namesList, agesList)
 
