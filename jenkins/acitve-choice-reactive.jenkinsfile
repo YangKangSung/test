@@ -16,12 +16,12 @@ properties([
             $class: 'GroovyScript',
             fallbackScript: [
                classpath: [],
-               sandbox: true,
+               sandbox: false,
                script: "return['']"
             ],
             script: [
                classpath: [],
-               sandbox: true,
+               sandbox: false,
                script: '''
 			   	System.out.println(JOB_NAME)
 			   	return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']
@@ -39,12 +39,12 @@ properties([
             $class: 'GroovyScript',
             fallbackScript: [
                classpath: [],
-               sandbox: true,
+               sandbox: false,
                script: "return['Select which type']"
             ],
             script: [
                classpath: [],
-               sandbox: true,
+               sandbox: false,
                script: "$subTypeScript"
             ]
          ]
