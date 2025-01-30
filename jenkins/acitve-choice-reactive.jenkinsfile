@@ -1,7 +1,7 @@
 
 def JOB_NAME = currentBuild.projectName.toLowerCase()
 def subTypeScript = getSubTypeScript(JOB_NAME)
-
+println("${JOB_NAME} : ${subTypeScript}")
 properties([
    parameters([
       [
