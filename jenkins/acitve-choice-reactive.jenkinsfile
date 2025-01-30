@@ -8,6 +8,9 @@ List agesList = ['34', '29'].collect(doubleQuoteElements)
 
 def getStaticListScript(List l) {
 	println env.AGES_LIST
+	Jenkins.instance.nodes.each { node ->
+		println node.displayName
+	}
     return "return $l"
 }
 
