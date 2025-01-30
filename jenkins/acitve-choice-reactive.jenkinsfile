@@ -23,6 +23,7 @@ properties([
                classpath: [],
                sandbox: true,
                script: """
+			   	println("aaa")
 			   	return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']
 			   """
             ]
