@@ -23,7 +23,7 @@ properties([
                classpath: [],
                sandbox: true,
                script: '''
-			   	println("${JOB_NAME}")
+			   	println("$JOB_NAME")
 			   	return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']
 			   '''
             ]
