@@ -7,10 +7,6 @@ List namesList = ['John', 'Carl'].collect(doubleQuoteElements)
 List agesList = ['34', '29'].collect(doubleQuoteElements)
 
 def getStaticListScript(List l) {
-	println "$agesList"
-	Jenkins.instance.nodes.each { node ->
-    	println node.displayName
-	}
     return "return $l"
 }
 
@@ -34,10 +30,10 @@ properties([
         script:
             [$class: 'GroovyScript',
             fallbackScript: [classpath: [], sandbox: true, script: 'return ["ERROR"]'],
-            script: [classpath: [], sandbox: false, script: infoTypeScript]
+            script: [classpath: [], sandbox: true, script: infoTypeScript]
             ]
         ],
-        [$class: 'CascadeChoiceParameter', choiceType: 'PT_CHECKBOX',
+        [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT',
         description: 'Entries for the type of information you selected',
         name: 'ENTRY_PER_INFO_TYPE',
         referencedParameters: 'INFO_TYPE',
