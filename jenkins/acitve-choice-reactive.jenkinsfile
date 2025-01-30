@@ -13,6 +13,7 @@ properties([
                          import groovy.json.JsonSlurperClassic
                             def list = []
                             def connection = new URL("https://run.mocky.io/v3/e406ee99-be79-4d50-818f-b186dad7f4f4")
+							println "Connecting to URL: " + url
                             .openConnection() as HttpURLConnection
                             connection.setRequestProperty('Accept', 'application/json')
                             def json = connection.inputStream.text
