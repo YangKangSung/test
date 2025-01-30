@@ -21,7 +21,10 @@ properties([
             script: [
                classpath: [],
                sandbox: true,
-               script: "return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']"
+               script: """
+			   	println("${JOB_NAME} : ${subTypeScript}")
+			   	return ['TYPE1', 'TYPE2', 'TYPE3', 'TYPE4']
+			   """
             ]
          ]
       ],
