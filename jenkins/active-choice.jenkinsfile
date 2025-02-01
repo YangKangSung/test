@@ -65,7 +65,7 @@ properties([
                         return """
                             <b>매크로 웨어 에이전트</b>에 대한 추가 설정을 입력하세요:<br>
                             <input type="text" name="value" placeholder="값을 입력하세요"><br>
-                            <input type="checkbox" name="inputCheckbox" value="true"> 체크박스<br>
+                            <input type="checkbox" name="value" value='true'> 체크박스<br>
                         """
                     }
                     return "선택한 LABEL에 대한 추가 설정이 없습니다."
