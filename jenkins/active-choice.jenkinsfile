@@ -2,7 +2,7 @@ import org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript
 
 properties([
     parameters([
-        // Active Choices Parameter: LABEL 선택
+        // LABEL 선택
         [$class: 'ChoiceParameter',
             name: 'LABEL',
             choiceType: 'PT_SINGLE_SELECT',
@@ -21,7 +21,7 @@ properties([
                 )
             ]
         ],
-        // Active Choices Reactive Parameter: 선택한 LABEL에 따른 노드 목록 표시
+        // LABEL에 따른 노드 선택
         [$class: 'CascadeChoiceParameter',
             name: 'NODES',
             choiceType: 'PT_CHECKBOX',
@@ -31,14 +31,11 @@ properties([
                 $class: 'GroovyScript',
                 script: new SecureGroovyScript(
                     '''
-                    // 각 LABEL에 해당하는 노드 목록을 정의합니다.
                     def nodesByLabel = [
                         'macro-agent': ['node1', 'node2', 'node3'],
                         'macro-gac-agent': ['node4', 'node5'],
                         'macro-wear-agent': ['node6', 'node7', 'node8']
                     ]
-
-                    // 선택한 LABEL에 해당하는 노드 목록을 반환합니다.
                     return nodesByLabel[LABEL] ?: ['해당 LABEL에 노드가 없습니다.']
                     ''',
                     false,
@@ -51,7 +48,7 @@ properties([
                 )
             ]
         ],
-        // Active Choices Reactive Reference Parameter: 선택한 LABEL에 따른 동적 UI 표시
+        // 동적 UI: LABEL에 따라 다른 입력 필드 표시
         [$class: 'DynamicReferenceParameter',
             name: 'DYNAMIC_UI',
             description: '선택한 LABEL에 따라 동적 UI를 표시합니다.',
@@ -61,27 +58,13 @@ properties([
                 $class: 'GroovyScript',
                 script: new SecureGroovyScript(
                     '''
-                    // 선택한 LABEL에 따라 다른 HTML 콘텐츠를 반환합니다.
-                    if (LABEL == 'macro-agent') {
-                        return """
-                            <b>매크로 에이전트</b>에 대한 추가 설정을 선택하세요:<br>
-                            <input type="checkbox" name="option1" value="opt1"> 옵션 1<br>
-                            <input type="checkbox" name="option2" value="opt2"> 옵션 2<br>
-                        """
-                    } else if (LABEL == 'macro-gac-agent') {
-                        return """
-                            <b>매크로 GAC 에이전트</b>에 대한 추가 설정을 선택하세요:<br>
-                            <input type="radio" name="option" value="opt1"> 옵션 A<br>
-                            <input type="radio" name="option" value="opt2"> 옵션 B<br>
-                        """
-                    } else if (LABEL == 'macro-wear-agent') {
+                    if (LABEL == 'macro-wear-agent') {
                         return """
                             <b>매크로 웨어 에이전트</b>에 대한 추가 설정을 입력하세요:<br>
                             <input type="text" name="input1" placeholder="값을 입력하세요"><br>
                         """
-                    } else {
-                        return '선택한 LABEL에 대한 추가 설정이 없습니다.'
                     }
+                    return "선택한 LABEL에 대한 추가 설정이 없습니다."
                     ''',
                     false,
                     []
@@ -92,6 +75,12 @@ properties([
                     []
                 )
             ]
+        ],
+        // ✅ input1 값을 저장할 수 있는 Active Choices Parameter 추가
+        [$class: 'TextParameterDefinition',
+            name: 'INPUT1',
+            defaultValue: '',
+            description: '매크로 웨어 에이전트 입력값'
         ]
     ])
 ])
@@ -104,8 +93,13 @@ pipeline {
                 script {
                     echo "선택한 LABEL: ${params.LABEL}"
                     echo "선택한 노드: ${params.NODES}"
-                    echo "선택한 UI: ${params}"
-                    // 선택한 노드 및 동적 UI에서 선택된 값들을 처리하는 로직을 여기에 추가하세요.
+
+                    // input1 값 가져오기 (Active Choices Parameter로 저장한 값)
+                    if (params.LABEL == 'macro-wear-agent') {
+                        echo "사용자가 입력한 input1 값: ${params.INPUT1}"
+                    } else {
+                        echo "input1 값이 필요하지 않음."
+                    }
                 }
             }
         }
