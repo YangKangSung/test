@@ -55,6 +55,7 @@ properties([
             description: '선택한 LABEL에 따라 동적 UI를 표시합니다.',
             referencedParameters: 'LABEL',
             choiceType: 'ET_FORMATTED_HTML',
+            omitValueField: false,
             script: [
                 $class: 'GroovyScript',
                 script: [ classpath: [], sandbox: false,
