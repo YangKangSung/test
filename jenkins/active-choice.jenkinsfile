@@ -51,6 +51,7 @@ properties([
         // 동적 UI: LABEL에 따라 다른 입력 필드 표시
         [$class: 'DynamicReferenceParameter',
             name: 'DYNAMIC_UI',
+            randomName: 'choice-parameter-5631314456178624',
             description: '선택한 LABEL에 따라 동적 UI를 표시합니다.',
             referencedParameters: 'LABEL',
             choiceType: 'ET_FORMATTED_HTML',
