@@ -87,10 +87,11 @@ pipeline {
                     echo "선택한 LABEL: ${params.LABEL}"
                     echo "선택한 노드: ${params.NODES}"
                     echo "선택한 DYNAMIC_UI: ${params.DYNAMIC_UI}"
+                    echo "선택한 DYNAMIC_UI: ${params}"
 
                     // input1 값 가져오기 (Active Choices Parameter로 저장한 값)
                     if (params.LABEL == 'macro-wear-agent') {
-                        echo "사용자가 입력한 input1 값: $input1"
+                        echo "사용자가 입력한 input1 값: ${input1}"
                     } else {
                         echo "input1 값이 필요하지 않음."
                     }
