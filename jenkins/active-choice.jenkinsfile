@@ -57,8 +57,9 @@ properties([
             choiceType: 'ET_FORMATTED_HTML',
             script: [
                 $class: 'GroovyScript',
-                script: new SecureGroovyScript(
-                    '''
+                script: [ classpath: [], sandbox: true,
+                script:
+                '''
                     if (LABEL == 'macro-wear-agent') {
                         return """
                             <b>매크로 웨어 에이전트</b>에 대한 추가 설정을 입력하세요:<br>
@@ -66,10 +67,7 @@ properties([
                         """
                     }
                     return "선택한 LABEL에 대한 추가 설정이 없습니다."
-                    ''',
-                    false,
-                    []
-                ),
+                '''],
                 fallbackScript: new SecureGroovyScript(
                     '''return '동적 UI를 로드할 수 없습니다.' ''',
                     false,
