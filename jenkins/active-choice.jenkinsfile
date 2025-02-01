@@ -57,7 +57,7 @@ properties([
             choiceType: 'ET_FORMATTED_HTML',
             script: [
                 $class: 'GroovyScript',
-                script: [ classpath: [], sandbox: true,
+                script: [ classpath: [], sandbox: false,
                 script:
                 '''
                     if (LABEL == 'macro-wear-agent') {
