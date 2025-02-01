@@ -74,13 +74,7 @@ properties([
                     []
                 )
             ]
-        ],
-        // ✅ input1 값을 저장할 수 있는 Active Choices Parameter 추가
-        // [$class: 'TextParameterDefinition',
-        //     name: 'INPUT1',
-        //     defaultValue: '',
-        //     description: '매크로 웨어 에이전트 입력값'
-        // ]
+        ]
     ])
 ])
 
