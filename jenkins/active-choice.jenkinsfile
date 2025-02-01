@@ -104,7 +104,7 @@ pipeline {
                 script {
                     echo "선택한 LABEL: ${params.LABEL}"
                     echo "선택한 노드: ${params.NODES}"
-                    echo "선택한 UI: ${params.DYNAMIC_UI}"
+                    echo "선택한 UI: ${params.DYNAMIC_UI.input1}"
                     // 선택한 노드 및 동적 UI에서 선택된 값들을 처리하는 로직을 여기에 추가하세요.
                 }
             }
