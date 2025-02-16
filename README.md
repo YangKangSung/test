@@ -1,3 +1,3 @@
 
-![github page](https://yangkangsung.github.io/test/)
+[github page](https://yangkangsung.github.io/test/)
 # test
