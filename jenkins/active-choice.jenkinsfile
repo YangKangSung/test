@@ -70,7 +70,7 @@ properties([
                     }
                     return "선택한 LABEL에 대한 추가 설정이 없습니다."
                 '''],
-                fallbackScript: new SecureGroovyScript(
+                fallbackScript: new SecureGroovyScript( 
                     '''return '동적 UI를 로드할 수 없습니다.' ''',
                     false,
                     []
