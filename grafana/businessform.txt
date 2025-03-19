@@ -1,0 +1,26 @@
+
+
+
+# Initial Request
+console.log(context.panel.data, context.panel.response, context.panel.initial, context.panel.elements);
+
+// console.log("context.panel.elements : " + context.panel.elements)
+// setInitial('readonly','testsampl');
+// return;
+
+/**
+ * Data Source
+ * Requires form elements to be defined
+ */
+// const dataQuery = context.utils.toDataQueryResponse(context.panel.response);
+context.panel.elements.forEach((element) => {
+  console.log("element.id : " + element.id)
+  if (element.id === 'readonly') {
+    element.value = 'aaaaaaa';
+  }
+  if (element.id === 'code') {
+    element.value = 'bbbb';
+  }
+});
+
+return;
