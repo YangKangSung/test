@@ -52,16 +52,25 @@ option = {
 			left: "center",
 			top: "middle",
 			cellSize: [70, 70],
-			yearLabel: { show: false },
+			// yearLabel: { show: true },
+			yearLabel: {
+				margin: 50,
+				fontSize: 30,
+			},
+			dayLabel: {
+				firstDay: 1,
+				nameMap: "cn",
+			},
 			orient: "vertical",
 			dayLabel: {
 				firstDay: 1,
 				nameMap: "cn",
 			},
 			monthLabel: {
-				show: false,
+				show: true,
 			},
-			range: "2017-03",
+			// range: '2017-03'
+			range: ["2017-02", "2017-03-31"],
 		},
 	],
 	series: [
