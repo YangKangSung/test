@@ -73,6 +73,18 @@ option = {
 			range: ["2017-02", "2017-03-31"],
 		},
 	],
+	visualMap: {
+		min: 0,
+		max: 1000,
+		type: 'piecewise',
+		left: 'center',
+		bottom: 20,
+		inRange: {
+		  color: ['#5291FF', '#C7DBFF']
+		},
+		seriesIndex: [1],
+		orient: 'horizontal'
+	},
 	series: [
 		{
 			type: "custom",
