@@ -280,9 +280,31 @@ function clipRectByRect(params, rect) {
 	});
 }
 // -------------
-//  Enable Drag
+// Enable Drag
 // -------------
+let _draggable = false;
+let _autoDataZoomAnimator;
+let _draggingEl;
+let _draggingRecord;
+let _dropRecord;
+let _dropShadow;
+let _draggingCursorOffset;
+let _draggingTimeLength;
+let _rawData;
+let _cartesianXBounds;
+let _cartesianYBounds;
+
+const DATA_ZOOM_X_INSIDE_INDEX = 0;
+const DATA_ZOOM_Y_INSIDE_INDEX = 1;
+const DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH = 20;
+const DATA_ZOOM_AUTO_MOVE_SPEED = 1;
 function onDragSwitchClick(model, api, type) {
+const DATA_ZOOM_AUTO_MOVE_THROTTLE = 50;
+const DIM_CATEGORY_INDEX = 0;
+const DIM_TIME_ARRIVAL = 1;
+const DIM_TIME_DEPARTURE = 2;
+const HEIGHT_RATIO = 0.5;
+
 	_draggable = !_draggable;
 	myChart.setOption({
 		dataZoom: [
