@@ -280,6 +280,7 @@ function clipRectByRect(params, rect) {
 	});
 }
 // -------------
+//  Enable Drag
 // Enable Drag
 // -------------
 let _draggable = false;
@@ -298,13 +299,13 @@ const DATA_ZOOM_X_INSIDE_INDEX = 0;
 const DATA_ZOOM_Y_INSIDE_INDEX = 1;
 const DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH = 20;
 const DATA_ZOOM_AUTO_MOVE_SPEED = 1;
-function onDragSwitchClick(model, api, type) {
 const DATA_ZOOM_AUTO_MOVE_THROTTLE = 50;
 const DIM_CATEGORY_INDEX = 0;
 const DIM_TIME_ARRIVAL = 1;
 const DIM_TIME_DEPARTURE = 2;
 const HEIGHT_RATIO = 0.5;
 
+function onDragSwitchClick(model, api, type) {
 	_draggable = !_draggable;
 	myChart.setOption({
 		dataZoom: [
@@ -334,15 +335,22 @@ function initDrag() {
 			timeDeparture: param.value[DIM_TIME_DEPARTURE],
 		};
 		var style = {
+		const style = {
 			lineWidth: 2,
 			fill: "rgba(255,0,0,0.1)",
 			stroke: "rgba(255,0,0,0.8)",
 			lineDash: [6, 3],
 		};
+
 		_draggingEl = addOrUpdateBar(_draggingEl, _draggingRecord, style, 100);
 		_draggingCursorOffset = [_draggingEl.position[0] - param.event.offsetX, _draggingEl.position[1] - param.event.offsetY];
+		_draggingCursorOffset = [
+			_draggingEl.position[0] - param.event.offsetX,
+			_draggingEl.position[1] - param.event.offsetY,
+		];
 		_draggingTimeLength = _draggingRecord.timeDeparture - _draggingRecord.timeArrival;
 	});
+
 	myChart.getZr().on("mousemove", function (event) {
 		if (!_draggingEl) {
 			return;
@@ -351,9 +359,17 @@ function initDrag() {
 		var cursorY = event.offsetY;
 		// Move _draggingEl.
 		_draggingEl.attr("position", [_draggingCursorOffset[0] + cursorX, _draggingCursorOffset[1] + cursorY]);
+		const cursorX = event.offsetX;
+		const cursorY = event.offsetY;
+
+		_draggingEl.attr("position", [
+			_draggingCursorOffset[0] + cursorX,
+			_draggingCursorOffset[1] + cursorY,
+		]);
 		prepareDrop();
 		autoDataZoomWhenDraggingOutside(cursorX, cursorY);
 	});
+
 	myChart.getZr().on("mouseup", function () {
 		// Drop
 		if (_draggingEl && _dropRecord) {
@@ -367,7 +383,9 @@ function initDrag() {
 		}
 		dragRelease();
 	});
+
 	myChart.getZr().on("globalout", dragRelease);
+
 	function dragRelease() {
 		_autoDataZoomAnimator.stop();
 		if (_draggingEl) {
@@ -380,11 +398,25 @@ function initDrag() {
 		}
 		_dropRecord = _draggingRecord = null;
 	}
+
 	function addOrUpdateBar(el, itemData, style, z) {
 		var pointArrival = myChart.convertToPixel("grid", [itemData.timeArrival, itemData.categoryIndex]);
 		var pointDeparture = myChart.convertToPixel("grid", [itemData.timeDeparture, itemData.categoryIndex]);
 		var barLength = pointDeparture[0] - pointArrival[0];
 		var barHeight = Math.abs(myChart.convertToPixel("grid", [0, 0])[1] - myChart.convertToPixel("grid", [0, 1])[1]) * HEIGHT_RATIO;
+		const pointArrival = myChart.convertToPixel("grid", [
+			itemData.timeArrival,
+			itemData.categoryIndex,
+		]);
+		const pointDeparture = myChart.convertToPixel("grid", [
+			itemData.timeDeparture,
+			itemData.categoryIndex,
+		]);
+		const barLength = pointDeparture[0] - pointArrival[0];
+		const barHeight = Math.abs(
+			myChart.convertToPixel("grid", [0, 0])[1] -
+			myChart.convertToPixel("grid", [0, 1])[1]
+		) * HEIGHT_RATIO;
 		if (!el) {
 			el = new echarts.graphic.Rect({
 				shape: { x: 0, y: 0, width: 0, height: 0 },
@@ -393,17 +425,24 @@ function initDrag() {
 			});
 			myChart.getZr().add(el);
 		}
+
 		el.attr({
 			shape: { x: 0, y: 0, width: barLength, height: barHeight },
 			position: [pointArrival[0], pointArrival[1] - barHeight],
 		});
+
 		return el;
 	}
+
 	function prepareDrop() {
 		// Check droppable place.
 		var xPixel = _draggingEl.shape.x + _draggingEl.position[0];
 		var yPixel = _draggingEl.shape.y + _draggingEl.position[1];
 		var cursorData = myChart.convertFromPixel("grid", [xPixel, yPixel]);
+		const xPixel = _draggingEl.shape.x + _draggingEl.position[0];
+		const yPixel = _draggingEl.shape.y + _draggingEl.position[1];
+		const cursorData = myChart.convertFromPixel("grid", [xPixel, yPixel]);
+
 		if (cursorData) {
 			// Make drop shadow and _dropRecord
 			_dropRecord = {
@@ -412,6 +451,7 @@ function initDrag() {
 				timeDeparture: cursorData[0] + _draggingTimeLength,
 			};
 			var style = { fill: "rgba(0,0,0,0.4)" };
+			const style = { fill: "rgba(0,0,0,0.4)" };
 			_dropShadow = addOrUpdateBar(_dropShadow, _dropRecord, style, 99);
 		}
 	}
@@ -422,6 +462,11 @@ function initDrag() {
 		// Check conflict
 		for (var i = 0; i < flightData.length; i++) {
 			var dataItem = flightData[i];
+		const flightData = _rawData.flight.data;
+		const movingItem = flightData[_draggingRecord.dataIndex];
+		for (let i = 0; i < flightData.length; i++) {
+			const dataItem = flightData[i];
+
 			if (
 				dataItem !== movingItem &&
 				_dropRecord.categoryIndex === dataItem[DIM_CATEGORY_INDEX] &&
@@ -430,6 +475,7 @@ function initDrag() {
 			) {
 				alert("Conflict! Find a free space to settle the bar!");
 				return;
+				return false;
 			}
 		}
 		// No conflict.
@@ -438,6 +484,7 @@ function initDrag() {
 		movingItem[DIM_TIME_DEPARTURE] = _dropRecord.timeDeparture;
 		return true;
 	}
+
 	function autoDataZoomWhenDraggingOutside(cursorX, cursorY) {
 		// When cursor is outside the cartesian and being dragging,
 		// auto move the dataZooms.
@@ -450,20 +497,37 @@ function initDrag() {
 			});
 		} else {
 			_autoDataZoomAnimator.stop();
+		if (cursorX === 0 && cursorY === 0) {
+			return;
 		}
+
+		_autoDataZoomAnimator.start({
+			cursorDistX: getCursorCartesianDist(cursorX, _cartesianXBounds),
+			cursorDistY: getCursorCartesianDist(cursorY, _cartesianYBounds),
+		});
 	}
+
 	function dispatchDataZoom(params) {
 		var option = myChart.getOption();
 		var optionInsideX = option.dataZoom[DATA_ZOOM_X_INSIDE_INDEX];
 		var optionInsideY = option.dataZoom[DATA_ZOOM_Y_INSIDE_INDEX];
 		var batch = [];
+		const option = myChart.getOption();
+		const optionInsideX = option.dataZoom[DATA_ZOOM_X_INSIDE_INDEX];
+		const optionInsideY = option.dataZoom[DATA_ZOOM_Y_INSIDE_INDEX];
+		const batch = [];
+
 		prepareBatch(batch, "insideX", optionInsideX.start, optionInsideX.end, params.cursorDistX);
 		prepareBatch(batch, "insideY", optionInsideY.start, optionInsideY.end, -params.cursorDistY);
 		batch.length &&
+
+		if (batch.length) {
 			myChart.dispatchAction({
 				type: "dataZoom",
 				batch: batch,
 			});
+		}
+
 		function prepareBatch(batch, id, start, end, cursorDist) {
 			if (cursorDist === 0) {
 				return;
@@ -476,33 +540,149 @@ function initDrag() {
 			if (end > 100) {
 				end = 100;
 				start = end - size;
+			const sign = cursorDist / Math.abs(cursorDist);
+			const size = end - start;
+			const delta = DATA_ZOOM_AUTO_MOVE_SPEED * sign;
+			let newStart = start + delta;
+			let newEnd = end + delta;
+			if (newEnd > 100) {
+				newEnd = 100;
+				newStart = newEnd - size;
 			}
 			if (start < 0) {
 				start = 0;
 				end = start + size;
+			if (newStart < 0) {
+				newStart = 0;
+				newEnd = newStart + size;
 			}
+
 			batch.push({
 				dataZoomId: id,
 				start: start,
 				end: end,
+				start: newStart,
+				end: newEnd,
 			});
 		}
 	}
+
 	function getCursorCartesianDist(cursorXY, bounds) {
 		var dist0 = cursorXY - (bounds[0] + DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
 		var dist1 = cursorXY - (bounds[1] - DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+		const dist0 = cursorXY - (bounds[0] + DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+		const dist1 = cursorXY - (bounds[1] - DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+
 		return dist0 * dist1 <= 0
 			? 0 // cursor is in cartesian
+			? 0
 			: dist0 < 0
 			? dist0 // cursor is at left/top of cartesian
 			: dist1; // cursor is at right/bottom of cartesian
+				? dist0
+				: dist1;
 	}
+
 	function makeAnimator(callback) {
 		var requestId;
 		var callbackParams;
 		// Use throttle to prevent from calling dispatchAction frequently.
 		callback = echarts.throttle(callback, DATA_ZOOM_AUTO_MOVE_THROTTLE);
+		let requestId;
+		let callbackParams;
+		callback = echarts.throttled(callback, DATA_ZOOM_AUTO_MOVE_THROTTLE);
+
 		function onFrame() {
+			callback(callbackParams);
+			requestId = requestAnimationFrame(onFrame);
+		}
+
+		return {
+			start: function (params) {
+				callbackParams = params;
+				if (requestId == null) {
+					onFrame();
+				}
+			},
+			stop: function () {
+				if (requestId != null) {
+					cancelAnimationFrame(requestId);
+				}
+				requestId = callbackParams = null;
+			},
+		};
+	}
+}
+}
+	function dispatchDataZoom(params) {
+		const option = myChart.getOption();
+		const optionInsideX = option.dataZoom[DATA_ZOOM_X_INSIDE_INDEX];
+		const optionInsideY = option.dataZoom[DATA_ZOOM_Y_INSIDE_INDEX];
+		const batch = [];
+
+		prepareBatch(batch, "insideX", optionInsideX.start, optionInsideX.end, params.cursorDistX);
+		prepareBatch(batch, "insideY", optionInsideY.start, optionInsideY.end, -params.cursorDistY);
+
+		if (batch.length) {
+			myChart.dispatchAction({
+				type: "dataZoom",
+				batch: batch,
+			});
+		}
+
+		function prepareBatch(batch, id, start, end, cursorDist) {
+			if (cursorDist === 0) {
+				return;
+			}
+			const sign = cursorDist / Math.abs(cursorDist);
+			const size = end - start;
+			const delta = DATA_ZOOM_AUTO_MOVE_SPEED * sign;
+			let newStart = start + delta;
+			let newEnd = end + delta;
+			if (newEnd > 100) {
+				newEnd = 100;
+				newStart = newEnd - size;
+			if (start < 0) {
+			if (start < 0) {
+				start = 0;
+				end = start + size;
+			if (newStart < 0) {
+				newStart = 0;
+				newEnd = newStart + size;
+			batch.push({
+				dataZoomId: id,
+				start: start,
+				start: start,
+				end: end,
+				start: newStart,
+				end: newEnd,
+		}
+	}
+	function getCursorCartesianDist(cursorXY, bounds) {
+		var dist0 = cursorXY - (bounds[0] + DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+		var dist0 = cursorXY - (bounds[0] + DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+		var dist1 = cursorXY - (bounds[1] - DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+		const dist0 = cursorXY - (bounds[0] + DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+		const dist1 = cursorXY - (bounds[1] - DATA_ZOOM_AUTO_MOVE_DETECT_AREA_WIDTH);
+
+			? 0 // cursor is in cartesian
+			? 0 // cursor is in cartesian
+			? 0
+			? dist0 // cursor is at left/top of cartesian
+			? dist0 // cursor is at left/top of cartesian
+			: dist1; // cursor is at right/bottom of cartesian
+				? dist0
+				: dist1;
+	function makeAnimator(callback) {
+		var requestId;
+		var requestId;
+		var callbackParams;
+		// Use throttle to prevent from calling dispatchAction frequently.
+		callback = echarts.throttle(callback, DATA_ZOOM_AUTO_MOVE_THROTTLE);
+		let requestId;
+		let callbackParams;
+		callback = echarts.throttled(callback, DATA_ZOOM_AUTO_MOVE_THROTTLE);
+
 			callback(callbackParams);
 			requestId = requestAnimationFrame(onFrame);
 		}
