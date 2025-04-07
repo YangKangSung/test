@@ -1,4 +1,5 @@
 {
 	"CodeGPT.apiKey": "CodeGPT Plus Beta",
-	"gitdoc.enabled": true
+	"gitdoc.enabled": true,
+	"livePreview.defaultPreviewPath": "/anythingllm/anythingllm-embed/index.html"
 }
