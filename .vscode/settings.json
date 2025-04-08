@@ -1,5 +1,6 @@
 {
 	"CodeGPT.apiKey": "CodeGPT Plus Beta",
 	"gitdoc.enabled": true,
-	"livePreview.defaultPreviewPath": "/anythingllm/anythingllm-embed/index.html"
+	"livePreview.defaultPreviewPath": "/anythingllm/anythingllm-embed/index.html",
+	"liveServer.settings.multiRootWorkspaceName": "test"
 }
