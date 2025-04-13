@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Widget</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<script
+			data-embed-id="266f6e35-42b2-4d71-9cd8-0bade212adcd"
+			data-base-api-url="http://172.27.67.14:3001/api/embed"
+			src="http://172.27.67.14:3001/embed/anythingllm-chat-widget.min.js"
+		></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const chatWidgetEmbedId = "266f6e35-42b2-4d71-9cd8-0bade212adcd";
+				const embedElement = document.querySelector(`[data-embed-id="${chatWidgetEmbedId}"]`);
+				if (embedElement && embedElement.shadowRoot) {
+					const openButton = embedElement.shadowRoot.querySelector(".fixed-button");
+					if (openButton) {
+						openButton.click();
+					}
+				} else {
+					// Shadow DOM이 아직 로드되지 않았을 경우를 대비하여 약간의 지연 후 다시 시도
+					setTimeout(function () {
+						const embedElementDelayed = document.querySelector(`[data-embed-id="${chatWidgetEmbedId}"]`);
+						if (embedElementDelayed && embedElementDelayed.shadowRoot) {
+							const openButtonDelayed = embedElementDelayed.shadowRoot.querySelector(".fixed-button");
+							if (openButtonDelayed) {
+								openButtonDelayed.click();
+							}
+						}
+					}, 500); // 0.5초 지연
+				}
+			});
+		</script>
+	</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chat Widget</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<script
+			data-embed-id="266f6e35-42b2-4d71-9cd8-0bade212adcd"
+			data-base-api-url="http://172.27.67.14:3001/api/embed"
+			src="http://172.27.67.14:3001/embed/anythingllm-chat-widget.min.js"
+		></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const chatWidgetEmbedId = "266f6e35-42b2-4d71-9cd8-0bade212adcd";
+				const embedElement = document.querySelector(`[data-embed-id="${chatWidgetEmbedId}"]`);
+				if (embedElement && embedElement.shadowRoot) {
+					const openButton = embedElement.shadowRoot.querySelector(".fixed-button");
+					if (openButton) {
+						openButton.click();
+					}
+				} else {
+					// Shadow DOM이 아직 로드되지 않았을 경우를 대비하여 약간의 지연 후 다시 시도
+					setTimeout(function () {
+						const embedElementDelayed = document.querySelector(`[data-embed-id="${chatWidgetEmbedId}"]`);
+						if (embedElementDelayed && embedElementDelayed.shadowRoot) {
+							const openButtonDelayed = embedElementDelayed.shadowRoot.querySelector(".fixed-button");
+							if (openButtonDelayed) {
+								openButtonDelayed.click();
+							}
+						}
+					}, 500); // 0.5초 지연
+				}
+			});
+		</script>
+	</body>
+</html>
