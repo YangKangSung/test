@@ -1,5 +1,6 @@
 .history/
 .fake
+.venv
 
 # Playwright
 node_modules/
