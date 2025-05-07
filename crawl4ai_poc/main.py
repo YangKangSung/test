@@ -4,17 +4,30 @@ from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig
 async def main():
     chrome_executable_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     # 1. SSO 인증된 사용자 프로필 경로 지정
+    # browser_config = BrowserConfig(
+    #     headless=False,  # 필요시 False로 설정해 동작 확인
+    #     # executable_path=chrome_executable_path,
+    #     verbose=True,
+    #     browser_type="chromium",
+    #     use_managed_browser=False,      # CDP 사용 등 고급 기능
+    #     # use_persistent_context=True,   # ⚠ 반드시 True로 설정
+    #     extra_args={
+    #         "channel": "chrome",
+    #         "executablePath": chrome_executable_path  # Playwright launch()에 전달됨
+    #     },
+    #     user_data_dir="D:\\temp\\chrome-profile"  # 위에서 사용한 경로와 동일하게
+    # )
+
     browser_config = BrowserConfig(
-        headless=False,  # 필요시 False로 설정해 동작 확인
-        # executable_path=chrome_executable_path,
+        browser_type="chromium",           # Playwright 브라우저 유형
+        headless=False,
         verbose=True,
-        use_managed_browser=True,
-        browser_type="chromium",
-        extra_args={
-            "channel": "chrome",
-            "executablePath": chrome_executable_path  # Playwright launch()에 전달됨
-        },
-        user_data_dir="D:\\temp\\chrome-profile"  # 위에서 사용한 경로와 동일하게
+        use_persistent_context=True,       # Persistent Context 사용
+        user_data_dir="D:\\temp\\chrome-profile",
+        playwright_launch_options={
+            "channel": "chrome",           # 시스템 Chrome 실행
+            "executablePath": r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+        }
     )
 
     # 2. 크롤링할 페이지 설정 (로그인 필요 페이지)
