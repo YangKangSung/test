@@ -160,3 +160,4 @@ myChart.on("click", function (params) {
 //     }
 //   }
 // });
+/etc/grafana/grafana.ini
