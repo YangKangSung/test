@@ -1,0 +1,76 @@
+name: Auto-convert files on PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "docs/**/*.md"   # 감시할 디렉터리/패턴만 기입
+
+permissions:
+  contents: write        # PR 브랜치에 커밋하려면 필요
+  pull-requests: write
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  convert-and-commit:
+    # 포크가 아닌, 같은 저장소의 브랜치에서 온 PR일 때만 푸시 (fork 대응은 아래 2번 참고)
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    env:
+      SRC_GLOB: "docs/**/*.md"
+      SRC_EXT: ".md"
+      OUT_EXT: ".html"
+      # OUT_DIR 를 비워두면 입력 파일과 같은 위치에 출력
+      OUT_DIR: ""
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: List changed files (match pattern)
+        id: changed
+        uses: tj-actions/changed-files@v45
+        with:
+          files: ${{ env.SRC_GLOB }}
+
+      - name: Install converter (example: pandoc)
+        if: steps.changed.outputs.any_changed == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Convert only changed files
+        if: steps.changed.outputs.any_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          # newline-delimited list → 안전하게 iterate
+          while IFS= read -r in; do
+            [ -z "$in" ] && continue
+            base="${in%${SRC_EXT}}"
+            if [[ -n "${OUT_DIR}" ]]; then
+              # docs/foo/bar.md -> foo/bar.html (루트 제거는 상황에 맞게 수정)
+              rel="${in#docs/}"
+              base="${OUT_DIR}/${rel%${SRC_EXT}}"
+            fi
+            out="${base}${OUT_EXT}"
+            mkdir -p "$(dirname "$out")"
+            # === 실제 변환 명령 ===
+            pandoc "$in" -o "$out"
+            # =====================
+            git add "$out"
+          done <<< "${{ steps.changed.outputs.all_changed_files }}"
+
+      - name: Commit converted files
+        if: steps.changed.outputs.any_changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-convert generated files [skip ci]"
+          branch: ${{ github.event.pull_request.head.ref }}
