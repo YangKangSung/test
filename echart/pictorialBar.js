@@ -9,14 +9,23 @@ const totals = [5, 1, 3, 2];
 
 const symbolSize = 50;
 // const symbolMargin = "5%";
-const symbolMargin = 6;
-
+const symbolMargin = 0;
+const rowGap = 8;
+const MAX = Math.max(...totals);
 // 공통 옵션
 const baseOption = {
+	type: "value",
 	tooltip: {},
+	min: 0,
+	max: MAX,
+	interval: 1,
+	splitNumber: MAX,
+	splitLine: { show: true },
+	axisLine: { lineStyle: { color: "#999" } },
+	axisLabel: { margin: 10 },
 	xAxis: {
 		max: Math.max(...totals), // 툴팁/축 스케일 여유만 주면 됨
-		splitLine: { show: false },
+		splitLine: { show: true },
 		offset: 10,
 		axisLine: { lineStyle: { color: "#999" } },
 		axisLabel: { margin: 10 },
@@ -59,7 +68,8 @@ for (let i = 0; i < years.length; i++) {
 		label: {
 			show: true,
 			position: "right",
-			offset: [10, 0],
+			// 	offset: [10, 0],
+			offset: [10, -(symbolSize + rowGap)],
 			color: "green",
 			fontSize: 18,
 			formatter: (params) => {
@@ -76,16 +86,18 @@ for (let i = 0; i < years.length; i++) {
 	// 현재(클립) 시리즈
 	baseOption.series.push({
 		type: "pictorialBar",
-		z: 10,
+		z: 20,
 		symbol: spirit,
 		symbolSize,
-		// symbolRepeat: "fixed",
-		symbolRepeat: Number.isFinite(current[i]) ? current[i] : 0, // ✅ 정확히 현재 개수
+		symbolRepeat: totals[i],
+		// symbolRepeat: Number.isFinite(current[i]) ? current[i] : 0,  // ✅ 정확히 현재 개수
 		symbolPosition: "start",
+		// symbolBoundingData: MAX,
 		symbolMargin,
 		// 배경의 총심볼 기준으로 클리핑
 		symbolClip: true,
-		barGap: "-100%",
+		// symbolOffset: [0, 0],
+		// barGap: "-100%",
 		symbolBoundingData: totals[i],
 		data: curRow,
 		markLine:
