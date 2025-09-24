@@ -8,25 +8,24 @@ const current = [3, 1, 2, 2];
 const totals = [5, 1, 3, 2];
 
 // const symbolSize = 50;
-const symbolSize = '130%';
+const symbolSize = "100%";
 // const symbolMargin = "5%";
 const symbolMargin = 0;
 const rowGap = 8;
 const MAX = Math.max(...totals);
 // 공통 옵션
 const baseOption = {
-  // type: 'value',
-  // symbolRepeat: true,
+	// type: 'value',
+	// symbolRepeat: true,
 	tooltip: {},
 	min: 0,
 	max: MAX,
-// 	interval: 2,
-// 	splitNumber: MAX,
-  // splitLine: { show: true },
-// 	axisLine: { lineStyle: { color: '#999' } },
-  // axisLabel: { margin: 10 },
+	interval: 1,
+	// 	splitNumber: MAX,
+	// splitLine: { show: true },
+	// 	axisLine: { lineStyle: { color: '#999' } },
+	// axisLabel: { margin: 10 },
 	xAxis: {
-		// max: Math.max(...totals), // 툴팁/축 스케일 여유만 주면 됨
 		max: 10, // 툴팁/축 스케일 여유만 주면 됨
 		splitLine: { show: false },
 		// offset: 1,
@@ -59,41 +58,36 @@ for (let i = 0; i < years.length; i++) {
 		z: 20,
 		symbol: spirit,
 		symbolSize,
-		// symbolRepeat: "fixed",
 		symbolRepeat: totals[i],
-		symbolRepeat: true,
+		// symbolRepeat: true,
 		symbolPosition: "start",
-		symbolBoundingData: MAX,
+		// symbolBoundingData: MAX,
 		symbolMargin,
 		symbolOffset: [0, 0],
 		animationDuration: 0,
 		itemStyle: { opacity: 0.2 },
 		// 이 연도의 분모(총심볼 개수 기준)
-		// symbolBoundingData: totals[i],
+		symbolBoundingData: totals[i],
+		// symbolBoundingData: max,
 		data: bgRow,
 	});
 
 	// 현재(클립) 시리즈
-// 	baseOption.series.push({
-// 		type: "pictorialBar",
-// 		z: 20,
-// 		symbol: spirit,
-// 		symbolSize,
-// 		// symbolRepeat: current[i],
-// 		symbolRepeat: 'fixed',
-// 		// symbolRepeat: Number.isFinite(current[i]) ? current[i] : 0,  // ✅ 정확히 현재 개수
-// 		symbolPosition: "start",
-// 		symbolBoundingData: MAX,
-// 		symbolMargin,
-// 		// 배경의 총심볼 기준으로 클리핑
-// 		symbolClip: true,
-// 		symbolOffset: [0, 0],
-// 		// barGap: "-100%",
-// 		symbolBoundingData: current[i],
-// 		data: curRow,
-// 	});
+	// 	baseOption.series.push({
+	// 		type: "pictorialBar",
+	// 		// z: 20,
+	// 		symbol: spirit,
+	// 		symbolSize,
+	// 		symbolRepeat: current[i],
+	// 		symbolPosition: "start",
+	// 		symbolBoundingData: MAX,
+	// 		symbolMargin,
+	// 		symbolClip: true,
+	// 		// symbolOffset: [0, 0],
+	// 		// barGap: "-100%",
+	// 		// symbolBoundingData: current[i],
+	// 		data: curRow,
+	// 	});
 }
 
 option = baseOption;
-
-
