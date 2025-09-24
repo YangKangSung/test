@@ -3,12 +3,13 @@ const spirit =
 const years = ["root", "pamir", "rose", "xxx"];
 
 // 연도별 현재값(분자)
-const current = [1, , 2, 1];
+const current = [3, 1, 2, 2];
 // 연도별 최대값/총심볼(분모) — 연도마다 다르게!
-const totals = [3, 1, 3, 2];
+const totals = [5, 1, 3, 2];
 
 const symbolSize = 50;
-const symbolMargin = "5%";
+// const symbolMargin = "5%";
+const symbolMargin = 6;
 
 // 공통 옵션
 const baseOption = {
@@ -46,7 +47,9 @@ for (let i = 0; i < years.length; i++) {
 		z: 20,
 		symbol: spirit,
 		symbolSize,
-		symbolRepeat: "fixed",
+		// symbolRepeat: "fixed",
+		symbolRepeat: totals[i],
+		symbolPosition: "start",
 		symbolMargin,
 		animationDuration: 0,
 		itemStyle: { opacity: 0.2 },
@@ -64,6 +67,7 @@ for (let i = 0; i < years.length; i++) {
 				if (val == null) return "";
 				// 현재값 대비 퍼센트를 보여주려면 current[i]를 써도 됨
 				const idx = params.dataIndex;
+				const cur = Number.isFinite(current[idx]) ? current[idx] : 0;
 				return ((current[idx] / totals[idx]) * 100).toFixed(1) + " %";
 			},
 		},
@@ -75,10 +79,13 @@ for (let i = 0; i < years.length; i++) {
 		z: 10,
 		symbol: spirit,
 		symbolSize,
-		symbolRepeat: "fixed",
+		// symbolRepeat: "fixed",
+		symbolRepeat: Number.isFinite(current[i]) ? current[i] : 0, // ✅ 정확히 현재 개수
+		symbolPosition: "start",
 		symbolMargin,
 		// 배경의 총심볼 기준으로 클리핑
 		symbolClip: true,
+		barGap: "-100%",
 		symbolBoundingData: totals[i],
 		data: curRow,
 		markLine:
