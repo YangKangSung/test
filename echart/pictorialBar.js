@@ -8,29 +8,27 @@ const current = [3, 1, 2, 2];
 const totals = [5, 1, 3, 2];
 
 // const symbolSize = 50;
-const symbolSize = "100%";
+const symbolSize = '100%';
 // const symbolMargin = "5%";
 const symbolMargin = 0;
 const rowGap = 8;
 const MAX = Math.max(...totals);
 // 공통 옵션
 const baseOption = {
-	// type: 'value',
-	// symbolRepeat: true,
 	tooltip: {},
 	min: 0,
 	max: MAX,
 	interval: 1,
-	// 	splitNumber: MAX,
-	// splitLine: { show: true },
-	// 	axisLine: { lineStyle: { color: '#999' } },
-	// axisLabel: { margin: 10 },
+ 	// splitNumber: MAX,
+  // splitLine: { show: true },
+// 	axisLine: { lineStyle: { color: '#999' } },
+  // axisLabel: { margin: 10 },
 	xAxis: {
 		max: 10, // 툴팁/축 스케일 여유만 주면 됨
 		splitLine: { show: false },
 		// offset: 1,
-		// axisLine: { lineStyle: { color: "#999" } },
-		// axisLabel: { margin: 10 },
+		axisLine: { lineStyle: { color: "#999" } },
+		axisLabel: { show: false },
 	},
 	yAxis: {
 		data: years,
@@ -59,12 +57,10 @@ for (let i = 0; i < years.length; i++) {
 		symbol: spirit,
 		symbolSize,
 		symbolRepeat: totals[i],
-		// symbolRepeat: true,
 		symbolPosition: "start",
-		// symbolBoundingData: MAX,
 		symbolMargin,
-		symbolOffset: [0, 0],
-		animationDuration: 0,
+		// symbolOffset: [0, 0],
+		animationDuration: 2,
 		itemStyle: { opacity: 0.2 },
 		// 이 연도의 분모(총심볼 개수 기준)
 		symbolBoundingData: totals[i],
@@ -73,21 +69,22 @@ for (let i = 0; i < years.length; i++) {
 	});
 
 	// 현재(클립) 시리즈
-	// 	baseOption.series.push({
-	// 		type: "pictorialBar",
-	// 		// z: 20,
-	// 		symbol: spirit,
-	// 		symbolSize,
-	// 		symbolRepeat: current[i],
-	// 		symbolPosition: "start",
-	// 		symbolBoundingData: MAX,
-	// 		symbolMargin,
-	// 		symbolClip: true,
-	// 		// symbolOffset: [0, 0],
-	// 		// barGap: "-100%",
-	// 		// symbolBoundingData: current[i],
-	// 		data: curRow,
-	// 	});
+	baseOption.series.push({
+		type: "pictorialBar",
+		z: 20,
+		symbol: spirit,
+		// symbolSize,
+		symbolRepeat: current[i],
+		symbolPosition: "start",
+		symbolMargin: '100%',
+		symbolClip: false,
+		// symbolOffset: [-5, 0],
+		// barGap: "-100%",
+		symbolBoundingData: current[i],
+		data: curRow,
+	});
 }
 
 option = baseOption;
+
+
