@@ -21,6 +21,35 @@ class JiraFetcher:
             print(f"Connecting to {self.server} anonymously...")
             return JIRA(server=self.server)
 
+    def _format_content_for_rag(self, issue):
+        """
+        Formats the issue content into a single string for RAG.
+        Combines summary, description, status, priority, and comments.
+        """
+        content_parts = []
+
+        # Basic Info
+        content_parts.append(f"Title: {issue.fields.summary}")
+        content_parts.append(f"Status: {issue.fields.status.name}")
+
+        priority = issue.fields.priority.name if hasattr(issue.fields, 'priority') and issue.fields.priority else 'None'
+        content_parts.append(f"Priority: {priority}")
+
+        if issue.fields.description:
+             content_parts.append(f"\nDescription:\n{issue.fields.description}")
+
+        # Comments
+        if hasattr(issue.fields, 'comment') and issue.fields.comment:
+            content_parts.append("\nComments:")
+            for comment in issue.fields.comment.comments:
+                author_name = 'Unknown'
+                if hasattr(comment, 'author') and hasattr(comment.author, 'displayName'):
+                    author_name = comment.author.displayName
+
+                content_parts.append(f"- [{comment.created}] {author_name}: {comment.body}")
+
+        return "\n".join(content_parts)
+
     def fetch_issues(self, jql, max_results=100):
         print(f"Fetching issues from {self.server} with JQL: {jql}")
         try:
@@ -28,29 +57,15 @@ class JiraFetcher:
 
             data = []
             for issue in issues:
+                processed_content = self._format_content_for_rag(issue)
+
                 issue_data = {
-                    'key': issue.key,
-                    'summary': issue.fields.summary,
-                    'description': issue.fields.description,
-                    'status': issue.fields.status.name,
-                    'priority': issue.fields.priority.name if hasattr(issue.fields, 'priority') and issue.fields.priority else 'None',
-                    'created': issue.fields.created,
-                    'updated': issue.fields.updated,
-                    'comments': []
+                    'id': issue.key,
+                    'title': issue.fields.summary,
+                    'content': processed_content,
+                    'link': f"{self.server}/browse/{issue.key}",
+                    'create_date': issue.fields.created,
                 }
-
-                if hasattr(issue.fields, 'comment') and issue.fields.comment:
-                     for comment in issue.fields.comment.comments:
-                         # Handle cases where author might be missing or anonymous
-                         author_name = 'Unknown'
-                         if hasattr(comment, 'author') and hasattr(comment.author, 'displayName'):
-                             author_name = comment.author.displayName
-
-                         issue_data['comments'].append({
-                             'author': author_name,
-                             'body': comment.body,
-                             'created': comment.created
-                         })
 
                 data.append(issue_data)
             return data
