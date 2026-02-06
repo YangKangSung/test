@@ -35,6 +35,34 @@ _stop_event = threading.Event()
 _bg_thread = None
 _last_update = {}
 
+# Configuration (can be overridden by environment variables or pytest.ini)
+NAME_WIDTH = int(os.environ.get("PROGRESS_NAME_WIDTH", "30"))
+STATUS_WIDTH = int(os.environ.get("PROGRESS_STATUS_WIDTH", "18"))
+FAIL_SORT = os.environ.get("PROGRESS_FAIL_SORT", "top")  # 'top' or 'none'
+SHOW_FAIL_DETAILS = os.environ.get("PROGRESS_SHOW_FAILURE_DETAILS", "0") != "0"
+
+def pytest_addoption(parser):
+    parser.addini("progress_name_width", "Width of test name column", default=str(NAME_WIDTH))
+    parser.addini("progress_status_width", "Width of status column", default=str(STATUS_WIDTH))
+    parser.addini("progress_fail_sort", "Fail sort behavior: top|none", default=FAIL_SORT)
+    parser.addini("progress_show_failure_details", "Show failure longrepr when a test fails (0/1)", default=str(int(SHOW_FAIL_DETAILS)))
+
+
+def pytest_configure(config):
+    # allow pytest.ini to override environment vars
+    global NAME_WIDTH, STATUS_WIDTH, FAIL_SORT, SHOW_FAIL_DETAILS
+    try:
+        NAME_WIDTH = int(config.getini("progress_name_width") or NAME_WIDTH)
+    except Exception:
+        pass
+    try:
+        STATUS_WIDTH = int(config.getini("progress_status_width") or STATUS_WIDTH)
+    except Exception:
+        pass
+    FAIL_SORT = config.getini("progress_fail_sort") or FAIL_SORT
+    SHOW_FAIL_DETAILS = config.getini("progress_show_failure_details") == "1"
+
+
 
 class FieldColumn(TextColumn):
     """Column that reads a named field from task.fields and supports middle
@@ -115,9 +143,9 @@ def pytest_sessionstart(session):
     _progress = Progress(
         SpinnerColumn(),
         # Fixed-width test name column so statuses align vertically (ellipsis in middle)
-        FieldColumn("test_name", fmt="{:<30}", style="white", ellipsize_middle=True),
+        FieldColumn("test_name", fmt=f"{{:<{NAME_WIDTH}}}", style="white", ellipsize_middle=True),
         # Fixed-width status column (e.g., queued/running/PASS/FAIL)
-        FieldColumn("status", fmt="{:>18}", style="bold"),
+        FieldColumn("status", fmt=f"{{:>{STATUS_WIDTH}}}", style="bold"),
         BarColumn(bar_width=None),
         DownloadColumn(binary_units=True),
         TransferSpeedColumn(),
@@ -141,9 +169,9 @@ def pytest_collection_modifyitems(session, config, items):
     if not _enabled() or _progress is None:
         return
     total = len(items)
-    _suite_task = _progress.add_task("[cyan]Suite[/cyan]", total=total)
-    # ensure the suite task exposes the expected fields so columns render safely
-    _progress.update(_suite_task, test_name="[cyan]Suite[/cyan]", status="")
+    _suite_task = _progress.add_task("[cyan]Suite[/cyan]", total=total, test_name="[cyan]Suite[/cyan]", status=Text("", style=""))
+    # ensure fields are present so columns don't KeyError
+    _progress.update(_suite_task, test_name="[cyan]Suite[/cyan]", status=Text("", style=""))
 
 
 def pytest_runtest_logstart(nodeid, location):
@@ -152,13 +180,13 @@ def pytest_runtest_logstart(nodeid, location):
         return
     size = random.randint(1_000_000, 8_000_000)
     # create task with empty description; we use fields to populate name/status in fixed columns
-    task_id = _progress.add_task(description="", total=size)
+    task_id = _progress.add_task(description="", total=size, test_name=nodeid, status=Text("QUEUED", style="yellow"))
     _test_tasks[nodeid] = task_id
     with _lock:
         _running.add(nodeid)
-        # warm initial progress so the speed column isn't empty and set fields
+        # warm initial progress so the speed column isn't empty
         warm = random.randint(int(size * 0.02), int(size * 0.05))
-        _progress.update(task_id, completed=warm, test_name=nodeid, status="[blue]running[/blue]")
+        _progress.update(task_id, completed=warm, status=Text("RUNNING", style="blue"))
 
 
 def pytest_runtest_logreport(report):
@@ -180,14 +208,24 @@ def pytest_runtest_logreport(report):
             _progress.update(task_id, completed=total, status=Text(" PASS ", style="black on green"))
         elif report.failed:
             _progress.update(task_id, completed=total, status=Text(" FAIL ", style="white on red"))
-            # bring failed test to top for visibility
-            try:
-                _progress.move_task(task_id, 0)
-            except Exception:
-                pass
+            # bring failed test to top for visibility if configured
+            if FAIL_SORT and FAIL_SORT != "none":
+                try:
+                    # place at top
+                    _progress.move_task(task_id, 0)
+                except Exception:
+                    pass
+            # optionally print failure details below the progress
+            if SHOW_FAIL_DETAILS:
+                try:
+                    # report.longrepr may be richer than string
+                    long = getattr(report, "longrepr", None)
+                    msg = str(long) if long is not None else f"Failure: {nodeid}"
+                except Exception:
+                    msg = f"Failure: {nodeid} (no details)"
+                console.log(Text(msg, style="red"))
         else:
             _progress.update(task_id, status=Text(str(report.outcome), style="yellow"))
-
         with _lock:
             _running.discard(nodeid)
 
