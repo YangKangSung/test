@@ -1,0 +1,984 @@
+2025-12-26T11:40:17.951550947Z Restoring git repositories: 
+2025-12-26T11:40:17.951647862Z - /var/lib/rancher-data/local-catalogs/v2/rancher-charts/4b40cac650031b74776e87c1a726b0484d0877c3ec137da0872547ff9b73a721/.git
+2025-12-26T11:40:20.721157474Z Your branch is up to date with 'origin/release-v2.13'.
+2025-12-26T11:40:20.723636224Z /var/lib/rancher
+2025-12-26T11:40:20.723646912Z - /var/lib/rancher-data/local-catalogs/v2/rancher-rke2-charts/675f1b63a0a83905972dcab2794479ed599a6f41b86cd6193d69472d0fa889c9/.git
+2025-12-26T11:40:22.814904576Z Your branch is up to date with 'origin/main'.
+2025-12-26T11:40:22.816992857Z /var/lib/rancher
+2025-12-26T11:40:22.816999674Z - /var/lib/rancher-data/local-catalogs/v2/rancher-partner-charts/8f17acdce9bffd6e05a58a3798840e408c4ea71783381ecd2e9af30baad65974/.git
+2025-12-26T11:40:24.782852368Z Your branch is up to date with 'origin/main'.
+2025-12-26T11:40:24.787077612Z /var/lib/rancher
+2025-12-26T11:40:25.276216065Z 2025/12/26 11:40:25 [INFO] Rancher version v2.13.1 (4c2e04b310799e106c48d7e36f544f5e33b22f0a) is starting
+2025-12-26T11:40:25.276241712Z 2025/12/26 11:40:25 [INFO] Rancher arguments {ACMEDomains:[] AddLocal:true Embedded:false BindHost: HTTPListenPort:80 HTTPSListenPort:443 K8sMode:auto Debug:false Trace:false NoCACerts:false AuditLogPath:/var/log/auditlog/rancher-api-audit.log AuditLogMaxage:10 AuditLogMaxsize:100 AuditLogMaxbackup:10 AuditLogLevel:0 AuditLogEnabled:false Features: ClusterRegistry: AggregationRegistrationTimeout:5m0s}
+2025-12-26T11:40:25.276304639Z 2025/12/26 11:40:25 [INFO] Listening on /tmp/log.sock
+2025-12-26T11:40:25.276595188Z 2025/12/26 11:40:25 [INFO] Waiting for k3s to start
+2025-12-26T11:40:26.276839300Z 2025/12/26 11:40:26 [INFO] Waiting for k3s to start
+2025-12-26T11:40:27.276959112Z 2025/12/26 11:40:27 [INFO] Waiting for k3s to start
+2025-12-26T11:40:28.277084752Z 2025/12/26 11:40:28 [INFO] Waiting for k3s to start
+2025-12-26T11:40:29.277311269Z 2025/12/26 11:40:29 [INFO] Waiting for k3s to start
+2025-12-26T11:40:30.277406531Z 2025/12/26 11:40:30 [INFO] Waiting for k3s to start
+2025-12-26T11:40:31.277663668Z 2025/12/26 11:40:31 [INFO] Waiting for k3s to start
+2025-12-26T11:40:32.287486655Z 2025/12/26 11:40:32 [INFO] Waiting for server to become available: the server is currently unable to handle the request
+2025-12-26T11:40:34.292244064Z 2025/12/26 11:40:34 [INFO] Waiting for server to become available: the server is currently unable to handle the request
+2025-12-26T11:40:36.295992771Z 2025/12/26 11:40:36 [INFO] Waiting for server to become available: the server is currently unable to handle the request
+2025-12-26T11:40:38.300738245Z 2025/12/26 11:40:38 [INFO] Running in single server mode, will not peer connections
+2025-12-26T11:40:38.300791984Z 2025/12/26 11:40:38 [INFO] Scanning NodeTemplates in namespace: cattle-global-nt, group: nodetemplates.management.cattle.io
+2025-12-26T11:40:38.300805478Z 2025/12/26 11:40:38 [INFO] Scanning ClusterTemplates in namespace: cattle-global-data, group: clustertemplates.management.cattle.io
+2025-12-26T11:40:38.300968801Z 2025/12/26 11:40:38 [INFO] [deferred-capi - WaitForClient] waiting for CAPI CRDs to be established...
+2025-12-26T11:40:38.301025044Z 2025/12/26 11:40:38 [INFO] [deferred-ext] WaitForClient starting waiter for EXT api-service availability
+2025-12-26T11:40:38.327918219Z I1226 11:40:38.327769      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:38.329548379Z I1226 11:40:38.329445      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:38.331839061Z I1226 11:40:38.331733      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:38.338712877Z 2025/12/26 11:40:38 [INFO] Applying CRD features.management.cattle.io
+2025-12-26T11:40:41.564494008Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD auditpolicies.auditlog.cattle.io
+2025-12-26T11:40:41.569568135Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD clusterrepos.catalog.cattle.io
+2025-12-26T11:40:41.575879187Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD clusters.provisioning.cattle.io
+2025-12-26T11:40:41.592991198Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD custommachines.rke.cattle.io
+2025-12-26T11:40:41.598049580Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD etcdsnapshots.rke.cattle.io
+2025-12-26T11:40:41.604322258Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD rkebootstraps.rke.cattle.io
+2025-12-26T11:40:41.608782031Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD rkebootstraptemplates.rke.cattle.io
+2025-12-26T11:40:41.619058025Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD rkeclusters.rke.cattle.io
+2025-12-26T11:40:41.624503042Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD rkecontrolplanes.rke.cattle.io
+2025-12-26T11:40:41.635693745Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD clusterroletemplatebindings.management.cattle.io
+2025-12-26T11:40:41.646058817Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD dynamicschemas.management.cattle.io
+2025-12-26T11:40:41.652194449Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD globalroles.management.cattle.io
+2025-12-26T11:40:41.659997273Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD globalrolebindings.management.cattle.io
+2025-12-26T11:40:41.668610187Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD nodedrivers.management.cattle.io
+2025-12-26T11:40:41.677357196Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD projects.management.cattle.io
+2025-12-26T11:40:41.685561614Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD projectroletemplatebindings.management.cattle.io
+2025-12-26T11:40:41.690750187Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD roletemplates.management.cattle.io
+2025-12-26T11:40:41.697466625Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD users.management.cattle.io
+2025-12-26T11:40:41.702630047Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD clusterproxyconfigs.management.cattle.io
+2025-12-26T11:40:41.708375166Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD uiplugins.catalog.cattle.io
+2025-12-26T11:40:41.714335269Z 2025/12/26 11:40:41 [INFO] Creating embedded CRD secretrequests.telemetry.cattle.io
+2025-12-26T11:40:41.737158990Z 2025/12/26 11:40:41 [INFO] Waiting for CRD globalrolebindings.management.cattle.io to become available
+2025-12-26T11:40:41.739371477Z 2025/12/26 11:40:41 [INFO] Done waiting for CRD globalrolebindings.management.cattle.io to become available
+2025-12-26T11:40:41.739399227Z 2025/12/26 11:40:41 [INFO] Waiting for CRD nodedrivers.management.cattle.io to become available
+2025-12-26T11:40:41.741838949Z 2025/12/26 11:40:41 [INFO] Done waiting for CRD nodedrivers.management.cattle.io to become available
+2025-12-26T11:40:41.741853994Z 2025/12/26 11:40:41 [INFO] Waiting for CRD projects.management.cattle.io to become available
+2025-12-26T11:40:41.752428521Z 2025/12/26 11:40:41 [INFO] Done waiting for CRD projects.management.cattle.io to become available
+2025-12-26T11:40:41.752484439Z 2025/12/26 11:40:41 [INFO] Waiting for CRD projectroletemplatebindings.management.cattle.io to become available
+2025-12-26T11:40:42.256481627Z 2025/12/26 11:40:42 [INFO] Done waiting for CRD projectroletemplatebindings.management.cattle.io to become available
+2025-12-26T11:40:42.256512341Z 2025/12/26 11:40:42 [INFO] Waiting for CRD roletemplates.management.cattle.io to become available
+2025-12-26T11:40:42.257937218Z 2025/12/26 11:40:42 [INFO] Done waiting for CRD roletemplates.management.cattle.io to become available
+2025-12-26T11:40:42.257960577Z 2025/12/26 11:40:42 [INFO] Waiting for CRD users.management.cattle.io to become available
+2025-12-26T11:40:42.259204583Z 2025/12/26 11:40:42 [INFO] Done waiting for CRD users.management.cattle.io to become available
+2025-12-26T11:40:42.259211592Z 2025/12/26 11:40:42 [INFO] Waiting for CRD clusterproxyconfigs.management.cattle.io to become available
+2025-12-26T11:40:42.260318523Z 2025/12/26 11:40:42 [INFO] Done waiting for CRD clusterproxyconfigs.management.cattle.io to become available
+2025-12-26T11:40:42.260325553Z 2025/12/26 11:40:42 [INFO] Waiting for CRD uiplugins.catalog.cattle.io to become available
+2025-12-26T11:40:42.261675030Z 2025/12/26 11:40:42 [INFO] Done waiting for CRD uiplugins.catalog.cattle.io to become available
+2025-12-26T11:40:42.261682787Z 2025/12/26 11:40:42 [INFO] Waiting for CRD secretrequests.telemetry.cattle.io to become available
+2025-12-26T11:40:42.263106464Z 2025/12/26 11:40:42 [INFO] Done waiting for CRD secretrequests.telemetry.cattle.io to become available
+2025-12-26T11:40:42.284735995Z 2025/12/26 11:40:42 [INFO] Applying CRD plans.upgrade.cattle.io
+2025-12-26T11:40:42.298477663Z 2025/12/26 11:40:42 [INFO] Applying CRD navlinks.ui.cattle.io
+2025-12-26T11:40:42.320654913Z 2025/12/26 11:40:42 [INFO] Applying CRD podsecurityadmissionconfigurationtemplates.management.cattle.io
+2025-12-26T11:40:42.332538303Z 2025/12/26 11:40:42 [INFO] Applying CRD clusters.management.cattle.io
+2025-12-26T11:40:42.346725513Z 2025/12/26 11:40:42 [INFO] Applying CRD apiservices.management.cattle.io
+2025-12-26T11:40:42.357826335Z 2025/12/26 11:40:42 [INFO] Applying CRD clusterregistrationtokens.management.cattle.io
+2025-12-26T11:40:42.371009424Z 2025/12/26 11:40:42 [INFO] Applying CRD settings.management.cattle.io
+2025-12-26T11:40:42.388582542Z 2025/12/26 11:40:42 [INFO] Applying CRD preferences.management.cattle.io
+2025-12-26T11:40:42.402439239Z 2025/12/26 11:40:42 [INFO] Applying CRD features.management.cattle.io
+2025-12-26T11:40:42.411482972Z 2025/12/26 11:40:42 [INFO] Applying CRD operations.catalog.cattle.io
+2025-12-26T11:40:42.421350198Z 2025/12/26 11:40:42 [INFO] Applying CRD apps.catalog.cattle.io
+2025-12-26T11:40:42.434888989Z 2025/12/26 11:40:42 [INFO] Applying CRD fleetworkspaces.management.cattle.io
+2025-12-26T11:40:42.447926537Z 2025/12/26 11:40:42 [INFO] Applying CRD bundles.fleet.cattle.io
+2025-12-26T11:40:42.464578580Z 2025/12/26 11:40:42 [INFO] Applying CRD clusters.fleet.cattle.io
+2025-12-26T11:40:42.496705195Z 2025/12/26 11:40:42 [INFO] Applying CRD clustergroups.fleet.cattle.io
+2025-12-26T11:40:42.513973576Z 2025/12/26 11:40:42 [INFO] Applying CRD helmops.fleet.cattle.io
+2025-12-26T11:40:42.538513236Z 2025/12/26 11:40:42 [INFO] Applying CRD managedcharts.management.cattle.io
+2025-12-26T11:40:42.580310544Z 2025/12/26 11:40:42 [INFO] Waiting for CRD managedcharts.management.cattle.io to become available
+2025-12-26T11:40:43.083249128Z 2025/12/26 11:40:43 [INFO] Done waiting for CRD managedcharts.management.cattle.io to become available
+2025-12-26T11:40:43.095493322Z 2025/12/26 11:40:43 [INFO] Creating CRD authconfigs.management.cattle.io
+2025-12-26T11:40:43.099105413Z 2025/12/26 11:40:43 [INFO] Creating CRD groupmembers.management.cattle.io
+2025-12-26T11:40:43.105424178Z 2025/12/26 11:40:43 [INFO] Creating CRD groups.management.cattle.io
+2025-12-26T11:40:43.111673480Z 2025/12/26 11:40:43 [INFO] Creating CRD tokens.management.cattle.io
+2025-12-26T11:40:43.116937677Z 2025/12/26 11:40:43 [INFO] Creating CRD userattributes.management.cattle.io
+2025-12-26T11:40:43.132641211Z 2025/12/26 11:40:43 [INFO] Waiting for CRD tokens.management.cattle.io to become available
+2025-12-26T11:40:43.634690785Z 2025/12/26 11:40:43 [INFO] Done waiting for CRD tokens.management.cattle.io to become available
+2025-12-26T11:40:43.634718073Z 2025/12/26 11:40:43 [INFO] Waiting for CRD userattributes.management.cattle.io to become available
+2025-12-26T11:40:44.136989500Z 2025/12/26 11:40:44 [INFO] Done waiting for CRD userattributes.management.cattle.io to become available
+2025-12-26T11:40:44.137956322Z 2025/12/26 11:40:44 [INFO] Configuring auth server API body limit to 1048576 bytes
+2025-12-26T11:40:44.139088804Z 2025/12/26 11:40:44 [ERROR] RDPClient: error reading connect secret: secrets "api-extension" not found, will attempt to create new one...
+2025-12-26T11:40:44.143340574Z 2025/12/26 11:40:44 [INFO] creating imperative extension apiserver resources
+2025-12-26T11:40:44.143362140Z 2025/12/26 11:40:44 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:40:44.143363722Z 2025/12/26 11:40:44 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:40:44.143371122Z 2025/12/26 11:40:44 [INFO] starting imperative api cert rotator
+2025-12-26T11:40:44.191968606Z 2025/12/26 11:40:44 [INFO] created imperative api cert secret
+2025-12-26T11:40:44.191997296Z 2025/12/26 11:40:44 [INFO] imperative api APIService cert updated
+2025-12-26T11:40:44.197052163Z 2025/12/26 11:40:44 [INFO] imperative api APIService cert updated
+2025-12-26T11:40:44.864816809Z 2025/12/26 11:40:44 [INFO] Successfully installed useractivity store
+2025-12-26T11:40:44.864854477Z 2025/12/26 11:40:44 [INFO] Successfully installed token store
+2025-12-26T11:40:44.864858777Z 2025/12/26 11:40:44 [INFO] Successfully installed kubeconfig store
+2025-12-26T11:40:44.864860041Z 2025/12/26 11:40:44 [INFO] Successfully installed passwordchangerequest store
+2025-12-26T11:40:44.865731394Z 2025/12/26 11:40:44 [INFO] Successfully installed groupmembershiprefreshrequest store
+2025-12-26T11:40:44.865773422Z 2025/12/26 11:40:44 [INFO] Successfully installed selfuser store
+2025-12-26T11:40:44.877683375Z 2025/12/26 11:40:44 [WARNING] Unable to fetch sql-cache-gc-interval setting (will use default): settings.management.cattle.io "sql-cache-gc-interval" not found
+2025-12-26T11:40:44.879220660Z 2025/12/26 11:40:44 [WARNING] Unable to fetch sql-cache-gc-keep-count setting (will use default): settings.management.cattle.io "sql-cache-gc-keep-count" not found
+2025-12-26T11:40:45.013389361Z I1226 11:40:45.013051      48 handler.go:285] Adding GroupVersion ext.cattle.io v1 to ResourceManager
+2025-12-26T11:40:45.641229960Z I1226 11:40:45.641035      48 requestheader_controller.go:180] Starting RequestHeaderAuthRequestController
+2025-12-26T11:40:45.641263940Z I1226 11:40:45.641103      48 shared_informer.go:349] "Waiting for caches to sync" controller="RequestHeaderAuthRequestController"
+2025-12-26T11:40:45.641266367Z I1226 11:40:45.641108      48 configmap_cafile_content.go:205] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2025-12-26T11:40:45.641267967Z I1226 11:40:45.641127      48 shared_informer.go:349] "Waiting for caches to sync" controller="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2025-12-26T11:40:45.641368572Z I1226 11:40:45.641191      48 secure_serving.go:211] Serving securely on [::]:6666
+2025-12-26T11:40:45.641381008Z I1226 11:40:45.641269      48 tlsconfig.go:243] "Starting DynamicServingCertificateController"
+2025-12-26T11:40:45.742408835Z I1226 11:40:45.742248      48 shared_informer.go:356] "Caches are synced" controller="RequestHeaderAuthRequestController"
+2025-12-26T11:40:45.742439623Z I1226 11:40:45.742277      48 shared_informer.go:356] "Caches are synced" controller="client-ca::kube-system::extension-apiserver-authentication::requestheader-client-ca-file"
+2025-12-26T11:40:46.337035299Z 2025/12/26 11:40:46 [INFO] Creating CRD composeconfigs.management.cattle.io
+2025-12-26T11:40:46.337060524Z 2025/12/26 11:40:46 [INFO] Creating CRD kontainerdrivers.management.cattle.io
+2025-12-26T11:40:46.340192841Z 2025/12/26 11:40:46 [INFO] Creating CRD rancherusernotifications.management.cattle.io
+2025-12-26T11:40:46.341022120Z 2025/12/26 11:40:46 [INFO] Creating CRD nodepools.management.cattle.io
+2025-12-26T11:40:46.346350066Z 2025/12/26 11:40:46 [INFO] Creating CRD nodes.management.cattle.io
+2025-12-26T11:40:46.349758040Z 2025/12/26 11:40:46 [INFO] Creating CRD projectnetworkpolicies.management.cattle.io
+2025-12-26T11:40:46.355593794Z 2025/12/26 11:40:46 [INFO] Creating CRD samltokens.management.cattle.io
+2025-12-26T11:40:46.360652460Z 2025/12/26 11:40:46 [INFO] Waiting for CRD rancherusernotifications.management.cattle.io to become available
+2025-12-26T11:40:46.375174326Z 2025/12/26 11:40:46 [INFO] Waiting for CRD projectnetworkpolicies.management.cattle.io to become available
+2025-12-26T11:40:46.863086010Z 2025/12/26 11:40:46 [INFO] Done waiting for CRD rancherusernotifications.management.cattle.io to become available
+2025-12-26T11:40:46.863115342Z 2025/12/26 11:40:46 [INFO] Waiting for CRD composeconfigs.management.cattle.io to become available
+2025-12-26T11:40:46.877809888Z 2025/12/26 11:40:46 [INFO] Done waiting for CRD projectnetworkpolicies.management.cattle.io to become available
+2025-12-26T11:40:46.877841870Z 2025/12/26 11:40:46 [INFO] Waiting for CRD nodes.management.cattle.io to become available
+2025-12-26T11:40:47.365407378Z 2025/12/26 11:40:47 [INFO] Done waiting for CRD composeconfigs.management.cattle.io to become available
+2025-12-26T11:40:47.380339250Z 2025/12/26 11:40:47 [INFO] Done waiting for CRD nodes.management.cattle.io to become available
+2025-12-26T11:40:47.380357372Z 2025/12/26 11:40:47 [INFO] Waiting for CRD samltokens.management.cattle.io to become available
+2025-12-26T11:40:47.882239215Z 2025/12/26 11:40:47 [INFO] Done waiting for CRD samltokens.management.cattle.io to become available
+2025-12-26T11:40:48.762427549Z 2025/12/26 11:40:48 [INFO] Configuring public API body limit to 1048576 bytes
+2025-12-26T11:40:49.143710782Z 2025/12/26 11:40:49 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:40:49.143737671Z 2025/12/26 11:40:49 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:40:50.517852306Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=ProjectRoleTemplateBinding controller
+2025-12-26T11:40:50.517998566Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Feature controller
+2025-12-26T11:40:50.518006836Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=User controller
+2025-12-26T11:40:50.518011980Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=GlobalRole controller
+2025-12-26T11:40:50.518014570Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=ClusterRegistrationToken controller
+2025-12-26T11:40:50.518144971Z 2025/12/26 11:40:50 [INFO] Starting rke.cattle.io/v1, Kind=RKEBootstrap controller
+2025-12-26T11:40:50.518626550Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=NodeDriver controller
+2025-12-26T11:40:50.518648551Z 2025/12/26 11:40:50 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=ClusterRole controller
+2025-12-26T11:40:50.519680250Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=ClusterRoleTemplateBinding controller
+2025-12-26T11:40:50.519788044Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=ClusterProxyConfig controller
+2025-12-26T11:40:50.519953095Z 2025/12/26 11:40:50 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=ClusterRoleBinding controller
+2025-12-26T11:40:50.521856782Z 2025/12/26 11:40:50 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=RoleBinding controller
+2025-12-26T11:40:50.521878027Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=DynamicSchema controller
+2025-12-26T11:40:50.521881183Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Project controller
+2025-12-26T11:40:50.521883278Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Cluster controller
+2025-12-26T11:40:50.521885772Z 2025/12/26 11:40:50 [INFO] Starting catalog.cattle.io/v1, Kind=ClusterRepo controller
+2025-12-26T11:40:50.521966420Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=UserAttribute controller
+2025-12-26T11:40:50.522036644Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Node controller
+2025-12-26T11:40:50.522044992Z 2025/12/26 11:40:50 [INFO] Starting provisioning.cattle.io/v1, Kind=Cluster controller
+2025-12-26T11:40:50.522144242Z 2025/12/26 11:40:50 [INFO] Starting apiextensions.k8s.io/v1, Kind=CustomResourceDefinition controller
+2025-12-26T11:40:50.522151902Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Preference controller
+2025-12-26T11:40:50.522868423Z 2025/12/26 11:40:50 [INFO] Starting /v1, Kind=Namespace controller
+2025-12-26T11:40:50.522876173Z 2025/12/26 11:40:50 [INFO] Starting rke.cattle.io/v1, Kind=ETCDSnapshot controller
+2025-12-26T11:40:50.522877626Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Token controller
+2025-12-26T11:40:50.522878820Z 2025/12/26 11:40:50 [INFO] Starting /v1, Kind=Secret controller
+2025-12-26T11:40:50.522879939Z 2025/12/26 11:40:50 [INFO] Starting /v1, Kind=ServiceAccount controller
+2025-12-26T11:40:50.522959782Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=GroupMember controller
+2025-12-26T11:40:50.523472040Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=KontainerDriver controller
+2025-12-26T11:40:50.523483439Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=RoleTemplate controller
+2025-12-26T11:40:50.523486561Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Group controller
+2025-12-26T11:40:50.526468315Z 2025/12/26 11:40:50 [INFO] Starting API controllers
+2025-12-26T11:40:50.526563967Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=GlobalRoleBinding controller
+2025-12-26T11:40:50.526574899Z 2025/12/26 11:40:50 [INFO] Starting catalog.cattle.io/v1, Kind=UIPlugin controller
+2025-12-26T11:40:50.526577662Z 2025/12/26 11:40:50 [INFO] Starting /v1, Kind=ConfigMap controller
+2025-12-26T11:40:50.526579920Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=AuthConfig controller
+2025-12-26T11:40:50.526617879Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=APIService controller
+2025-12-26T11:40:50.526626317Z 2025/12/26 11:40:50 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=Role controller
+2025-12-26T11:40:50.526631768Z 2025/12/26 11:40:50 [INFO] Starting apiregistration.k8s.io/v1, Kind=APIService controller
+2025-12-26T11:40:50.526503508Z I1226 11:40:50.526367      48 leaderelection.go:257] attempting to acquire leader lease kube-system/cattle-controllers...
+2025-12-26T11:40:50.526857113Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Setting controller
+2025-12-26T11:40:50.527261934Z 2025/12/26 11:40:50 [INFO] getReleaseConfig: reloading config for rke2
+2025-12-26T11:40:50.527299217Z 2025/12/26 11:40:50 [INFO] getReleaseConfig: reloading config for k3s
+2025-12-26T11:40:50.536807820Z I1226 11:40:50.536637      48 leaderelection.go:271] successfully acquired lease kube-system/cattle-controllers
+2025-12-26T11:40:50.536948696Z 2025/12/26 11:40:50 [INFO] wrangler-newContext leader func executed successfully
+2025-12-26T11:40:50.536958693Z 2025/12/26 11:40:50 [INFO] nodedriver-register leader func executed successfully
+2025-12-26T11:40:50.537018750Z 2025/12/26 11:40:50 [ERROR] getting AuthConfig genericoidc: authconfigs.management.cattle.io "genericoidc" not found
+2025-12-26T11:40:50.537026320Z 2025/12/26 11:40:50 [ERROR] getting AuthConfig cognito: authconfigs.management.cattle.io "cognito" not found
+2025-12-26T11:40:50.537027943Z 2025/12/26 11:40:50 [ERROR] failed to call leader func: authconfigs.management.cattle.io "genericoidc" not found
+2025-12-26T11:40:50.537029199Z authconfigs.management.cattle.io "cognito" not found
+2025-12-26T11:40:50.537350129Z 2025/12/26 11:40:50 [INFO] Starting ServiceAccountSecretCleaner with 0 secrets
+2025-12-26T11:40:50.537355053Z 2025/12/26 11:40:50 [INFO] rancher-new leader func executed successfully
+2025-12-26T11:40:50.537938499Z 2025/12/26 11:40:50 [INFO] Reconciling GlobalRoles
+2025-12-26T11:40:50.542591241Z 2025/12/26 11:40:50 [INFO] Creating view-rancher-metrics
+2025-12-26T11:40:50.546310825Z 2025/12/26 11:40:50 [INFO] Creating user
+2025-12-26T11:40:50.551626781Z 2025/12/26 11:40:50 [INFO] Creating user-base
+2025-12-26T11:40:50.555059127Z 2025/12/26 11:40:50 [INFO] Creating clusters-create
+2025-12-26T11:40:50.559935447Z 2025/12/26 11:40:50 [INFO] Creating nodedrivers-manage
+2025-12-26T11:40:50.562878808Z 2025/12/26 11:40:50 [INFO] Creating kontainerdrivers-manage
+2025-12-26T11:40:50.568745270Z 2025/12/26 11:40:50 [INFO] Creating roles-manage
+2025-12-26T11:40:50.571775263Z 2025/12/26 11:40:50 [INFO] Creating authn-manage
+2025-12-26T11:40:50.574931424Z 2025/12/26 11:40:50 [INFO] Creating settings-manage
+2025-12-26T11:40:50.578238762Z 2025/12/26 11:40:50 [INFO] Creating features-manage
+2025-12-26T11:40:50.583472498Z 2025/12/26 11:40:50 [INFO] Creating admin
+2025-12-26T11:40:50.586870811Z 2025/12/26 11:40:50 [INFO] Creating users-manage
+2025-12-26T11:40:50.590560164Z 2025/12/26 11:40:50 [INFO] Reconciling RoleTemplates
+2025-12-26T11:40:50.592501015Z 2025/12/26 11:40:50 [INFO] Creating nodes-view
+2025-12-26T11:40:50.597852826Z 2025/12/26 11:40:50 [INFO] Creating backups-manage
+2025-12-26T11:40:50.602699068Z 2025/12/26 11:40:50 [INFO] Creating project-owner
+2025-12-26T11:40:50.608619784Z 2025/12/26 11:40:50 [INFO] Creating read-only
+2025-12-26T11:40:50.614623082Z 2025/12/26 11:40:50 [INFO] Creating projects-view
+2025-12-26T11:40:50.618663402Z 2025/12/26 11:40:50 [INFO] Creating clusterroletemplatebindings-view
+2025-12-26T11:40:50.622495597Z 2025/12/26 11:40:50 [INFO] Creating workloads-manage
+2025-12-26T11:40:50.627898486Z 2025/12/26 11:40:50 [INFO] Creating workloads-view
+2025-12-26T11:40:50.631277219Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Group controller
+2025-12-26T11:40:50.631309425Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=GroupMember controller
+2025-12-26T11:40:50.631311320Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=Token controller
+2025-12-26T11:40:50.631312479Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=UserAttribute controller
+2025-12-26T11:40:50.631313576Z 2025/12/26 11:40:50 [INFO] Creating services-manage
+2025-12-26T11:40:50.631314625Z 2025/12/26 11:40:50 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:40:50.631469135Z 2025/12/26 11:40:50 [INFO] waiting for telemetry manager to start...
+2025-12-26T11:40:50.631694236Z 2025/12/26 11:40:50 [INFO] Starting management.cattle.io/v3, Kind=User controller
+2025-12-26T11:40:50.637093828Z 2025/12/26 11:40:50 [INFO] Creating configmaps-manage
+2025-12-26T11:40:50.640121492Z 2025/12/26 11:40:50 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:40:50.640563882Z 2025/12/26 11:40:50 [INFO] Creating secrets-view
+2025-12-26T11:40:50.641045972Z 2025/12/26 11:40:50 [INFO] Waiting for initial data to be populated
+2025-12-26T11:40:50.646020620Z 2025/12/26 11:40:50 [INFO] Creating serviceaccounts-view
+2025-12-26T11:40:50.649068916Z 2025/12/26 11:40:50 [INFO] Creating nodes-manage
+2025-12-26T11:40:50.654374346Z 2025/12/26 11:40:50 [INFO] Creating configmaps-view
+2025-12-26T11:40:50.657652621Z 2025/12/26 11:40:50 [INFO] Creating persistentvolumeclaims-view
+2025-12-26T11:40:50.660102439Z 2025/12/26 11:40:50 [WARNING] A bootstrap password secret was found, but did not match the expected structure.
+2025-12-26T11:40:50.661431200Z 2025/12/26 11:40:50 [INFO] Creating navlinks-view
+2025-12-26T11:40:50.665130500Z 2025/12/26 11:40:50 [INFO] Creating cluster-admin
+2025-12-26T11:40:50.669187236Z 2025/12/26 11:40:50 [INFO] Creating projects-create
+2025-12-26T11:40:50.674474166Z 2025/12/26 11:40:50 [INFO] Creating clusterroletemplatebindings-manage
+2025-12-26T11:40:50.678057463Z 2025/12/26 11:40:50 [INFO] Creating navlinks-manage
+2025-12-26T11:40:50.685453272Z 2025/12/26 11:40:50 [INFO] Creating create-ns
+2025-12-26T11:40:50.691162309Z 2025/12/26 11:40:50 [INFO] Creating clustercatalogs-manage
+2025-12-26T11:40:50.696637753Z 2025/12/26 11:40:50 [INFO] Creating project-member
+2025-12-26T11:40:50.709492837Z 2025/12/26 11:40:50 [INFO] Creating secrets-manage
+2025-12-26T11:40:50.712703767Z 2025/12/26 11:40:50 [INFO] Steve auth startup complete
+2025-12-26T11:40:50.712752419Z 2025/12/26 11:40:50 [INFO] rancher-start::authServer leader func executed successfully
+2025-12-26T11:40:50.715147016Z 2025/12/26 11:40:50 [INFO] Creating serviceaccounts-manage
+2025-12-26T11:40:50.718646176Z 2025/12/26 11:40:50 [INFO] Creating projectroletemplatebindings-view
+2025-12-26T11:40:50.722454078Z 2025/12/26 11:40:50 [INFO] Creating cluster-owner
+2025-12-26T11:40:50.728461553Z 2025/12/26 11:40:50 [INFO] Creating storage-manage
+2025-12-26T11:40:50.733182734Z 2025/12/26 11:40:50 [INFO] Creating services-view
+2025-12-26T11:40:50.737325069Z 2025/12/26 11:40:50 [INFO] Creating project-monitoring-readonly
+2025-12-26T11:40:50.745431676Z 2025/12/26 11:40:50 [INFO] Creating monitoring-ui-view
+2025-12-26T11:40:50.749107006Z 2025/12/26 11:40:50 [INFO] Creating admin
+2025-12-26T11:40:50.753288777Z 2025/12/26 11:40:50 [INFO] Creating cluster-member
+2025-12-26T11:40:50.759065758Z 2025/12/26 11:40:50 [INFO] Creating clustercatalogs-view
+2025-12-26T11:40:50.763295887Z 2025/12/26 11:40:50 [INFO] Creating persistentvolumeclaims-manage
+2025-12-26T11:40:50.767830351Z 2025/12/26 11:40:50 [INFO] Creating projectroletemplatebindings-manage
+2025-12-26T11:40:50.773771602Z 2025/12/26 11:40:50 [INFO] Creating ingress-manage
+2025-12-26T11:40:50.778226905Z 2025/12/26 11:40:50 [INFO] Creating ingress-view
+2025-12-26T11:40:50.781852190Z 2025/12/26 11:40:50 [INFO] Creating edit
+2025-12-26T11:40:50.786732075Z 2025/12/26 11:40:50 [INFO] Creating view
+2025-12-26T11:40:50.826026893Z 2025/12/26 11:40:50 [INFO] 
+2025-12-26T11:40:50.826061858Z 2025/12/26 11:40:50 [INFO] -----------------------------------------
+2025-12-26T11:40:50.826064042Z 2025/12/26 11:40:50 [INFO] Welcome to Rancher
+2025-12-26T11:40:50.826065263Z 2025/12/26 11:40:50 [INFO] A bootstrap password has been generated for your admin user.
+2025-12-26T11:40:50.826066470Z 2025/12/26 11:40:50 [INFO] 
+2025-12-26T11:40:50.826067637Z 2025/12/26 11:40:50 [INFO] Bootstrap Password: lm5dtf7j6hl5f8nnmh645p2vdcgtf5qzs9jcsgrt9kz9wnz7vcmbvm
+2025-12-26T11:40:50.826069162Z 2025/12/26 11:40:50 [INFO] 
+2025-12-26T11:40:50.826070204Z 2025/12/26 11:40:50 [INFO] Use https://172.17.0.2/dashboard/?setup=lm5dtf7j6hl5f8nnmh645p2vdcgtf5qzs9jcsgrt9kz9wnz7vcmbvm to complete setup in the UI
+2025-12-26T11:40:50.826071407Z 2025/12/26 11:40:50 [INFO] -----------------------------------------
+2025-12-26T11:40:50.826083786Z 2025/12/26 11:40:50 [INFO] 
+2025-12-26T11:40:50.831225051Z 2025/12/26 11:40:50 [INFO] Created default admin user and binding
+2025-12-26T11:40:50.919622944Z 2025/12/26 11:40:50 [INFO] Registering namespaceHandler for adding labels 
+2025-12-26T11:40:50.923525911Z I1226 11:40:50.923235      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:50.925118236Z I1226 11:40:50.924927      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:51.013904617Z 2025/12/26 11:40:51 [INFO] creating alibabacredentialconfig schema
+2025-12-26T11:40:51.017959179Z 2025/12/26 11:40:51 [INFO] creating credentialconfig schema (parent: cloudCredential) with field: alibabacredentialConfig
+2025-12-26T11:40:51.021184185Z 2025/12/26 11:40:51 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:51.022246479Z 2025/12/26 11:40:51 [INFO] Starting apps/v1, Kind=Deployment controller
+2025-12-26T11:40:51.022275390Z 2025/12/26 11:40:51 [INFO] Starting fleet.cattle.io/v1alpha1, Kind=Cluster controller
+2025-12-26T11:40:51.025632522Z 2025/12/26 11:40:51 [INFO] Starting /v1, Kind=Pod controller
+2025-12-26T11:40:51.025646933Z 2025/12/26 11:40:51 [INFO] Starting catalog.cattle.io/v1, Kind=App controller
+2025-12-26T11:40:51.025648575Z 2025/12/26 11:40:51 [INFO] Starting admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration controller
+2025-12-26T11:40:51.025649791Z 2025/12/26 11:40:51 [INFO] Starting /v1, Kind=ReplicationController controller
+2025-12-26T11:40:51.025650920Z 2025/12/26 11:40:51 [INFO] Starting management.cattle.io/v3, Kind=ManagedChart controller
+2025-12-26T11:40:51.025834575Z 2025/12/26 11:40:51 [INFO] Starting admissionregistration.k8s.io/v1, Kind=MutatingWebhookConfiguration controller
+2025-12-26T11:40:51.025888751Z 2025/12/26 11:40:51 [INFO] Starting apps/v1, Kind=DaemonSet controller
+2025-12-26T11:40:51.025896468Z 2025/12/26 11:40:51 [INFO] Starting fleet.cattle.io/v1alpha1, Kind=ClusterGroup controller
+2025-12-26T11:40:51.025900175Z 2025/12/26 11:40:51 [INFO] Starting catalog.cattle.io/v1, Kind=Operation controller
+2025-12-26T11:40:51.025902505Z 2025/12/26 11:40:51 [INFO] Starting management.cattle.io/v3, Kind=FleetWorkspace controller
+2025-12-26T11:40:51.030631588Z 2025/12/26 11:40:51 [INFO] Starting batch/v1, Kind=Job controller
+2025-12-26T11:40:51.030776138Z 2025/12/26 11:40:51 [INFO] Starting apps/v1, Kind=ReplicaSet controller
+2025-12-26T11:40:51.031157439Z 2025/12/26 11:40:51 [INFO] Starting apps/v1, Kind=StatefulSet controller
+2025-12-26T11:40:51.031194407Z 2025/12/26 11:40:51 [INFO] Starting /v1, Kind=Endpoints controller
+2025-12-26T11:40:51.031697391Z 2025/12/26 11:40:51 [INFO] Starting upgrade.cattle.io/v1, Kind=Plan controller
+2025-12-26T11:40:51.032399837Z 2025/12/26 11:40:51 [INFO] Starting /v1, Kind=Service controller
+2025-12-26T11:40:51.032408652Z 2025/12/26 11:40:51 [INFO] Starting batch/v1, Kind=CronJob controller
+2025-12-26T11:40:51.032501241Z 2025/12/26 11:40:51 [INFO] Starting networking.k8s.io/v1, Kind=Ingress controller
+2025-12-26T11:40:51.033360234Z 2025/12/26 11:40:51 [INFO] Detected v2.6.0 upgrade, forcing logout for all web users
+2025-12-26T11:40:51.033839855Z 2025/12/26 11:40:51 [ERROR] Failed to find system chart fleet-crd will try again in 5 seconds: configmaps "" not found
+2025-12-26T11:40:51.033858858Z 2025/12/26 11:40:51 [INFO] Starting fleet.cattle.io/v1alpha1, Kind=Bundle controller
+2025-12-26T11:40:51.034218602Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=RKEControlPlane controller
+2025-12-26T11:40:51.034268112Z W1226 11:40:51.034107      48 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:40:51.035583734Z 2025/12/26 11:40:51 [INFO] Starting /v1, Kind=Node controller
+2025-12-26T11:40:51.038283450Z 2025/12/26 11:40:51 [ERROR] Failed to read API for groups map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:40:51.047392560Z 2025/12/26 11:40:51 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:51.047478672Z 2025/12/26 11:40:51 [INFO] getReleaseConfig: reloading config for k3s
+2025-12-26T11:40:51.049750358Z 2025/12/26 11:40:51 [INFO] adding kontainer driver oraclecontainerengine
+2025-12-26T11:40:51.056588231Z 2025/12/26 11:40:51 [INFO] adding kontainer driver linodekubernetesengine
+2025-12-26T11:40:51.062765465Z 2025/12/26 11:40:51 [INFO] adding kontainer driver opentelekomcloudcontainerengine
+2025-12-26T11:40:51.094102905Z 2025/12/26 11:40:51 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:51.094352169Z 2025/12/26 11:40:51 [INFO] getReleaseConfig: reloading config for rke2
+2025-12-26T11:40:51.123404065Z 2025/12/26 11:40:51 [INFO] rancher-start::dashboarddata leader func executed successfully
+2025-12-26T11:40:51.126552311Z 2025/12/26 11:40:51 [INFO] Created cattle-global-data namespace
+2025-12-26T11:40:51.126578619Z 2025/12/26 11:40:51 [INFO] Creating node driver amazonec2
+2025-12-26T11:40:51.140264789Z 2025/12/26 11:40:51 [INFO] Creating node driver azure
+2025-12-26T11:40:51.147153590Z 2025/12/26 11:40:51 [INFO] Creating node driver cloudca
+2025-12-26T11:40:51.153272437Z 2025/12/26 11:40:51 [INFO] Creating node driver cloudscale
+2025-12-26T11:40:51.158400320Z 2025/12/26 11:40:51 [INFO] Creating node driver digitalocean
+2025-12-26T11:40:51.165654902Z 2025/12/26 11:40:51 [INFO] Creating node driver exoscale
+2025-12-26T11:40:51.170642835Z 2025/12/26 11:40:51 [INFO] Creating node driver google
+2025-12-26T11:40:51.175346972Z 2025/12/26 11:40:51 [INFO] Creating node driver harvester
+2025-12-26T11:40:51.182165154Z 2025/12/26 11:40:51 [INFO] Creating node driver linode
+2025-12-26T11:40:51.187106900Z 2025/12/26 11:40:51 [INFO] Creating node driver oci
+2025-12-26T11:40:51.191685489Z 2025/12/26 11:40:51 [INFO] Creating node driver openstack
+2025-12-26T11:40:51.200862516Z 2025/12/26 11:40:51 [INFO] Creating node driver otc
+2025-12-26T11:40:51.205397364Z 2025/12/26 11:40:51 [INFO] Creating node driver packet
+2025-12-26T11:40:51.210245890Z 2025/12/26 11:40:51 [INFO] Creating node driver pnap
+2025-12-26T11:40:51.217926019Z 2025/12/26 11:40:51 [INFO] Creating node driver rackspace
+2025-12-26T11:40:51.222412345Z 2025/12/26 11:40:51 [INFO] Creating node driver softlayer
+2025-12-26T11:40:51.227295327Z 2025/12/26 11:40:51 [INFO] Creating node driver nutanix
+2025-12-26T11:40:51.234973719Z 2025/12/26 11:40:51 [INFO] Creating node driver outscale
+2025-12-26T11:40:51.239286003Z 2025/12/26 11:40:51 [INFO] Creating node driver vmwarevsphere
+2025-12-26T11:40:51.340485205Z 2025/12/26 11:40:51 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:51.384203461Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.384369160Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.390349226Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.410889474Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.417340403Z 2025/12/26 11:40:51 [INFO] userretention: daemon is disabled
+2025-12-26T11:40:51.418855465Z 2025/12/26 11:40:51 [INFO] Starting management.cattle.io/v3, Kind=ComposeConfig controller
+2025-12-26T11:40:51.422264938Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider adfs because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424027424Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider genericoidc because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424057394Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider keycloakoidc because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424061065Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider activedirectory because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424063264Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider ping because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424113653Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider openldap because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424117090Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider googleoauth because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424119184Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider azuread because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424121183Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider okta because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424123526Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider shibboleth because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424130104Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider freeipa because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424132434Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider github because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424134683Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider keycloak because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424137146Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider cognito because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.424306737Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider githubapp because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.427948998Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider oidc because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.434136960Z 2025/12/26 11:40:51 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:51.436930810Z 2025/12/26 11:40:51 [INFO] [mgmt-cluster-rbac-delete] Creating Default project for cluster local
+2025-12-26T11:40:51.440330906Z 2025/12/26 11:40:51 [INFO] create kontainerdriver oraclecontainerengine
+2025-12-26T11:40:51.447673348Z 2025/12/26 11:40:51 [INFO] Creating new GlobalRoleBinding for GlobalRoleBinding globalrolebinding-7pvvk
+2025-12-26T11:40:51.448973085Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-grb-controller] Creating clusterRoleBinding for globalRoleBinding globalrolebinding-7pvvk for user user-p2q58 with role cattle-globalrole-admin
+2025-12-26T11:40:51.448992751Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider adfs because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.449066363Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-clusters-create for corresponding GlobalRole
+2025-12-26T11:40:51.450027934Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider azuread because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.450048428Z 2025/12/26 11:40:51 [INFO] create kontainerdriver linodekubernetesengine
+2025-12-26T11:40:51.450164524Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider keycloak because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.451955766Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider oidc because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.452790825Z 2025/12/26 11:40:51 [INFO] create kontainerdriver opentelekomcloudcontainerengine
+2025-12-26T11:40:51.454644226Z 2025/12/26 11:40:51 [INFO] [mgmt-project-rbac-create] Creating namespace p-bzkld
+2025-12-26T11:40:51.459591821Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-authn-manage for corresponding GlobalRole
+2025-12-26T11:40:51.459621057Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-view-rancher-metrics for corresponding GlobalRole
+2025-12-26T11:40:51.472303494Z 2025/12/26 11:40:51 [INFO] Starting API controllers
+2025-12-26T11:40:51.472507024Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-nodedrivers-manage for corresponding GlobalRole
+2025-12-26T11:40:51.472716832Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-kontainerdrivers-manage for corresponding GlobalRole
+2025-12-26T11:40:51.472731068Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-features-manage for corresponding GlobalRole
+2025-12-26T11:40:51.472793258Z 2025/12/26 11:40:51 [INFO] Starting provisioning.cattle.io/v1, Kind=Cluster controller
+2025-12-26T11:40:51.472796008Z 2025/12/26 11:40:51 [INFO] Watching metadata for rke.cattle.io/v1, Kind=CustomMachine
+2025-12-26T11:40:51.476525037Z 2025/12/26 11:40:51 [INFO] Running in single server mode, will not peer connections
+2025-12-26T11:40:51.477241462Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-settings-manage for corresponding GlobalRole
+2025-12-26T11:40:51.477339121Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.478102077Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.483660154Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-users-manage for corresponding GlobalRole
+2025-12-26T11:40:51.484093708Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-user-base for corresponding GlobalRole
+2025-12-26T11:40:51.486911092Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-admin for corresponding GlobalRole
+2025-12-26T11:40:51.491757778Z 2025/12/26 11:40:51 [WARNING] [mgmt-project-rbac-create] project p-bzkld has no creatorId annotation. Cannot add creator as owner
+2025-12-26T11:40:51.492593604Z 2025/12/26 11:40:51 [INFO] [mgmt-project-rbac-create] Updating project p-bzkld
+2025-12-26T11:40:51.492609969Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-user for corresponding GlobalRole
+2025-12-26T11:40:51.492621108Z 2025/12/26 11:40:51 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole-roles-manage for corresponding GlobalRole
+2025-12-26T11:40:51.495698101Z 2025/12/26 11:40:51 [INFO] Rancher startup complete
+2025-12-26T11:40:51.495727801Z 2025/12/26 11:40:51 [INFO] multiclustermanager-start leader func executed successfully
+2025-12-26T11:40:51.495731152Z 2025/12/26 11:40:51 [INFO] checking configmap cattle-system/admincreated to determine if duplicate bindings cleanup needs to run
+2025-12-26T11:40:51.495734207Z 2025/12/26 11:40:51 [INFO] checking configmap cattle-system/admincreated to determine if orphan bindings cleanup needs to run
+2025-12-26T11:40:51.495832714Z 2025/12/26 11:40:51 [INFO] update kontainerdriver oraclecontainerengine
+2025-12-26T11:40:51.499713601Z 2025/12/26 11:40:51 [INFO] update kontainerdriver linodekubernetesengine
+2025-12-26T11:40:51.521574422Z 2025/12/26 11:40:51 [INFO] bindings cleanup needed, waiting 3 minutes before starting
+2025-12-26T11:40:51.529177257Z 2025/12/26 11:40:51 [INFO] [mgmt-cluster-rbac-delete] Creating System project for cluster local
+2025-12-26T11:40:51.536845834Z 2025/12/26 11:40:51 [INFO] [clean-orphan-bindings] cleaning up orphaned bindings
+2025-12-26T11:40:51.537242648Z 2025/12/26 11:40:51 [INFO] update kontainerdriver opentelekomcloudcontainerengine
+2025-12-26T11:40:51.546230810Z W1226 11:40:51.545938      48 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:40:51.549215817Z 2025/12/26 11:40:51 [INFO] [mgmt-project-rbac-create] Creating namespace p-m2jqf
+2025-12-26T11:40:51.549240007Z 2025/12/26 11:40:51 [INFO] [clean-orphan-bindings] checking for orphaned rolebindings
+2025-12-26T11:40:51.549244281Z 2025/12/26 11:40:51 [INFO] [mgmt-cluster-rbac-delete] Updating cluster local
+2025-12-26T11:40:51.559088023Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.559127419Z 2025/12/26 11:40:51 [WARNING] [mgmt-project-rbac-create] project p-m2jqf has no creatorId annotation. Cannot add creator as owner
+2025-12-26T11:40:51.559130387Z 2025/12/26 11:40:51 [INFO] [mgmt-project-rbac-create] Updating project p-m2jqf
+2025-12-26T11:40:51.564893146Z 2025/12/26 11:40:51 [WARNING] [mgmt-cluster-rbac-delete] cluster local has no creatorId annotation. Cannot add creator as owner
+2025-12-26T11:40:51.564961819Z 2025/12/26 11:40:51 [INFO] [mgmt-cluster-rbac-delete] Updating cluster local
+2025-12-26T11:40:51.573561311Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=CustomMachine controller
+2025-12-26T11:40:51.575086153Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=ETCDSnapshot controller
+2025-12-26T11:40:51.579196944Z 2025/12/26 11:40:51 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEBootstrapTemplate
+2025-12-26T11:40:51.580299618Z 2025/12/26 11:40:51 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKECluster
+2025-12-26T11:40:51.590247271Z 2025/12/26 11:40:51 [WARNING] [mgmt-cluster-rbac-delete] cluster local has no creatorId annotation. Cannot add creator as owner
+2025-12-26T11:40:51.590300954Z 2025/12/26 11:40:51 [INFO] [mgmt-cluster-rbac-delete] Updating cluster local
+2025-12-26T11:40:51.593677108Z 2025/12/26 11:40:51 [INFO] [CleanupOrphanBindingsDone] successfully cleaned up orphan bindings
+2025-12-26T11:40:51.606653914Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider activedirectory because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.626996475Z 2025/12/26 11:40:51 [INFO] [migrate-ad-user] during unmigration, found that Active Directory is not enabled. nothing to do
+2025-12-26T11:40:51.650485519Z 2025/12/26 11:40:51 [INFO] Refusing to reset the config and clean up resources of the auth provider activedirectory because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:51.683876758Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=RKEBootstrap controller
+2025-12-26T11:40:51.683927619Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=RKECluster controller
+2025-12-26T11:40:51.683932598Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=RKEBootstrapTemplate controller
+2025-12-26T11:40:51.683935615Z 2025/12/26 11:40:51 [INFO] Starting rke.cattle.io/v1, Kind=RKEControlPlane controller
+2025-12-26T11:40:51.724319361Z 2025/12/26 11:40:51 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:51.724379001Z 2025/12/26 11:40:51 [INFO] getReleaseConfig: reloading config for k3s
+2025-12-26T11:40:51.808318230Z 2025/12/26 11:40:51 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:51.808342127Z 2025/12/26 11:40:51 [INFO] getReleaseConfig: reloading config for rke2
+2025-12-26T11:40:51.811291136Z 2025/12/26 11:40:51 [INFO] Starting cluster controllers for local
+2025-12-26T11:40:51.841306942Z 2025/12/26 11:40:51 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:51.879634654Z 2025/12/26 11:40:51 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:51.921482437Z 2025/12/26 11:40:51 [INFO] Starting management.cattle.io/v3, Kind=SamlToken controller
+2025-12-26T11:40:51.942354434Z 2025/12/26 11:40:51 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:51.955750015Z I1226 11:40:51.955474      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:51.965108636Z I1226 11:40:51.964854      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:40:52.026288008Z 2025/12/26 11:40:52 [INFO] Starting /v1, Kind=LimitRange controller
+2025-12-26T11:40:52.026322385Z 2025/12/26 11:40:52 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=RoleBinding controller
+2025-12-26T11:40:52.026324998Z 2025/12/26 11:40:52 [INFO] Starting /v1, Kind=Namespace controller
+2025-12-26T11:40:52.026327008Z 2025/12/26 11:40:52 [INFO] Starting apiregistration.k8s.io/v1, Kind=APIService controller
+2025-12-26T11:40:52.026329171Z 2025/12/26 11:40:52 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=ClusterRoleBinding controller
+2025-12-26T11:40:52.026331247Z 2025/12/26 11:40:52 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=Role controller
+2025-12-26T11:40:52.026333597Z 2025/12/26 11:40:52 [INFO] Starting /v1, Kind=ResourceQuota controller
+2025-12-26T11:40:52.026335505Z 2025/12/26 11:40:52 [INFO] Starting rbac.authorization.k8s.io/v1, Kind=ClusterRole controller
+2025-12-26T11:40:52.026447181Z 2025/12/26 11:40:52 [INFO] Starting /v1, Kind=Node controller
+2025-12-26T11:40:52.029177345Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Setting
+2025-12-26T11:40:52.029193423Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ManagedChart
+2025-12-26T11:40:52.029196144Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ProjectRoleTemplateBinding
+2025-12-26T11:40:52.029198407Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Endpoints
+2025-12-26T11:40:52.029200045Z 2025/12/26 11:40:52 [INFO] Watching metadata for apps/v1, Kind=ReplicaSet
+2025-12-26T11:40:52.029201611Z 2025/12/26 11:40:52 [INFO] Watching metadata for batch/v1, Kind=CronJob
+2025-12-26T11:40:52.029203490Z 2025/12/26 11:40:52 [INFO] Watching metadata for apps/v1, Kind=Deployment
+2025-12-26T11:40:52.029205176Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Service
+2025-12-26T11:40:52.029206735Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=GlobalRole
+2025-12-26T11:40:52.029208479Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=RancherUserNotification
+2025-12-26T11:40:52.029210412Z 2025/12/26 11:40:52 [INFO] Watching metadata for certificates.k8s.io/v1, Kind=CertificateSigningRequest
+2025-12-26T11:40:52.029212450Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=PodTemplate
+2025-12-26T11:40:52.029227677Z 2025/12/26 11:40:52 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=UIPlugin
+2025-12-26T11:40:52.029229631Z 2025/12/26 11:40:52 [INFO] Watching metadata for policy/v1, Kind=PodDisruptionBudget
+2025-12-26T11:40:52.029231430Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=PersistentVolumeClaim
+2025-12-26T11:40:52.029233248Z 2025/12/26 11:40:52 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=Role
+2025-12-26T11:40:52.029235027Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Group
+2025-12-26T11:40:52.029236874Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=PersistentVolume
+2025-12-26T11:40:52.029238827Z 2025/12/26 11:40:52 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=RoleBinding
+2025-12-26T11:40:52.029243747Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=ReplicationController
+2025-12-26T11:40:52.029245262Z 2025/12/26 11:40:52 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=App
+2025-12-26T11:40:52.029246474Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Secret
+2025-12-26T11:40:52.029247620Z 2025/12/26 11:40:52 [INFO] Watching metadata for storage.k8s.io/v1, Kind=CSIStorageCapacity
+2025-12-26T11:40:52.029443233Z 2025/12/26 11:40:52 [INFO] Watching metadata for ui.cattle.io/v1, Kind=NavLink
+2025-12-26T11:40:52.029457222Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=NodePool
+2025-12-26T11:40:52.029538168Z 2025/12/26 11:40:52 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=Operation
+2025-12-26T11:40:52.029546155Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=GroupMember
+2025-12-26T11:40:52.029549128Z 2025/12/26 11:40:52 [INFO] Watching metadata for scheduling.k8s.io/v1, Kind=PriorityClass
+2025-12-26T11:40:52.029551374Z 2025/12/26 11:40:52 [INFO] Watching metadata for k3s.cattle.io/v1, Kind=Addon
+2025-12-26T11:40:52.029553907Z 2025/12/26 11:40:52 [INFO] Watching metadata for resource.k8s.io/v1, Kind=ResourceSlice
+2025-12-26T11:40:52.029556087Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Token
+2025-12-26T11:40:52.029558162Z 2025/12/26 11:40:52 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Bundle
+2025-12-26T11:40:52.029560366Z 2025/12/26 11:40:52 [INFO] Watching metadata for storage.k8s.io/v1, Kind=VolumeAttributesClass
+2025-12-26T11:40:52.029562394Z 2025/12/26 11:40:52 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=ClusterRoleBinding
+2025-12-26T11:40:52.029564564Z 2025/12/26 11:40:52 [INFO] Watching metadata for autoscaling/v2, Kind=HorizontalPodAutoscaler
+2025-12-26T11:40:52.029566804Z 2025/12/26 11:40:52 [INFO] Watching metadata for flowcontrol.apiserver.k8s.io/v1, Kind=FlowSchema
+2025-12-26T11:40:52.029612491Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Event
+2025-12-26T11:40:52.029620204Z 2025/12/26 11:40:52 [INFO] Watching metadata for rbac.authorization.k8s.io/v1, Kind=ClusterRole
+2025-12-26T11:40:52.029622828Z 2025/12/26 11:40:52 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=HelmOp
+2025-12-26T11:40:52.029637858Z 2025/12/26 11:40:52 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration
+2025-12-26T11:40:52.029640592Z 2025/12/26 11:40:52 [INFO] Watching metadata for discovery.k8s.io/v1, Kind=EndpointSlice
+2025-12-26T11:40:52.029642768Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Pod
+2025-12-26T11:40:52.029645002Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=PodSecurityAdmissionConfigurationTemplate
+2025-12-26T11:40:52.029647291Z 2025/12/26 11:40:52 [INFO] Watching metadata for node.k8s.io/v1, Kind=RuntimeClass
+2025-12-26T11:40:52.029654465Z 2025/12/26 11:40:52 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=ValidatingAdmissionPolicy
+2025-12-26T11:40:52.029657098Z 2025/12/26 11:40:52 [INFO] Watching metadata for helm.cattle.io/v1, Kind=HelmChartConfig
+2025-12-26T11:40:52.029659158Z 2025/12/26 11:40:52 [INFO] Watching metadata for batch/v1, Kind=Job
+2025-12-26T11:40:52.029661227Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=FleetWorkspace
+2025-12-26T11:40:52.029663238Z 2025/12/26 11:40:52 [INFO] Watching metadata for helm.cattle.io/v1, Kind=HelmChart
+2025-12-26T11:40:52.029665227Z 2025/12/26 11:40:52 [INFO] Watching metadata for networking.k8s.io/v1, Kind=ServiceCIDR
+2025-12-26T11:40:52.029667707Z 2025/12/26 11:40:52 [INFO] Watching metadata for provisioning.cattle.io/v1, Kind=Cluster
+2025-12-26T11:40:52.029670023Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Project
+2025-12-26T11:40:52.029672181Z 2025/12/26 11:40:52 [INFO] Watching metadata for upgrade.cattle.io/v1, Kind=Plan
+2025-12-26T11:40:52.029674378Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ProjectNetworkPolicy
+2025-12-26T11:40:52.029772321Z 2025/12/26 11:40:52 [INFO] Watching metadata for catalog.cattle.io/v1, Kind=ClusterRepo
+2025-12-26T11:40:52.029794245Z 2025/12/26 11:40:52 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Cluster
+2025-12-26T11:40:52.029796678Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEBootstrap
+2025-12-26T11:40:52.029798999Z 2025/12/26 11:40:52 [INFO] Watching metadata for apiregistration.k8s.io/v1, Kind=APIService
+2025-12-26T11:40:52.029828189Z 2025/12/26 11:40:52 [INFO] Watching metadata for apps/v1, Kind=ControllerRevision
+2025-12-26T11:40:52.029838785Z 2025/12/26 11:40:52 [INFO] Watching metadata for apps/v1, Kind=StatefulSet
+2025-12-26T11:40:52.029909319Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=ConfigMap
+2025-12-26T11:40:52.029912350Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ClusterRegistrationToken
+2025-12-26T11:40:52.029930825Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ClusterRoleTemplateBinding
+2025-12-26T11:40:52.029952243Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Node
+2025-12-26T11:40:52.030089167Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=AuthConfig
+2025-12-26T11:40:52.030098876Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=UserAttribute
+2025-12-26T11:40:52.030101571Z 2025/12/26 11:40:52 [INFO] Watching metadata for networking.k8s.io/v1, Kind=NetworkPolicy
+2025-12-26T11:40:52.030103838Z 2025/12/26 11:40:52 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=MutatingWebhookConfiguration
+2025-12-26T11:40:52.030106234Z 2025/12/26 11:40:52 [INFO] Watching metadata for resource.k8s.io/v1, Kind=ResourceClaimTemplate
+2025-12-26T11:40:52.030108401Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke.cattle.io/v1, Kind=CustomMachine
+2025-12-26T11:40:52.030240741Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Node
+2025-12-26T11:40:52.030247005Z 2025/12/26 11:40:52 [INFO] Watching metadata for resource.k8s.io/v1, Kind=DeviceClass
+2025-12-26T11:40:52.030249950Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Feature
+2025-12-26T11:40:52.030252266Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=NodeDriver
+2025-12-26T11:40:52.030254410Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEControlPlane
+2025-12-26T11:40:52.030429906Z 2025/12/26 11:40:52 [INFO] Watching metadata for k3s.cattle.io/v1, Kind=ETCDSnapshotFile
+2025-12-26T11:40:52.030439280Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=LimitRange
+2025-12-26T11:40:52.030441579Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=GlobalRoleBinding
+2025-12-26T11:40:52.030494317Z 2025/12/26 11:40:52 [INFO] Watching metadata for resource.k8s.io/v1, Kind=ResourceClaim
+2025-12-26T11:40:52.030519113Z 2025/12/26 11:40:52 [INFO] Watching metadata for apps/v1, Kind=DaemonSet
+2025-12-26T11:40:52.030652313Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=ServiceAccount
+2025-12-26T11:40:52.030664706Z 2025/12/26 11:40:52 [INFO] Watching metadata for apiextensions.k8s.io/v1, Kind=CustomResourceDefinition
+2025-12-26T11:40:52.030761039Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke.cattle.io/v1, Kind=ETCDSnapshot
+2025-12-26T11:40:52.030772619Z 2025/12/26 11:40:52 [INFO] Watching metadata for events.k8s.io/v1, Kind=Event
+2025-12-26T11:40:52.030775576Z 2025/12/26 11:40:52 [INFO] Watching metadata for storage.k8s.io/v1, Kind=VolumeAttachment
+2025-12-26T11:40:52.030777818Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ComposeConfig
+2025-12-26T11:40:52.031357822Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=RoleTemplate
+2025-12-26T11:40:52.031367752Z 2025/12/26 11:40:52 [INFO] Watching metadata for networking.k8s.io/v1, Kind=Ingress
+2025-12-26T11:40:52.031370184Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=SamlToken
+2025-12-26T11:40:52.031371876Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=KontainerDriver
+2025-12-26T11:40:52.031384428Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKECluster
+2025-12-26T11:40:52.031386422Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=APIService
+2025-12-26T11:40:52.031388085Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=DynamicSchema
+2025-12-26T11:40:52.031390244Z 2025/12/26 11:40:52 [INFO] Watching metadata for flowcontrol.apiserver.k8s.io/v1, Kind=PriorityLevelConfiguration
+2025-12-26T11:40:52.031391941Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=User
+2025-12-26T11:40:52.031393681Z 2025/12/26 11:40:52 [INFO] Watching metadata for storage.k8s.io/v1, Kind=StorageClass
+2025-12-26T11:40:52.031395493Z 2025/12/26 11:40:52 [INFO] Watching metadata for networking.k8s.io/v1, Kind=IPAddress
+2025-12-26T11:40:52.031397321Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=Namespace
+2025-12-26T11:40:52.031398921Z 2025/12/26 11:40:52 [INFO] Watching metadata for auditlog.cattle.io/v1, Kind=AuditPolicy
+2025-12-26T11:40:52.031401280Z 2025/12/26 11:40:52 [INFO] Watching metadata for storage.k8s.io/v1, Kind=CSINode
+2025-12-26T11:40:52.031402989Z 2025/12/26 11:40:52 [INFO] Watching metadata for coordination.k8s.io/v1, Kind=Lease
+2025-12-26T11:40:52.031404873Z 2025/12/26 11:40:52 [INFO] Watching metadata for storage.k8s.io/v1, Kind=CSIDriver
+2025-12-26T11:40:52.031406572Z 2025/12/26 11:40:52 [INFO] Watching metadata for telemetry.cattle.io/v1, Kind=SecretRequest
+2025-12-26T11:40:52.031408250Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=ClusterProxyConfig
+2025-12-26T11:40:52.031410113Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Cluster
+2025-12-26T11:40:52.031411870Z 2025/12/26 11:40:52 [INFO] Watching metadata for management.cattle.io/v3, Kind=Preference
+2025-12-26T11:40:52.031413516Z 2025/12/26 11:40:52 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ClusterGroup
+2025-12-26T11:40:52.031415207Z 2025/12/26 11:40:52 [INFO] Watching metadata for networking.k8s.io/v1, Kind=IngressClass
+2025-12-26T11:40:52.031417766Z 2025/12/26 11:40:52 [INFO] Watching metadata for admissionregistration.k8s.io/v1, Kind=ValidatingAdmissionPolicyBinding
+2025-12-26T11:40:52.031419519Z 2025/12/26 11:40:52 [INFO] Watching metadata for /v1, Kind=ResourceQuota
+2025-12-26T11:40:52.031421143Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke.cattle.io/v1, Kind=RKEBootstrapTemplate
+2025-12-26T11:40:52.032839129Z I1226 11:40:52.032612      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:52.044746355Z I1226 11:40:52.044114      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:52.051388772Z 2025/12/26 11:40:52 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:52.074067506Z 2025/12/26 11:40:52 [INFO] uploading amazonec2Config to nodeconfig schema
+2025-12-26T11:40:52.092114934Z 2025/12/26 11:40:52 [INFO] uploading amazonec2Config to nodetemplateconfig schema
+2025-12-26T11:40:52.101759616Z 2025/12/26 11:40:52 [INFO] uploading amazonec2credentialConfig to credentialconfig schema
+2025-12-26T11:40:52.109469756Z 2025/12/26 11:40:52 [INFO] uploading linodeConfig to nodeconfig schema
+2025-12-26T11:40:52.114009255Z 2025/12/26 11:40:52 [INFO] uploading linodeConfig to nodetemplateconfig schema
+2025-12-26T11:40:52.128753266Z 2025/12/26 11:40:52 [INFO] Starting /v1, Kind=Secret controller
+2025-12-26T11:40:52.128785501Z 2025/12/26 11:40:52 [INFO] Starting /v1, Kind=ServiceAccount controller
+2025-12-26T11:40:52.128789652Z 2025/12/26 11:40:52 [INFO] Starting cluster controllers for local
+2025-12-26T11:40:52.128989715Z 2025/12/26 11:40:52 [INFO] uploading vmwarevsphereConfig to nodeconfig schema
+2025-12-26T11:40:52.129183240Z 2025/12/26 11:40:52 [INFO] Starting cluster agent for local [owner=true]
+2025-12-26T11:40:52.135774875Z 2025/12/26 11:40:52 [INFO] CacheFor STARTS creating informer for /v1, Kind=Namespace
+2025-12-26T11:40:52.139008930Z 2025/12/26 11:40:52 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:52.142750546Z 2025/12/26 11:40:52 [INFO] uploading vmwarevsphereConfig to nodetemplateconfig schema
+2025-12-26T11:40:52.163317410Z 2025/12/26 11:40:52 [INFO] uploading harvesterConfig to nodeconfig schema
+2025-12-26T11:40:52.175144127Z 2025/12/26 11:40:52 [INFO] Started SQL cache garbage collection for _v1_Namespace (interval=15m0s, keep=1000)
+2025-12-26T11:40:52.181287896Z 2025/12/26 11:40:52 [INFO] uploading harvesterConfig to nodetemplateconfig schema
+2025-12-26T11:40:52.188868959Z 2025/12/26 11:40:52 [INFO] Created machine for node [local-node]
+2025-12-26T11:40:52.194819273Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:52.202316495Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:52.203281307Z 2025/12/26 11:40:52 [INFO] uploading digitaloceanConfig to nodeconfig schema
+2025-12-26T11:40:52.207840493Z 2025/12/26 11:40:52 [ERROR] defaultSvcAccountHandler: Sync: error handling default ServiceAccount of namespace key=cattle-global-data, err=Operation cannot be fulfilled on namespaces "cattle-global-data": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.212428296Z 2025/12/26 11:40:52 [INFO] uploading digitaloceanConfig to nodetemplateconfig schema
+2025-12-26T11:40:52.248167148Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-global-data
+2025-12-26T11:40:52.248310154Z 2025/12/26 11:40:52 [ERROR] error syncing 'server-url': handler apiservice-settings: secrets "tls-rancher-internal-ca" not found, requeuing
+2025-12-26T11:40:52.248329092Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-bzkld to namespace=default
+2025-12-26T11:40:52.248353522Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:52.248439925Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=fleet-default
+2025-12-26T11:40:52.249344137Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=fleet-local
+2025-12-26T11:40:52.249355900Z 2025/12/26 11:40:52 [INFO] uploading azureConfig to nodeconfig schema
+2025-12-26T11:40:52.249927309Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=kube-node-lease
+2025-12-26T11:40:52.250844766Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=kube-public
+2025-12-26T11:40:52.268138729Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-local-user-passwords
+2025-12-26T11:40:52.268808955Z 2025/12/26 11:40:52 [ERROR] defaultSvcAccountHandler: Sync: error handling default ServiceAccount of namespace key=fleet-local, err=Operation cannot be fulfilled on namespaces "fleet-local": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.268824083Z 2025/12/26 11:40:52 [INFO] uploading azureConfig to nodetemplateconfig schema
+2025-12-26T11:40:52.268971597Z 2025/12/26 11:40:52 [ERROR] namespaceHandler: Sync: error adding project id label to namespace err=Operation cannot be fulfilled on namespaces "kube-node-lease": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.277286287Z 2025/12/26 11:40:52 [INFO] CacheFor IS DONE creating informer for /v1, Kind=Namespace (took 141.580518ms)
+2025-12-26T11:40:52.289644758Z 2025/12/26 11:40:52 [ERROR] namespaceHandler: Sync: error adding project id label to namespace err=Operation cannot be fulfilled on namespaces "cattle-local-user-passwords": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.292752770Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=kube-node-lease
+2025-12-26T11:40:52.292788848Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=kube-system
+2025-12-26T11:40:52.294690245Z 2025/12/26 11:40:52 [INFO] uploading linodecredentialConfig to credentialconfig schema
+2025-12-26T11:40:52.301712341Z 2025/12/26 11:40:52 [ERROR] namespaceHandler: Sync: error adding project id label to namespace err=Operation cannot be fulfilled on namespaces "kube-system": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.302553375Z 2025/12/26 11:40:52 [ERROR] Failed to read API for groups map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:40:52.311488004Z 2025/12/26 11:40:52 [INFO] uploading vmwarevspherecredentialConfig to credentialconfig schema
+2025-12-26T11:40:52.312310128Z 2025/12/26 11:40:52 [INFO] imperative api APIService cert updated
+2025-12-26T11:40:52.312868879Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-system
+2025-12-26T11:40:52.324436464Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-local-user-passwords
+2025-12-26T11:40:52.326622996Z 2025/12/26 11:40:52 [ERROR] defaultSvcAccountHandler: Sync: error handling default ServiceAccount of namespace key=kube-public, err=Operation cannot be fulfilled on namespaces "kube-public": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.327512629Z 2025/12/26 11:40:52 [INFO] uploading harvestercredentialConfig to credentialconfig schema
+2025-12-26T11:40:52.327533878Z 2025/12/26 11:40:52 [ERROR] defaultSvcAccountHandler: Sync: error handling default ServiceAccount of namespace key=cattle-system, err=Operation cannot be fulfilled on namespaces "cattle-system": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.352871867Z 2025/12/26 11:40:52 [INFO] uploading digitaloceancredentialConfig to credentialconfig schema
+2025-12-26T11:40:52.399126195Z 2025/12/26 11:40:52 [INFO] uploading googlecredentialConfig to credentialconfig schema
+2025-12-26T11:40:52.401873412Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=kube-system
+2025-12-26T11:40:52.425824768Z 2025/12/26 11:40:52 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:52.425850565Z 2025/12/26 11:40:52 [INFO] getReleaseConfig: reloading config for k3s
+2025-12-26T11:40:52.428778182Z 2025/12/26 11:40:52 [INFO] uploading azurecredentialConfig to credentialconfig schema
+2025-12-26T11:40:52.429939880Z 2025/12/26 11:40:52 [INFO] Creating user for principal system://local
+2025-12-26T11:40:52.432238197Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:52.432344797Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:52.476590800Z 2025/12/26 11:40:52 [INFO] Creating globalRoleBindings for u-b4qkhsnliz
+2025-12-26T11:40:52.494659856Z 2025/12/26 11:40:52 [INFO] Creating new GlobalRoleBinding for GlobalRoleBinding grb-bb9zv
+2025-12-26T11:40:52.494711269Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-grb-controller] Creating clusterRoleBinding for globalRoleBinding grb-bb9zv for user u-b4qkhsnliz with role cattle-globalrole-user
+2025-12-26T11:40:52.508076787Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:52.515717783Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating role/clusterRole local-clusterowner
+2025-12-26T11:40:52.519966194Z 2025/12/26 11:40:52 [ERROR] error syncing 'fleet-local/local': handler cluster-create: server url is missing, can't generate kubeconfig for fleet import cluster, requeuing
+2025-12-26T11:40:52.521531713Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating clusterRoleBinding for membership in cluster local for subject u-b4qkhsnliz
+2025-12-26T11:40:52.527483564Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating role cluster-owner in namespace local
+2025-12-26T11:40:52.533070380Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating roleBinding for subject u-b4qkhsnliz with role cluster-owner in namespace local
+2025-12-26T11:40:52.556591005Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating role cluster-owner in namespace p-bzkld
+2025-12-26T11:40:52.565912105Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating roleBinding for subject u-b4qkhsnliz with role cluster-owner in namespace p-bzkld
+2025-12-26T11:40:52.569854375Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating role cluster-owner in namespace p-m2jqf
+2025-12-26T11:40:52.580863244Z 2025/12/26 11:40:52 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:52.580928326Z 2025/12/26 11:40:52 [INFO] getReleaseConfig: reloading config for rke2
+2025-12-26T11:40:52.585914700Z 2025/12/26 11:40:52 [INFO] [mgmt-auth-crtb-controller] Creating roleBinding for subject u-b4qkhsnliz with role cluster-owner in namespace p-m2jqf
+2025-12-26T11:40:52.628554165Z W1226 11:40:52.628214      48 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:40:52.628785823Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=Amazonec2Config
+2025-12-26T11:40:52.634273655Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=AzureConfig
+2025-12-26T11:40:52.634410790Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=DigitaloceanConfig
+2025-12-26T11:40:52.634519366Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=HarvesterConfig
+2025-12-26T11:40:52.634530364Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=LinodeConfig
+2025-12-26T11:40:52.634739049Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=VmwarevsphereConfig
+2025-12-26T11:40:52.634824512Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=Amazonec2Machine
+2025-12-26T11:40:52.634934421Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=Amazonec2MachineTemplate
+2025-12-26T11:40:52.635172722Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=AzureMachine
+2025-12-26T11:40:52.635217228Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=AzureMachineTemplate
+2025-12-26T11:40:52.635336778Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=DigitaloceanMachine
+2025-12-26T11:40:52.635575560Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=DigitaloceanMachineTemplate
+2025-12-26T11:40:52.635597717Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=HarvesterMachine
+2025-12-26T11:40:52.635617450Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=HarvesterMachineTemplate
+2025-12-26T11:40:52.635783631Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=LinodeMachine
+2025-12-26T11:40:52.636261979Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=LinodeMachineTemplate
+2025-12-26T11:40:52.636440024Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=VmwarevsphereMachine
+2025-12-26T11:40:52.636752996Z 2025/12/26 11:40:52 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=VmwarevsphereMachineTemplate
+2025-12-26T11:40:52.645532977Z 2025/12/26 11:40:52 [INFO] Waiting for 5m0s imperative API to be ready
+2025-12-26T11:40:52.647959406Z 2025/12/26 11:40:52 [INFO] generated self-signed CA certificate CN=dynamiclistener-ca@1766749252,O=dynamiclistener-org: notBefore=2025-12-26 10:40:52.647310944 +0000 UTC notAfter=2035-12-24 10:40:52.647310944 +0000 UTC
+2025-12-26T11:40:52.667681412Z 2025/12/26 11:40:52 [INFO] Listening on :443
+2025-12-26T11:40:52.667726473Z 2025/12/26 11:40:52 [INFO] Listening on :80
+2025-12-26T11:40:52.668163248Z 2025/12/26 11:40:52 [INFO] certificate CN=dynamic,O=dynamic signed by CN=dynamiclistener-ca@1766749252,O=dynamiclistener-org: notBefore=2025-12-26 10:40:52 +0000 UTC notAfter=2026-12-26 10:40:52 +0000 UTC
+2025-12-26T11:40:52.668189090Z 2025/12/26 11:40:52 [WARNING] dynamiclistener [::]:443: no cached certificate available for preload - deferring certificate load until storage initialization or first client request
+2025-12-26T11:40:52.669678543Z 2025/12/26 11:40:52 [WARNING] Skipping save of TLS secret for cattle-system/serving-cert due to missing certificate data
+2025-12-26T11:40:52.669694415Z 2025/12/26 11:40:52 [INFO] Active TLS secret cattle-system/serving-cert (ver=) (count -1): map[]
+2025-12-26T11:40:52.671072377Z 2025/12/26 11:40:52 [INFO] Creating new TLS secret for cattle-system/serving-cert (count: 4): map[listener.cattle.io/cn-127.0.0.1:127.0.0.1 listener.cattle.io/cn-172.17.0.2:172.17.0.2 listener.cattle.io/cn-localhost:localhost listener.cattle.io/cn-rancher.cattle-system:rancher.cattle-system listener.cattle.io/fingerprint:SHA1=DDD52CB5E0ECCE2027DB9BA2261496342771CDC6]
+2025-12-26T11:40:52.672898029Z 2025/12/26 11:40:52 [WARNING] Skipping save of TLS secret for cattle-system/tls-rancher-internal due to missing certificate data
+2025-12-26T11:40:52.672916066Z 2025/12/26 11:40:52 [INFO] Active TLS secret cattle-system/tls-rancher-internal (ver=) (count -1): map[]
+2025-12-26T11:40:52.673117146Z 2025/12/26 11:40:52 [INFO] generated self-signed CA certificate CN=dynamiclistener-ca@1766749252,O=dynamiclistener-org: notBefore=2025-12-26 10:40:52.672748667 +0000 UTC notAfter=2035-12-24 10:40:52.672748667 +0000 UTC
+2025-12-26T11:40:52.678384334Z 2025/12/26 11:40:52 [INFO] Creating clusterRole for roleTemplate Cluster Owner (cluster-owner).
+2025-12-26T11:40:52.681646465Z 2025/12/26 11:40:52 [INFO] Listening on :444
+2025-12-26T11:40:52.681669863Z 2025/12/26 11:40:52 [INFO] Active TLS secret cattle-system/serving-cert (ver=1471) (count 4): map[listener.cattle.io/cn-127.0.0.1:127.0.0.1 listener.cattle.io/cn-172.17.0.2:172.17.0.2 listener.cattle.io/cn-localhost:localhost listener.cattle.io/cn-rancher.cattle-system:rancher.cattle-system listener.cattle.io/fingerprint:SHA1=DDD52CB5E0ECCE2027DB9BA2261496342771CDC6]
+2025-12-26T11:40:52.682026369Z 2025/12/26 11:40:52 [INFO] certificate CN=dynamic,O=dynamic signed by CN=dynamiclistener-ca@1766749252,O=dynamiclistener-org: notBefore=2025-12-26 10:40:52 +0000 UTC notAfter=2026-12-26 10:40:52 +0000 UTC
+2025-12-26T11:40:52.682088641Z 2025/12/26 11:40:52 [WARNING] dynamiclistener [::]:444: no cached certificate available for preload - deferring certificate load until storage initialization or first client request
+2025-12-26T11:40:52.683415213Z 2025/12/26 11:40:52 [INFO] Creating clusterRoleBinding User u-b4qkhsnliz Role cluster-owner
+2025-12-26T11:40:52.683925818Z 2025/12/26 11:40:52 [INFO] Creating new TLS secret for cattle-system/tls-rancher-internal (count: 1): map[listener.cattle.io/cn-10.43.205.105:10.43.205.105 listener.cattle.io/fingerprint:SHA1=E2192D08AD34F61DAF42A643C2577B12E735651D]
+2025-12-26T11:40:52.693850210Z 2025/12/26 11:40:52 [INFO] Active TLS secret cattle-system/tls-rancher-internal (ver=1475) (count 1): map[listener.cattle.io/cn-10.43.205.105:10.43.205.105 listener.cattle.io/fingerprint:SHA1=E2192D08AD34F61DAF42A643C2577B12E735651D]
+2025-12-26T11:40:52.725647817Z 2025/12/26 11:40:52 [INFO] EnsureSecretForServiceAccount: waiting for secret [cattle-impersonation-system:cattle-impersonation-u-b4qkhsnliz-token-xmsgn] for service account [cattle-impersonation-system:cattle-impersonation-u-b4qkhsnliz] to be populated with token
+2025-12-26T11:40:52.737570308Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-impersonation-system
+2025-12-26T11:40:52.737621185Z 2025/12/26 11:40:52 [INFO] Starting rke-machine-config.cattle.io/v1, Kind=HarvesterConfig controller
+2025-12-26T11:40:52.737624078Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=DigitaloceanMachineTemplate controller
+2025-12-26T11:40:52.737626037Z 2025/12/26 11:40:52 [INFO] Starting rke-machine-config.cattle.io/v1, Kind=DigitaloceanConfig controller
+2025-12-26T11:40:52.737628313Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=LinodeMachine controller
+2025-12-26T11:40:52.737635356Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=Amazonec2MachineTemplate controller
+2025-12-26T11:40:52.737638228Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=HarvesterMachineTemplate controller
+2025-12-26T11:40:52.737640344Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=AzureMachine controller
+2025-12-26T11:40:52.737642306Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=VmwarevsphereMachine controller
+2025-12-26T11:40:52.737644214Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=VmwarevsphereMachineTemplate controller
+2025-12-26T11:40:52.737646331Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=HarvesterMachine controller
+2025-12-26T11:40:52.737648212Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=DigitaloceanMachine controller
+2025-12-26T11:40:52.737650246Z 2025/12/26 11:40:52 [INFO] Starting rke-machine-config.cattle.io/v1, Kind=Amazonec2Config controller
+2025-12-26T11:40:52.737664428Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=AzureMachineTemplate controller
+2025-12-26T11:40:52.737666679Z 2025/12/26 11:40:52 [INFO] Starting rke-machine-config.cattle.io/v1, Kind=LinodeConfig controller
+2025-12-26T11:40:52.737668631Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=LinodeMachineTemplate controller
+2025-12-26T11:40:52.737670976Z 2025/12/26 11:40:52 [INFO] Starting rke-machine-config.cattle.io/v1, Kind=AzureConfig controller
+2025-12-26T11:40:52.737672870Z 2025/12/26 11:40:52 [INFO] Starting rke-machine-config.cattle.io/v1, Kind=VmwarevsphereConfig controller
+2025-12-26T11:40:52.737675168Z 2025/12/26 11:40:52 [INFO] Starting rke-machine.cattle.io/v1, Kind=Amazonec2Machine controller
+2025-12-26T11:40:52.739941154Z 2025/12/26 11:40:52 [ERROR] namespaceHandler: Sync: error adding project id label to namespace err=Operation cannot be fulfilled on namespaces "cattle-impersonation-system": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:40:52.746538691Z 2025/12/26 11:40:52 [INFO] EnsureSecretForServiceAccount: got the service account token for service account [cattle-impersonation-system:cattle-impersonation-u-b4qkhsnliz] in 20.875373ms
+2025-12-26T11:40:52.746577280Z 2025/12/26 11:40:52 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-impersonation-system
+2025-12-26T11:40:52.840810469Z 2025/12/26 11:40:52 [INFO] Skipping handler for clusterrepo rancher-partner-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:40:52 +0000 UTC, now is 2025-12-26 11:40:52.838437304 +0000 UTC
+2025-12-26T11:40:53.036316049Z 2025/12/26 11:40:53 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:53.036350788Z 2025/12/26 11:40:53 [INFO] getReleaseConfig: reloading config for k3s
+2025-12-26T11:40:53.147628793Z I1226 11:40:53.147447      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:53.158121461Z 2025/12/26 11:40:53 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:53.158152470Z 2025/12/26 11:40:53 [INFO] getReleaseConfig: reloading config for rke2
+2025-12-26T11:40:53.160738646Z I1226 11:40:53.160493      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:40:53.166540759Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=Amazonec2MachineTemplate
+2025-12-26T11:40:53.166568925Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=LinodeConfig
+2025-12-26T11:40:53.166571053Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=LinodeMachineTemplate
+2025-12-26T11:40:53.166572452Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=Amazonec2Config
+2025-12-26T11:40:53.166584413Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=LinodeMachine
+2025-12-26T11:40:53.166653753Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=Amazonec2Machine
+2025-12-26T11:40:53.166670013Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=VmwarevsphereConfig
+2025-12-26T11:40:53.273104674Z 2025/12/26 11:40:53 [ERROR] Failed to read API for groups map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:40:53.573058161Z 2025/12/26 11:40:53 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:53.737706728Z 2025/12/26 11:40:53 [INFO] Loaded configuration from https://releases.rancher.com/kontainer-driver-metadata/release-v2.13/data.json in [0x11494a40]
+2025-12-26T11:40:53.826789723Z 2025/12/26 11:40:53 [INFO] [mgmt-auth-crtb-controller] Creating clusterRoleBinding for membership in cluster local for subject u-mo773yttt4
+2025-12-26T11:40:53.832083070Z 2025/12/26 11:40:53 [INFO] [mgmt-auth-crtb-controller] Creating roleBinding for subject u-mo773yttt4 with role cluster-owner in namespace local
+2025-12-26T11:40:53.835188954Z 2025/12/26 11:40:53 [INFO] [mgmt-auth-crtb-controller] Creating roleBinding for subject u-mo773yttt4 with role cluster-owner in namespace p-bzkld
+2025-12-26T11:40:53.839441475Z 2025/12/26 11:40:53 [INFO] [mgmt-auth-crtb-controller] Creating roleBinding for subject u-mo773yttt4 with role cluster-owner in namespace p-m2jqf
+2025-12-26T11:40:53.905696084Z 2025/12/26 11:40:53 [INFO] Creating clusterRoleBinding User u-mo773yttt4 Role cluster-owner
+2025-12-26T11:40:53.923571330Z 2025/12/26 11:40:53 [INFO] EnsureSecretForServiceAccount: waiting for secret [cattle-impersonation-system:cattle-impersonation-u-mo773yttt4-token-sv8kq] for service account [cattle-impersonation-system:cattle-impersonation-u-mo773yttt4] to be populated with token
+2025-12-26T11:40:53.930442473Z 2025/12/26 11:40:53 [INFO] EnsureSecretForServiceAccount: got the service account token for service account [cattle-impersonation-system:cattle-impersonation-u-mo773yttt4] in 6.902467ms
+2025-12-26T11:40:53.952167033Z I1226 11:40:53.951966      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:40:53.952505905Z I1226 11:40:53.952351      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:40:53.964549201Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=VmwarevsphereMachine
+2025-12-26T11:40:53.964568613Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=AzureMachineTemplate
+2025-12-26T11:40:53.964570507Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=DigitaloceanMachineTemplate
+2025-12-26T11:40:53.964571776Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=HarvesterConfig
+2025-12-26T11:40:53.964572961Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=AzureMachine
+2025-12-26T11:40:53.964574114Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=DigitaloceanConfig
+2025-12-26T11:40:53.964585946Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine-config.cattle.io/v1, Kind=AzureConfig
+2025-12-26T11:40:53.964661567Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=HarvesterMachine
+2025-12-26T11:40:53.964670575Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=DigitaloceanMachine
+2025-12-26T11:40:53.964672216Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=HarvesterMachineTemplate
+2025-12-26T11:40:53.964673491Z 2025/12/26 11:40:53 [INFO] Watching metadata for rke-machine.cattle.io/v1, Kind=VmwarevsphereMachineTemplate
+2025-12-26T11:40:54.144252499Z 2025/12/26 11:40:54 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:40:54.144270330Z 2025/12/26 11:40:54 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:40:55.537448343Z 2025/12/26 11:40:55 [INFO] Cleaning unused tokens from provider genericoidc
+2025-12-26T11:40:55.537610107Z 2025/12/26 11:40:55 [INFO] ServiceAccountSecretCleaner has no secrets remaining - terminating at 5.000265456s
+2025-12-26T11:40:55.543234075Z 2025/12/26 11:40:55 [INFO] Cleaning unused tokens from provider cognito
+2025-12-26T11:40:55.544581303Z 2025/12/26 11:40:55 [INFO] Refusing to reset the config and clean up resources of the auth provider genericoidc because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:55.682069379Z 2025/12/26 11:40:55 [INFO] Refusing to reset the config and clean up resources of the auth provider cognito because its auth config annotation management.cattle.io/auth-provider-cleanup is set to rancher-locked.
+2025-12-26T11:40:56.034067275Z 2025/12/26 11:40:56 [ERROR] Failed to find system chart fleet-crd will try again in 5 seconds: configmaps "" not found
+2025-12-26T11:40:57.238675980Z 2025/12/26 11:40:57 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:57.395562693Z 2025/12/26 11:40:57 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:40:58.389245472Z 2025/12/26 11:40:58 [INFO] Skipping handler for clusterrepo rancher-rke2-charts because the resource version has changed from 883 to 1596
+2025-12-26T11:40:58.500802677Z 2025/12/26 11:40:58 [INFO] Skipping handler for clusterrepo rancher-rke2-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:40:58 +0000 UTC, now is 2025-12-26 11:40:58.499013147 +0000 UTC
+2025-12-26T11:40:59.145032220Z 2025/12/26 11:40:59 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:40:59.145050482Z 2025/12/26 11:40:59 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:01.034902338Z 2025/12/26 11:41:01 [ERROR] Failed to find system chart fleet-crd will try again in 5 seconds: configmaps "" not found
+2025-12-26T11:41:03.782120740Z 2025/12/26 11:41:03 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:03.780586033 +0000 UTC
+2025-12-26T11:41:03.889861970Z 2025/12/26 11:41:03 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:03.888443167 +0000 UTC
+2025-12-26T11:41:04.003670547Z 2025/12/26 11:41:04 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:04.002146009 +0000 UTC
+2025-12-26T11:41:04.146106059Z 2025/12/26 11:41:04 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:04.146136334Z 2025/12/26 11:41:04 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:05.640941868Z 2025/12/26 11:41:05 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:41:05.642460286Z 2025/12/26 11:41:05 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:41:06.084742876Z 2025/12/26 11:41:06 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-fleet-system
+2025-12-26T11:41:06.088869945Z 2025/12/26 11:41:06 [ERROR] defaultSvcAccountHandler: Sync: error handling default ServiceAccount of namespace key=cattle-fleet-system, err=Operation cannot be fulfilled on namespaces "cattle-fleet-system": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:41:08.033619315Z 2025/12/26 11:41:08 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:08.031889661 +0000 UTC
+2025-12-26T11:41:09.146713385Z 2025/12/26 11:41:09 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:09.146750031Z 2025/12/26 11:41:09 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:13.981730285Z 2025/12/26 11:41:13 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:13.979638219 +0000 UTC
+2025-12-26T11:41:14.147803105Z 2025/12/26 11:41:14 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:14.147832270Z 2025/12/26 11:41:14 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:19.148628248Z 2025/12/26 11:41:19 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:19.148664814Z 2025/12/26 11:41:19 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:19.423202189Z W1226 11:41:19.423047      48 gvks.go:80] Failed to read API for groups: map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:41:19.423202107Z 2025/12/26 11:41:19 [ERROR] Failed to read API for groups map[ext.cattle.io/v1:stale GroupVersion discovery: ext.cattle.io/v1]
+2025-12-26T11:41:19.584659808Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.597699243Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.614926879Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.642417151Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.694763659Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.783005757Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.949515514Z 2025/12/26 11:41:19 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:19.992481944Z I1226 11:41:19.992327      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:41:19.993291371Z I1226 11:41:19.993057      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:41:19.999558666Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=GitRepo
+2025-12-26T11:41:19.999593235Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Content
+2025-12-26T11:41:19.999595293Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ClusterRegistration
+2025-12-26T11:41:19.999596521Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=Schedule
+2025-12-26T11:41:19.999597631Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=BundleDeployment
+2025-12-26T11:41:19.999652012Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ClusterRegistrationToken
+2025-12-26T11:41:19.999665734Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=BundleNamespaceMapping
+2025-12-26T11:41:19.999668960Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=GitRepoRestriction
+2025-12-26T11:41:19.999671415Z 2025/12/26 11:41:19 [INFO] Watching metadata for fleet.cattle.io/v1alpha1, Kind=ImageScan
+2025-12-26T11:41:20.282127056Z 2025/12/26 11:41:20 [ERROR] error syncing 'cattle-fleet-system/helm-operation-g9dq4': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g9dq4), requeuing
+2025-12-26T11:41:20.643444067Z 2025/12/26 11:41:20 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:41:20.645182429Z 2025/12/26 11:41:20 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:41:23.157977393Z 2025/12/26 11:41:23 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:23.156507728 +0000 UTC
+2025-12-26T11:41:24.150266629Z 2025/12/26 11:41:24 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:24.150326368Z 2025/12/26 11:41:24 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:29.150287997Z 2025/12/26 11:41:29 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:29.150327111Z 2025/12/26 11:41:29 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:33.154990575Z 2025/12/26 11:41:33 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-fleet-clusters-system
+2025-12-26T11:41:33.162752596Z 2025/12/26 11:41:33 [ERROR] namespaceHandler: Sync: error adding project id label to namespace err=Operation cannot be fulfilled on namespaces "cattle-fleet-clusters-system": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:41:33.254825564Z 2025/12/26 11:41:33 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cattle-fleet-clusters-system
+2025-12-26T11:41:33.354993604Z 2025/12/26 11:41:33 [INFO] namespaceHandler: addProjectIDLabelToNamespace: adding label field.cattle.io/projectId=p-m2jqf to namespace=cluster-fleet-local-local-1a3d67d0a899
+2025-12-26T11:41:33.359481843Z 2025/12/26 11:41:33 [ERROR] defaultSvcAccountHandler: Sync: error handling default ServiceAccount of namespace key=cluster-fleet-local-local-1a3d67d0a899, err=Operation cannot be fulfilled on namespaces "cluster-fleet-local-local-1a3d67d0a899": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:41:34.012929661Z 2025/12/26 11:41:34 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:34.011148258 +0000 UTC
+2025-12-26T11:41:34.150730390Z 2025/12/26 11:41:34 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:34.150766772Z 2025/12/26 11:41:34 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:35.645654112Z 2025/12/26 11:41:35 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:41:35.646967661Z 2025/12/26 11:41:35 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:41:38.179200284Z 2025/12/26 11:41:38 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:38.177135221 +0000 UTC
+2025-12-26T11:41:39.151838191Z 2025/12/26 11:41:39 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:39.151884457Z 2025/12/26 11:41:39 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:43.839083112Z 2025/12/26 11:41:43 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:43.836670272 +0000 UTC
+2025-12-26T11:41:44.151906819Z 2025/12/26 11:41:44 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:44.151948463Z 2025/12/26 11:41:44 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:47.674079909Z 2025/12/26 11:41:47 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:47.687515798Z 2025/12/26 11:41:47 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:47.704778577Z 2025/12/26 11:41:47 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:47.731715576Z 2025/12/26 11:41:47 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:47.778398975Z 2025/12/26 11:41:47 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:47.865276968Z 2025/12/26 11:41:47 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:48.031924832Z 2025/12/26 11:41:48 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:48.358853356Z 2025/12/26 11:41:48 [ERROR] error syncing 'cattle-fleet-system/helm-operation-w87vd': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-w87vd), requeuing
+2025-12-26T11:41:49.152403893Z 2025/12/26 11:41:49 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:49.152456085Z 2025/12/26 11:41:49 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:50.648000042Z 2025/12/26 11:41:50 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:41:50.650041775Z 2025/12/26 11:41:50 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:41:54.023740811Z 2025/12/26 11:41:54 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:41:54.021837675 +0000 UTC
+2025-12-26T11:41:54.152386355Z 2025/12/26 11:41:54 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:54.152481159Z 2025/12/26 11:41:54 [INFO] RDPClient: Dialer is not built yet, waiting 5 secs to re-check.
+2025-12-26T11:41:57.034027518Z 2025/12/26 11:41:57 [INFO] RDPClient: certificate updated successfully
+2025-12-26T11:41:58.752947596Z 2025/12/26 11:41:58 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:58.763953822Z 2025/12/26 11:41:58 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:58.780649229Z 2025/12/26 11:41:58 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:58.807372562Z 2025/12/26 11:41:58 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:58.854317884Z 2025/12/26 11:41:58 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:58.941407930Z 2025/12/26 11:41:58 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:59.109361246Z 2025/12/26 11:41:59 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:59.153401635Z 2025/12/26 11:41:59 [INFO] RDPClient: Checking if dialer is built...
+2025-12-26T11:41:59.153436580Z 2025/12/26 11:41:59 [INFO] RDPClient: Dialer is built. Ready to start.
+2025-12-26T11:41:59.155462610Z 2025/12/26 11:41:59 [INFO] Selected pod "api-extension-54d7fbd965-vbphv" for label "app=api-extension"
+2025-12-26T11:41:59.164354667Z 2025/12/26 11:41:59 [INFO] RDPClient: connecting to wss://127.0.0.1:5555/connect
+2025-12-26T11:41:59.164386642Z 2025/12/26 11:41:59 [INFO] Connecting to proxy
+2025-12-26T11:41:59.169298640Z 2025/12/26 11:41:59 [INFO] Connected to proxy
+2025-12-26T11:41:59.169322860Z 2025/12/26 11:41:59 [INFO] RDPClient: remotedialer session connected!
+2025-12-26T11:41:59.437148547Z 2025/12/26 11:41:59 [ERROR] error syncing 'cattle-system/helm-operation-72886': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-72886), requeuing
+2025-12-26T11:41:59.647260146Z 2025/12/26 11:41:59 [INFO] kube-apiserver connected to imperative api
+2025-12-26T11:41:59.658151369Z 2025/12/26 11:41:59 [WARNING] failed to update APIService annotation: failed to update APIService: Operation cannot be fulfilled on apiservices.apiregistration.k8s.io "v1.ext.cattle.io": the object has been modified; please apply your changes to the latest version and try again
+2025-12-26T11:42:00.607692503Z I1226 11:42:00.607398      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:42:00.614873673Z I1226 11:42:00.614708      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:42:00.615185885Z 2025/12/26 11:42:00 [INFO] Watching metadata for ext.cattle.io/v1, Kind=Token
+2025-12-26T11:42:00.615319648Z 2025/12/26 11:42:00 [INFO] Watching metadata for ext.cattle.io/v1, Kind=Kubeconfig
+2025-12-26T11:42:05.650942586Z 2025/12/26 11:42:05 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:42:05.652589228Z 2025/12/26 11:42:05 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:42:08.173145905Z 2025/12/26 11:42:08 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:42:08.17166425 +0000 UTC
+2025-12-26T11:42:14.325364172Z 2025/12/26 11:42:14 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:42:14.323862137 +0000 UTC
+2025-12-26T11:42:18.177645646Z 2025/12/26 11:42:18 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:42:18.17603234 +0000 UTC
+2025-12-26T11:42:20.653476422Z 2025/12/26 11:42:20 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:42:20.655071800Z 2025/12/26 11:42:20 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:42:29.819676059Z 2025/12/26 11:42:29 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:29.830270295Z 2025/12/26 11:42:29 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:29.845966379Z 2025/12/26 11:42:29 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:29.871996082Z 2025/12/26 11:42:29 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:29.918893376Z 2025/12/26 11:42:29 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:30.006526953Z 2025/12/26 11:42:30 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:30.173842359Z 2025/12/26 11:42:30 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:30.502037266Z 2025/12/26 11:42:30 [ERROR] error syncing 'cattle-system/helm-operation-x6qhm': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-x6qhm), requeuing
+2025-12-26T11:42:35.655807040Z 2025/12/26 11:42:35 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:42:35.657186439Z 2025/12/26 11:42:35 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:42:38.165518640Z 2025/12/26 11:42:38 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:42:38.163924057 +0000 UTC
+2025-12-26T11:42:40.904800616Z I1226 11:42:40.904622      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:42:40.912036049Z I1226 11:42:40.910964      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:42:42.833154091Z 2025/12/26 11:42:42 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:42.844619189Z 2025/12/26 11:42:42 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:42.861216175Z 2025/12/26 11:42:42 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:42.887836403Z 2025/12/26 11:42:42 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:42.935782293Z 2025/12/26 11:42:42 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:43.022720141Z 2025/12/26 11:42:43 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:43.188823760Z 2025/12/26 11:42:43 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:43.517034842Z 2025/12/26 11:42:43 [ERROR] error syncing 'cattle-system/helm-operation-jshbj': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-jshbj), requeuing
+2025-12-26T11:42:44.590946494Z 2025/12/26 11:42:44 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:42:44.589129016 +0000 UTC
+2025-12-26T11:42:47.857080878Z 2025/12/26 11:42:47 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:47.870637675Z 2025/12/26 11:42:47 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:47.888502797Z 2025/12/26 11:42:47 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:47.917098315Z 2025/12/26 11:42:47 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:47.965411933Z 2025/12/26 11:42:47 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:48.053030514Z 2025/12/26 11:42:48 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:48.196335632Z 2025/12/26 11:42:48 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:42:48.1946218 +0000 UTC
+2025-12-26T11:42:48.220982026Z 2025/12/26 11:42:48 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:48.547550334Z 2025/12/26 11:42:48 [ERROR] error syncing 'cattle-system/helm-operation-t7qjs': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-t7qjs), requeuing
+2025-12-26T11:42:50.657951007Z 2025/12/26 11:42:50 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:42:50.659354028Z 2025/12/26 11:42:50 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:42:53.372054750Z I1226 11:42:53.371856      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:42:53.375296684Z I1226 11:42:53.375113      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:42:53.393587765Z 2025/12/26 11:42:53 [INFO] Watching metadata for turtles-capi.cattle.io/v1alpha1, Kind=ClusterctlConfig
+2025-12-26T11:42:53.393624876Z 2025/12/26 11:42:53 [INFO] Watching metadata for turtles-capi.cattle.io/v1alpha1, Kind=CAPIProvider
+2025-12-26T11:43:05.659667801Z 2025/12/26 11:43:05 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:43:05.661230058Z 2025/12/26 11:43:05 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:43:08.175362340Z 2025/12/26 11:43:08 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:43:08.17375599 +0000 UTC
+2025-12-26T11:43:13.521693977Z 2025/12/26 11:43:13 [INFO] [deferred-capi - WaitForClient] CRDs found, initializing CAPI factory
+2025-12-26T11:43:13.626143496Z 2025/12/26 11:43:13 [INFO] RDPClient: certificate updated successfully
+2025-12-26T11:43:13.626697032Z 2025/12/26 11:43:13 [INFO] RDPClient: certificate updated successfully
+2025-12-26T11:43:13.626791548Z 2025/12/26 11:43:13 [INFO] RDPClient: certificate updated successfully
+2025-12-26T11:43:13.640059395Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=Cluster controller
+2025-12-26T11:43:13.640118072Z 2025/12/26 11:43:13 [INFO] Starting rke.cattle.io/v1, Kind=RKECluster controller
+2025-12-26T11:43:13.640122116Z 2025/12/26 11:43:13 [INFO] Starting ext.cattle.io/v1, Kind=Token controller
+2025-12-26T11:43:13.640127922Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineHealthCheck controller
+2025-12-26T11:43:13.640447337Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineDeployment controller
+2025-12-26T11:43:13.640627373Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineSet controller
+2025-12-26T11:43:13.644974462Z 2025/12/26 11:43:13 [INFO] Starting rke.cattle.io/v1, Kind=CustomMachine controller
+2025-12-26T11:43:13.645060040Z 2025/12/26 11:43:13 [INFO] Starting fleet.cattle.io/v1alpha1, Kind=HelmOp controller
+2025-12-26T11:43:13.649986477Z 2025/12/26 11:43:13 [INFO] Starting rke.cattle.io/v1, Kind=RKEBootstrapTemplate controller
+2025-12-26T11:43:13.650045877Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=Machine controller
+2025-12-26T11:43:13.667725723Z 2025/12/26 11:43:13 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:43:13.667945445Z 2025/12/26 11:43:13 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:43:13.667983672Z 2025/12/26 11:43:13 [INFO] [mgmt-auth-gr-controller] Creating clusterRole cattle-globalrole- for corresponding GlobalRole
+2025-12-26T11:43:13.668772132Z 2025/12/26 11:43:13 [INFO] Watching metadata for addons.cluster.x-k8s.io/v1beta1, Kind=ClusterResourceSet
+2025-12-26T11:43:13.769653408Z 2025/12/26 11:43:13 [INFO] Starting addons.cluster.x-k8s.io/v1beta1, Kind=ClusterResourceSet controller
+2025-12-26T11:43:13.769682392Z 2025/12/26 11:43:13 [INFO] Watching metadata for addons.cluster.x-k8s.io/v1beta1, Kind=ClusterResourceSetBinding
+2025-12-26T11:43:13.869982124Z 2025/12/26 11:43:13 [INFO] Starting addons.cluster.x-k8s.io/v1beta1, Kind=ClusterResourceSetBinding controller
+2025-12-26T11:43:13.870021814Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=Cluster controller
+2025-12-26T11:43:13.870024107Z 2025/12/26 11:43:13 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=ClusterClass
+2025-12-26T11:43:13.870370031Z 2025/12/26 11:43:13 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachineDrainRule
+2025-12-26T11:43:13.870423212Z 2025/12/26 11:43:13 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachinePool
+2025-12-26T11:43:13.870638360Z 2025/12/26 11:43:13 [INFO] Watching metadata for ipam.cluster.x-k8s.io/v1alpha1, Kind=IPAddressClaim
+2025-12-26T11:43:13.870675390Z 2025/12/26 11:43:13 [INFO] Watching metadata for ipam.cluster.x-k8s.io/v1alpha1, Kind=IPAddress
+2025-12-26T11:43:13.871014573Z 2025/12/26 11:43:13 [INFO] Watching metadata for runtime.cluster.x-k8s.io/v1alpha1, Kind=ExtensionConfig
+2025-12-26T11:43:13.940721640Z 2025/12/26 11:43:13 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:13.953999752Z 2025/12/26 11:43:13 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:13.971157453Z 2025/12/26 11:43:13 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:13.971441013Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachinePool controller
+2025-12-26T11:43:13.971488609Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineSet controller
+2025-12-26T11:43:13.971511569Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineHealthCheck controller
+2025-12-26T11:43:13.971515229Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=Machine controller
+2025-12-26T11:43:13.971517268Z 2025/12/26 11:43:13 [INFO] Starting ipam.cluster.x-k8s.io/v1alpha1, Kind=IPAddress controller
+2025-12-26T11:43:13.971519202Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineDeployment controller
+2025-12-26T11:43:13.971520944Z 2025/12/26 11:43:13 [INFO] Starting runtime.cluster.x-k8s.io/v1alpha1, Kind=ExtensionConfig controller
+2025-12-26T11:43:13.971522694Z 2025/12/26 11:43:13 [INFO] Starting ipam.cluster.x-k8s.io/v1alpha1, Kind=IPAddressClaim controller
+2025-12-26T11:43:13.971524412Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=MachineDrainRule controller
+2025-12-26T11:43:13.971526088Z 2025/12/26 11:43:13 [INFO] Starting cluster.x-k8s.io/v1beta1, Kind=ClusterClass controller
+2025-12-26T11:43:13.979251229Z 2025/12/26 11:43:13 [INFO] Starting cluster controllers for local
+2025-12-26T11:43:13.979286089Z 2025/12/26 11:43:13 [INFO] rancher-start::DefferedCAPIRegistration leader func executed successfully
+2025-12-26T11:43:13.999683667Z 2025/12/26 11:43:13 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:14.047566583Z 2025/12/26 11:43:14 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:14.137038860Z 2025/12/26 11:43:14 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:14.304343097Z 2025/12/26 11:43:14 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:14.615525580Z I1226 11:43:14.615262      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:43:14.624614616Z I1226 11:43:14.624335      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:43:14.636189636Z 2025/12/26 11:43:14 [ERROR] error syncing 'cattle-turtles-system/helm-operation-g2gxl': handler helm-operation: an error on the server ("container not found (\"proxy\")") has prevented the request from succeeding (get pods helm-operation-g2gxl), requeuing
+2025-12-26T11:43:14.638457949Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachineHealthCheck
+2025-12-26T11:43:14.638488498Z 2025/12/26 11:43:14 [INFO] Watching metadata for ipam.cluster.x-k8s.io/v1beta1, Kind=IPAddressClaim
+2025-12-26T11:43:14.638492072Z 2025/12/26 11:43:14 [INFO] Watching metadata for addons.cluster.x-k8s.io/v1beta1, Kind=ClusterResourceSetBinding
+2025-12-26T11:43:14.638509325Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachineSet
+2025-12-26T11:43:14.638512368Z 2025/12/26 11:43:14 [INFO] Watching metadata for runtime.cluster.x-k8s.io/v1alpha1, Kind=ExtensionConfig
+2025-12-26T11:43:14.638514488Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachineDrainRule
+2025-12-26T11:43:14.638516571Z 2025/12/26 11:43:14 [INFO] Watching metadata for addons.cluster.x-k8s.io/v1beta1, Kind=ClusterResourceSet
+2025-12-26T11:43:14.638518734Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=Machine
+2025-12-26T11:43:14.638607794Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachineDeployment
+2025-12-26T11:43:14.638628822Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=ClusterClass
+2025-12-26T11:43:14.638631711Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=MachinePool
+2025-12-26T11:43:14.638633829Z 2025/12/26 11:43:14 [INFO] Watching metadata for ipam.cluster.x-k8s.io/v1beta1, Kind=IPAddress
+2025-12-26T11:43:14.638635811Z 2025/12/26 11:43:14 [INFO] Watching metadata for cluster.x-k8s.io/v1beta1, Kind=Cluster
+2025-12-26T11:43:15.155398029Z I1226 11:43:15.155199      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:43:15.166097516Z I1226 11:43:15.165955      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:43:15.211573799Z 2025/12/26 11:43:15 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:43:15.210121126 +0000 UTC
+2025-12-26T11:43:18.190662028Z 2025/12/26 11:43:18 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:43:18.178606338 +0000 UTC
+2025-12-26T11:43:20.662220426Z 2025/12/26 11:43:20 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:43:20.665179000Z 2025/12/26 11:43:20 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:43:21.643747579Z I1226 11:43:21.643571      48 warnings.go:110] "Warning: v1 ComponentStatus is deprecated in v1.19+"
+2025-12-26T11:43:21.653503731Z I1226 11:43:21.653222      48 warnings.go:110] "Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"
+2025-12-26T11:43:35.665770863Z 2025/12/26 11:43:35 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:43:35.667351663Z 2025/12/26 11:43:35 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:43:45.943850495Z 2025/12/26 11:43:45 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:43:45.942368784 +0000 UTC
+2025-12-26T11:43:50.668205370Z 2025/12/26 11:43:50 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:43:50.669926221Z 2025/12/26 11:43:50 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:43:51.522179733Z 2025/12/26 11:43:51 [INFO] starting duplicate binding cleanup
+2025-12-26T11:43:51.522216023Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] starting bindings cleanup
+2025-12-26T11:43:51.525622036Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] total PRTB duplicate clusterRoleBindings 0, roleBindings 0
+2025-12-26T11:43:51.532804220Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] binding with deterministic name not found, will delete all except the oldest binding
+2025-12-26T11:43:51.536159812Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] binding with deterministic name not found, will delete all except the oldest binding
+2025-12-26T11:43:51.633288680Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] binding with deterministic name not found, will delete all except the oldest binding
+2025-12-26T11:43:51.634205660Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] binding with deterministic name not found, will delete all except the oldest binding
+2025-12-26T11:43:51.634229135Z 2025/12/26 11:43:51 [INFO] [clean-dupe-bindings] total CRTB duplicate clusterRoleBindings 0, roleBindings 0
+2025-12-26T11:43:51.638079059Z 2025/12/26 11:43:51 [INFO] successfully cleaned up duplicate bindings
+2025-12-26T11:43:55.925462843Z 2025/12/26 11:43:55 [INFO] Skipping handler for clusterrepo rancher-charts. NumberOfRetries is 0, MaxRetry is 3, ClusterRepo Generation is 1, ObservedGeneration is 1, LastUpdated plus interval is 2025-12-26 12:41:03 +0000 UTC, now is 2025-12-26 11:43:55.923891678 +0000 UTC
+2025-12-26T11:44:05.670539198Z 2025/12/26 11:44:05 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:44:05.671960411Z 2025/12/26 11:44:05 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:44:20.673111866Z 2025/12/26 11:44:20 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:44:20.675919969Z 2025/12/26 11:44:20 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:44:35.676262560Z 2025/12/26 11:44:35 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:44:35.678588943Z 2025/12/26 11:44:35 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:44:50.678735611Z 2025/12/26 11:44:50 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:44:50.680253186Z 2025/12/26 11:44:50 [INFO] telemetry manager info not available yet, re-queing check...
+2025-12-26T11:45:05.680432672Z 2025/12/26 11:45:05 [INFO] initializing required info for telemetry manager...
+2025-12-26T11:45:05.681859359Z 2025/12/26 11:45:05 [INFO] telemetry manager info not available yet, re-queing check...
