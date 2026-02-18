@@ -10,9 +10,45 @@ from rich.progress import (
     TransferSpeedColumn,
     TimeRemainingColumn,
     TimeElapsedColumn,
+    TextColumn,
 )
+from rich.text import Text
 
 console = Console()
+
+
+class FieldColumn(TextColumn):
+    """Column that reads a named field from task.fields and supports middle
+    ellipsizing and returning Rich Text objects directly."""
+
+    def __init__(self, field: str, fmt: str = "{:<30}", style: str | None = None, ellipsize_middle: bool = False):
+        # extract width
+        width = None
+        try:
+            inner = fmt[1:-1]
+            digits = ''.join(ch for ch in inner if ch.isdigit())
+            if digits:
+                width = int(digits)
+        except Exception:
+            width = None
+        text = f"{{task.fields[{field}]}}"
+        super().__init__(text, style=style)
+        self.field = field
+        self.width = width
+        self.ellipsize_middle = ellipsize_middle
+
+    def render(self, task):
+        val = task.fields.get(self.field, "")
+        if isinstance(val, Text):
+            return val
+        s = str(val)
+        if self.ellipsize_middle and self.width and len(s) > self.width:
+            keep = self.width - 3
+            left = keep // 2
+            right = keep - left
+            s = s[:left] + "..." + s[-right:]
+        return Text(s, style=self.style)
+
 
 async def simulate_test_case(progress, task_id, tc, suite_id=None):
     """개별 테스트 케이스의 생명주기를 바이트 단위로 시뮬레이션합니다."""
@@ -21,11 +57,11 @@ async def simulate_test_case(progress, task_id, tc, suite_id=None):
     total_bytes = tc.get('size', 10_000_000)
 
     # 1. 트리거 단계 (Queue 대기 상황 시뮬레이션)
-    progress.update(task_id, status="[yellow]대기[/yellow]")
+    progress.update(task_id, status=Text("대기", style="yellow"))
     await asyncio.sleep(random.uniform(0.5, 2.0))
 
     # 2. 실행 단계 (docker pull 스타일: bytes, speed, ETA 표시)
-    progress.update(task_id, status="[blue]다운로드[/blue]")
+    progress.update(task_id, status=Text("다운로드", style="blue"))
 
     downloaded = 0
 
@@ -41,18 +77,23 @@ async def simulate_test_case(progress, task_id, tc, suite_id=None):
 
         # 중간 상태 메시지 변경
         if downloaded > total_bytes * 0.5:
-            progress.update(task_id, status="[yellow]검증[/yellow]")
+            progress.update(task_id, status=Text("검증", style="yellow"))
 
     # 3. 최종 결과 결정 (80% 확률로 성공, 20% 확률로 실패 시뮬레이션)
     is_success = random.random() > 0.2
 
     if is_success:
-        progress.update(task_id, completed=total_bytes, status="[green]PASS[/green]")
+        progress.update(task_id, completed=total_bytes, status=Text("PASS", style="black on green"))
         if suite_id:
             progress.update(suite_id, advance=1)
         return True
     else:
-        progress.update(task_id, completed=downloaded, status="[red]FAIL[/red]")
+        progress.update(task_id, completed=downloaded, status=Text("FAIL", style="white on red"))
+        # move failed test to top for visibility
+        try:
+            progress.move_task(task_id, 0)
+        except Exception:
+            pass
         if suite_id:
             progress.update(suite_id, advance=1)
         return False
@@ -71,8 +112,8 @@ async def run_orchestrator():
     with Progress(
         SpinnerColumn(),
         # Fixed-width TC name column and status column so output aligns like docker pull
-        TextColumn("{task.fields[test_name]:<30}", style="white"),
-        TextColumn("{task.fields[status]:>18}", style="bold"),
+        FieldColumn("test_name", fmt="{:<30}", style="white", ellipsize_middle=True),
+        FieldColumn("status", fmt="{:>18}", style="bold"),
         BarColumn(bar_width=40),
         DownloadColumn(),
         TransferSpeedColumn(),

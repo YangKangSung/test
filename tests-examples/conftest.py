@@ -37,26 +37,43 @@ _last_update = {}
 
 
 class FieldColumn(TextColumn):
-    """TextColumn wrapper that safely reads from task.fields and handles missing keys.
+    """Column that reads a named field from task.fields and supports middle
+    ellipsizing and returning Rich Text objects directly.
 
-    It builds a format string like "{task.fields[test_name]:<50}" and delegates to
-    TextColumn, but catches KeyError during render to avoid crashing when a field
-    hasn't been set yet.
+    Usage: FieldColumn("test_name", fmt="{:<30}", style="white", ellipsize_middle=True)
     """
 
-    def __init__(self, field: str, fmt: str = "{:<50}", style: str | None = None):
-        # fmt e.g. "{:<50}" -> inner ":<50"
-        inner = fmt[1:-1]
-        text = f"{{task.fields[{field}]{inner}}}"
+    def __init__(self, field: str, fmt: str = "{:<50}", style: str | None = None, ellipsize_middle: bool = False):
+        # extract width from fmt if present
+        width = None
+        try:
+            inner = fmt[1:-1]
+            # digits in inner -> width
+            digits = ''.join(ch for ch in inner if ch.isdigit())
+            if digits:
+                width = int(digits)
+        except Exception:
+            width = None
+
+        # keep a simple text_format for compatibility but we'll render manually
+        text = f"{{task.fields[{field}]}}"
         super().__init__(text, style=style)
         self.field = field
+        self.width = width
+        self.ellipsize_middle = ellipsize_middle
 
     def render(self, task):
-        try:
-            return super().render(task)
-        except KeyError:
-            # Field not set yet; return empty text so rendering continues safely
-            return Text("", style=self.style)
+        val = task.fields.get(self.field, "")
+        # If caller provided a Text instance (styled), render it as-is
+        if isinstance(val, Text):
+            return val
+        s = str(val)
+        if self.ellipsize_middle and self.width and len(s) > self.width:
+            keep = self.width - 3
+            left = keep // 2
+            right = keep - left
+            s = s[:left] + "..." + s[-right:]
+        return Text(s, style=self.style)
 
 
 
@@ -97,10 +114,10 @@ def pytest_sessionstart(session):
     # Start the Progress context manager with Docker-pull style columns
     _progress = Progress(
         SpinnerColumn(),
-        # Fixed-width test name column so statuses align vertically
-        FieldColumn("test_name", fmt="{:<50}", style="white"),
+        # Fixed-width test name column so statuses align vertically (ellipsis in middle)
+        FieldColumn("test_name", fmt="{:<30}", style="white", ellipsize_middle=True),
         # Fixed-width status column (e.g., queued/running/PASS/FAIL)
-        FieldColumn("status", fmt="{:>14}", style="bold"),
+        FieldColumn("status", fmt="{:>18}", style="bold"),
         BarColumn(bar_width=None),
         DownloadColumn(binary_units=True),
         TransferSpeedColumn(),
@@ -160,11 +177,16 @@ def pytest_runtest_logreport(report):
         except Exception:
             total = 0
         if report.passed:
-            _progress.update(task_id, completed=total, status=f"[green]PASS[/green]")
+            _progress.update(task_id, completed=total, status=Text(" PASS ", style="black on green"))
         elif report.failed:
-            _progress.update(task_id, completed=total, status=f"[bold red]FAIL[/bold red]")
+            _progress.update(task_id, completed=total, status=Text(" FAIL ", style="white on red"))
+            # bring failed test to top for visibility
+            try:
+                _progress.move_task(task_id, 0)
+            except Exception:
+                pass
         else:
-            _progress.update(task_id, status=f"[yellow]{report.outcome}[/yellow]")
+            _progress.update(task_id, status=Text(str(report.outcome), style="yellow"))
 
         with _lock:
             _running.discard(nodeid)
