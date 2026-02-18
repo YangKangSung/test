@@ -15,6 +15,7 @@ const MAX = Math.max(...totals);
 // 공통 옵션
 const baseOption = {
 	type: "value",
+	symbolRepeat: true,
 	tooltip: {},
 	min: 0,
 	max: MAX,
@@ -60,27 +61,12 @@ for (let i = 0; i < years.length; i++) {
 		symbolRepeat: totals[i],
 		symbolPosition: "start",
 		symbolMargin,
+		symbolOffset: [0, 0],
 		animationDuration: 0,
 		itemStyle: { opacity: 0.2 },
 		// 이 연도의 분모(총심볼 개수 기준)
 		symbolBoundingData: totals[i],
 		data: bgRow,
-		label: {
-			show: true,
-			position: "right",
-			// 	offset: [10, 0],
-			offset: [10, -(symbolSize + rowGap)],
-			color: "green",
-			fontSize: 18,
-			formatter: (params) => {
-				const val = params.value;
-				if (val == null) return "";
-				// 현재값 대비 퍼센트를 보여주려면 current[i]를 써도 됨
-				const idx = params.dataIndex;
-				const cur = Number.isFinite(current[idx]) ? current[idx] : 0;
-				return ((current[idx] / totals[idx]) * 100).toFixed(1) + " %";
-			},
-		},
 	});
 
 	// 현재(클립) 시리즈
@@ -89,55 +75,18 @@ for (let i = 0; i < years.length; i++) {
 		z: 20,
 		symbol: spirit,
 		symbolSize,
-		symbolRepeat: totals[i],
+		symbolRepeat: current[i],
 		// symbolRepeat: Number.isFinite(current[i]) ? current[i] : 0,  // ✅ 정확히 현재 개수
 		symbolPosition: "start",
 		// symbolBoundingData: MAX,
 		symbolMargin,
 		// 배경의 총심볼 기준으로 클리핑
 		symbolClip: true,
-		// symbolOffset: [0, 0],
+		symbolOffset: [0, 0],
 		// barGap: "-100%",
-		symbolBoundingData: totals[i],
+		symbolBoundingData: current[i],
 		data: curRow,
-		markLine:
-			i === 0
-				? {
-						// 필요하면 한 번만 표시
-						symbol: "none",
-						label: { formatter: "max: {c}", position: "start" },
-						lineStyle: { color: "green", type: "dotted", opacity: 0.2, width: 2 },
-						data: [{ type: "max" }],
-				  }
-				: undefined,
 	});
 }
 
 option = baseOption;
-
-// ---- 동적 업데이트 ----
-function random(max) {
-	return +(Math.random() * (max - 10)).toFixed(1);
-}
-
-// setInterval(function () {
-// 	// 연도별 분모(totals[i])에 맞춘 랜덤 분자 생성
-// 	const dynamic = totals.map((t) => random(t));
-
-// 	// series는 [2013 배경, 2013 현재, 2014 배경, 2014 현재, ...] 순서
-// 	const newSeries = option.series.map((s, idx) => {
-// 		const yearIdx = Math.floor(idx / 2);
-// 		// 배경시리즈는 그대로 유지, 현재시리즈만 값 업데이트
-// 		if (idx % 2 === 1) {
-// 			const row = Array(years.length).fill(null);
-// 			row[yearIdx] = dynamic[yearIdx];
-// 			return { ...s, data: row };
-// 		}
-// 		return s;
-// 	});
-
-// 	myChart.setOption({ series: newSeries }, false, true);
-
-// 	// 라벨 퍼센트 계산용 current도 갱신하고 싶다면:
-// 	for (let i = 0; i < years.length; i++) current[i] = dynamic[i];
-// }, 3000);
