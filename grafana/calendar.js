@@ -152,7 +152,7 @@ myChart.on("click", function (params) {
 //       const date = params.value[0];
 //       const url = `https://example.com/event/${eventId}?date=${date}`;
 //       window.open(url, '_blank');
-//     }
+//     }l
 
 //     // 또는 info 기반 (renderItem에서 info.url 지정한 경우)
 //     if (target?.info?.url) {
