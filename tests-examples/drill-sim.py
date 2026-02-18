@@ -21,11 +21,11 @@ async def simulate_test_case(progress, task_id, tc, suite_id=None):
     total_bytes = tc.get('size', 10_000_000)
 
     # 1. 트리거 단계 (Queue 대기 상황 시뮬레이션)
-    progress.update(task_id, description=f"[bold white][{tc_type}][/bold white] {tc_id} - [지연] 대기 중...")
+    progress.update(task_id, status="[yellow]대기[/yellow]")
     await asyncio.sleep(random.uniform(0.5, 2.0))
 
     # 2. 실행 단계 (docker pull 스타일: bytes, speed, ETA 표시)
-    progress.update(task_id, description=f"[bold blue][{tc_type}][/bold blue] {tc_id} - [실행] 다운로드 중...")
+    progress.update(task_id, status="[blue]다운로드[/blue]")
 
     downloaded = 0
 
@@ -41,18 +41,18 @@ async def simulate_test_case(progress, task_id, tc, suite_id=None):
 
         # 중간 상태 메시지 변경
         if downloaded > total_bytes * 0.5:
-            progress.update(task_id, description=f"[bold yellow][{tc_type}][/bold yellow] {tc_id} - [검증] 결과 확인 중...")
+            progress.update(task_id, status="[yellow]검증[/yellow]")
 
     # 3. 최종 결과 결정 (80% 확률로 성공, 20% 확률로 실패 시뮬레이션)
     is_success = random.random() > 0.2
 
     if is_success:
-        progress.update(task_id, completed=total_bytes, description=f"[bold green][{tc_type}][/bold green] {tc_id} - [PASS] 성공")
+        progress.update(task_id, completed=total_bytes, status="[green]PASS[/green]")
         if suite_id:
             progress.update(suite_id, advance=1)
         return True
     else:
-        progress.update(task_id, completed=downloaded, description=f"[bold red][{tc_type}][/bold red] {tc_id} - [FAIL] 에러 발생")
+        progress.update(task_id, completed=downloaded, status="[red]FAIL[/red]")
         if suite_id:
             progress.update(suite_id, advance=1)
         return False
@@ -70,7 +70,9 @@ async def run_orchestrator():
 
     with Progress(
         SpinnerColumn(),
-        TextColumn("[progress.description]{task.description}"),
+        # Fixed-width TC name column and status column so output aligns like docker pull
+        TextColumn("{task.fields[test_name]:<30}", style="white"),
+        TextColumn("{task.fields[status]:>18}", style="bold"),
         BarColumn(bar_width=40),
         DownloadColumn(),
         TransferSpeedColumn(),
@@ -80,14 +82,15 @@ async def run_orchestrator():
     ) as progress:
 
         # Suite 진행바 추가
-        suite_id = progress.add_task("[cyan]Suite[/cyan]", total=len(test_set))
+        suite_id = progress.add_task("[cyan]Suite[/cyan]", total=len(test_set), test_name="[cyan]Suite[/cyan]", status="")
 
         # 모든 테스트 케이스를 Task로 등록 (크기: 1MB ~ 20MB)
         tasks = []
         for tc in test_set:
             size = random.randint(1_000_000, 20_000_000)
             tc['size'] = size
-            task_id = progress.add_task(description=f"[white][{tc['type'].upper()}][/white] {tc['id']} - [대기]", total=size)
+            # create task with fields for fixed columns
+            task_id = progress.add_task(description="", total=size, test_name=f"[{tc['type'].upper()}] {tc['id']}", status="[yellow]대기[/yellow]")
             tasks.append(simulate_test_case(progress, task_id, tc, suite_id))
 
         # 모든 비동기 작업 실행 및 결과 수합
