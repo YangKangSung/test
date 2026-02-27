@@ -3,53 +3,78 @@
 
 This document outlines the guidelines for agentic coding operations within this repository. Adhering to these guidelines ensures consistency, maintainability, and efficient collaboration.
 
+## Project Structure
+
+The main project is located in `anythingllm/anythingllm-embed/`. This is an embeddable chat widget for AnythingLLM built with React, Vite, and Tailwind CSS.
+
+```
+anythingllm-embed/
+├── src/
+│   ├── components/     # React components (index.jsx pattern)
+│   ├── hooks/         # Custom React hooks
+│   ├── models/       # API services and business logic
+│   ├── utils/        # Utility functions
+│   ├── assets/       # Static assets
+│   ├── App.jsx       # Main app component
+│   └── main.jsx      # Entry point
+├── index.html        # Development HTML template
+├── vite.config.js    # Vite configuration
+└── tailwind.config.js
+```
+
 ## 1. Build, Lint, and Test Commands
 
-This section details the commands used for building, linting, and testing the codebase, particularly focusing on the frontend embeddable chat widget.
+All commands should be run from `anythingllm/anythingllm-embed/` directory.
 
 ### 1.1. Build Commands
 
 -   **Development Build:**
     ```bash
+    cd anythingllm/anythingllm-embed
     yarn dev
     ```
-    This command starts a development server with hot-reloading for continuous development.
+    This command starts a development server with hot-reloading for continuous development. Opens on port 3080.
 
 -   **Production Build:**
     ```bash
+    cd anythingllm/anythingllm-embed
     yarn build
     ```
-    This command builds the project for production, optimizing and minifying CSS and JavaScript assets.
+    This command builds the project for production, optimizing and minifying CSS and JavaScript assets. Output goes to `dist/`.
+
+-   **Build for Publish:**
+    ```bash
+    cd anythingllm/anythingllm-embed
+    yarn build:publish
+    ```
+    Builds and copies output to the main frontend's public embed directory.
 
 ### 1.2. Linting Commands
 
 -   **Code Formatting:**
     ```bash
+    cd anythingllm/anythingllm-embed
     yarn lint
     ```
-    This command uses Prettier to format the code within the `./src` directory. It respects ignore rules specified in `../.prettierignore` (though this file was not found during analysis).
+    This command uses Prettier to format the code within the `./src` directory. It respects ignore rules specified in `../.prettierignore`.
 
 ### 1.3. Test Commands
 
--   **Running All Tests:**
-    No explicit command for running all tests was found in the `package.json` scripts. If tests are managed by Playwright (as suggested by `@playwright/test` dependency in the root `package.json`), typical commands might involve:
+-   **Running Tests:**
+    This project uses Playwright (installed at root level). Tests should be placed in a `tests/` directory at the project root.
     ```bash
+    # From root directory
     yarn playwright test
-    # or potentially:
+    # or
     npx playwright test
     ```
-    *Note: The exact command may vary based on project configuration.*
 
 -   **Running a Single Test:**
-    To run a single test, you would typically use the test runner's specific options. For Playwright, this often involves specifying the test file path. For example:
     ```bash
     yarn playwright test tests/path/to/your/testfile.spec.ts
-    # or potentially:
+    # or
     npx playwright test tests/path/to/your/testfile.spec.ts
     ```
-    *Note: Replace `tests/path/to/your/testfile.spec.ts` with the actual path to the test file you wish to run.*
-
-    If a different testing framework is in use, consult its documentation for single-test execution commands.
 
 ## 2. Code Style Guidelines
 
@@ -58,41 +83,71 @@ This section details the code style conventions, including imports, formatting, 
 ### 2.1. Imports
 
 -   Imports should be grouped logically (e.g., third-party libraries, local modules).
--   Alphabetical sorting of imports is recommended where applicable.
+-   Use the `@` alias for internal imports (maps to `src/` directory):
+    ```javascript
+    import useGetScriptAttributes from "@/hooks/useScriptAttributes";
+    import Head from "@/components/Head";
+    ```
 -   Avoid wildcard imports (`import * as ...`) unless necessary.
+-   Sort imports alphabetically within groups.
 
 ### 2.2. Formatting
 
--   Code formatting is managed by Prettier, as indicated by the `yarn lint` script.
--   The project appears to use standard JavaScript/TypeScript formatting conventions.
--   Consistent use of whitespace (e.g., spaces over tabs, indentation).
+-   Code formatting is managed by Prettier via `yarn lint`.
+-   Use 2 spaces for indentation.
+-   Use semicolons in JavaScript.
+-   Use single quotes for strings.
 
-### 2.3. Types
+### 2.3. Tailwind CSS
 
--   TypeScript or JSDoc comments should be used to provide type information where beneficial, especially for complex data structures or function signatures.
+-   This project uses Tailwind CSS with a custom prefix `allm-` to avoid conflicts with host page styles.
+-   **Always use the `allm-` prefix** for all Tailwind classes:
+    ```jsx
+    <div className="allm-flex allm-flex-col allm-bg-white allm-p-4">
+      <button className="allm-text-white allm-bg-blue-500">Click</button>
+    </div>
+    ```
+-   Do not use unprefixed Tailwind classes - they will not work.
+-   Preflight is disabled in `tailwind.config.js`.
+
+### 2.4. Types
+
+-   TypeScript is used with JSDoc comments for type information where beneficial.
 -   Leverage built-in types and interfaces for clarity and maintainability.
+-   Use PropTypes or TypeScript for component props documentation.
 
-### 2.4. Naming Conventions
+### 2.5. Naming Conventions
 
--   **Variables and Functions:** Use camelCase (e.g., `myVariable`, `calculateTotal`).
--   **Constants:** Use SCREAMING_SNAKE_CASE for globally recognized constants (e.g., `MAX_RETRIES`).
--   **Classes/Components:** Use PascalCase (e.g., `UserProfile`, `ChatWidget`).
+-   **Variables and Functions:** Use camelCase (e.g., `myVariable`, `calculateTotal`, `useEffect`).
+-   **Constants:** Use SCREAMING_SNAKE_CASE for globally recognized constants (e.g., `DEFAULT_SETTINGS`, `MAX_RETRIES`).
+-   **React Components:** Use PascalCase (e.g., `ChatWindow`, `OpenButton`).
+-   **Files:** Use kebab-case for non-component files (e.g., `chat-service.js`, `use-script-attributes.js`).
+-   **Component Folders:** Use index.jsx pattern (e.g., `ChatWindow/index.jsx`).
 -   Be descriptive with names; avoid overly abbreviated or ambiguous terms.
 
-### 2.5. Error Handling
+### 2.6. React Patterns
+
+-   Use functional components with Hooks exclusively.
+-   Use `useEffect` for side effects, managing dependencies carefully.
+-   Use `useState` and `useReducer` for state management.
+-   Use default exports for components.
+-   Consider memoization (`React.memo`, `useMemo`, `useCallback`) to optimize performance for expensive renders.
+-   Define custom hooks in `src/hooks/` with `use` prefix (e.g., `useSessionId`, `useOpen`).
+
+### 2.7. Error Handling
 
 -   Implement robust error handling using `try...catch` blocks for asynchronous operations or sections prone to failure.
 -   Provide meaningful error messages to aid debugging.
+-   Use `console.error()` for logging errors (as seen in the codebase).
 -   Consider using custom error types or standardized error objects where appropriate.
 -   For API interactions, handle potential network errors, timeouts, and non-2xx responses gracefully.
-
-### 2.6. React Specifics
-
--   Functional components with Hooks are preferred.
--   Use `useEffect` for side effects, managing dependencies carefully.
--   Utilize `useState` and `useReducer` for state management.
--   Context API or state management libraries (like Redux, Zustand - though not explicitly found) can be used for global state.
--   Consider memoization (`React.memo`, `useMemo`, `useCallback`) to optimize performance for expensive renders or calculations.
+-   Example pattern from codebase:
+    ```javascript
+    .catch((e) => {
+      console.error(e);
+      return []; // Return safe fallback
+    });
+    ```
 
 ## 3. Cursor and Copilot Rules
 
@@ -104,4 +159,6 @@ No specific Cursor rules (`.cursor/rules/` or `.cursorrules`) or Copilot instruc
 -   Add comments to explain complex logic or non-obvious code sections, focusing on the "why" rather than the "what".
 -   Keep functions and components small and focused on a single responsibility.
 -   Regularly run `yarn lint` to ensure code style consistency.
--   If tests are implemented, ensure they are run frequently, especially before committing changes.
+-   When testing, ensure tests are run frequently, especially before committing changes.
+-   Follow the existing component structure (index.jsx pattern with folder-based components).
+-   Use the `@` import alias for internal modules instead of relative paths when possible.
